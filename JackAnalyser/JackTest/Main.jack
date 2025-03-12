@@ -1,0 +1,10 @@
+class Main {
+    function void main() {
+        var int a2b;
+        var String a;
+        let a2b=10;
+
+
+        return;
+    }
+}
