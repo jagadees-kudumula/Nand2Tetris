@@ -8,7 +8,7 @@ def main():
     
     with open(file_name, "r") as file:
 
-        #Input file processing removing whitespace at the end and removing the comments
+        #Input file processing such as removing whitespace at the end and removing the comments
         jack_code = ''
         xml_code = ''
         for line in file:
