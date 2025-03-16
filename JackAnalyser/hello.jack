@@ -1,6 +1,19 @@
+class Main {
+   field int x, y, z;
+   field int z;
+   static int k;
 
-if (x < 0) {
+   function void check1(int a, int b, int c) {
+      var String x;
+      var int a, b, c;
+   }
 
-   let state = "negative";
+   method void check2() {
+      var bool a;
+      var int x, y, z;
+   }
 
+   constructor int check3(int s) {
+      
+   }
 }

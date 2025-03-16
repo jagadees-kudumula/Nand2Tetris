@@ -1,9 +1,10 @@
 import sys
 import Tokenizer
 import re
+import CompileEngine
 
 def main():
-    file_name = "Main.jack"
+    file_name = "hello.jack"
     xml_symbols = {'<':'&lt;', '>':'&gt;', '&':'&amp;', '"':'&quot;'}
     
     with open(file_name, "r") as file:
@@ -26,27 +27,31 @@ def main():
             
         jack_code = jack_code.rstrip() #removes whitespace at the end
 
-        tokenizer = Tokenizer.Tokenizer(jack_code)
+        compile_engine = CompileEngine.compileEngine(jack_code)
+        compile_engine.compileClass()
+        print(compile_engine.xml_code)
 
-        xml_code += '<tokens>\n'
-        while(tokenizer.hasMoreTokens()):
-            tokenizer.advance() #This fetches the next token and store it in tokenizer.current_token
-            token_type = tokenizer.tokenType() #***This should be before the tokenizer.curentToken() because the before method changes the current token to empty
-            c_token = tokenizer.currentToken() #THis gives the next token
+        # tokenizer = Tokenizer.Tokenizer(jack_code)
 
-            try:
-                c_token = xml_symbols[c_token]
-            except KeyError:
-                pass
+        # xml_code += '<tokens>\n'
+        # while(tokenizer.hasMoreTokens()):
+        #     tokenizer.advance() #This fetches the next token and store it in tokenizer.current_token
+        #     token_type = tokenizer.tokenType() #***This should be before the tokenizer.curentToken() because the before method changes the current token to empty
+        #     c_token = tokenizer.currentToken() #THis gives the next token
 
-            if(c_token):
-                xml_code += f'\t<{token_type}> '
-                xml_code += c_token
-                xml_code += f' </{token_type}>\n'
-        xml_code += '</tokens>'
+        #     try:
+        #         c_token = xml_symbols[c_token]
+        #     except KeyError:
+        #         pass
+
+        #     if(c_token):
+        #         xml_code += f'\t<{token_type}> '
+        #         xml_code += c_token
+        #         xml_code += f' </{token_type}>\n'
+        # xml_code += '</tokens>'
         
-        with open(file_name.split('.')[0]+'.xml', "w") as out:
-            out.write(xml_code)
+        # with open(file_name.split('.')[0]+'.xml', "w") as out:
+        #     out.write(xml_code)
 
 
 

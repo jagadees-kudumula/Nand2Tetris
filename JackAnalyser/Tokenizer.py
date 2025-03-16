@@ -25,6 +25,7 @@ class Tokenizer:
         return True
 
     def advance(self):
+        self.current_token = '' #Before advancing we will set current tokrn value to empty as we dont need previous token
         while (self.hasMoreTokens()): #If we set this true if will raise error in some cases!
             current_char = self.jack_code[self.pos]
 
@@ -42,9 +43,12 @@ class Tokenizer:
 
             #To handle whitespace and newlines
             elif current_char.isspace():
-                #We will break the loop if there is any whitespace ex: let x = 20; here we will break at every whitespace
+                #We will break the loop if there is any whitespace ex: let x = 20; here we will break at every whitespace 
+                #if the current_token is empty we will continue until we find a token
                 self.pos += 1
-                break
+                if self.current_token:
+                    break
+                continue
             
             #To handle symbols
             elif current_char in SYMBOLS: 
@@ -74,8 +78,10 @@ class Tokenizer:
 
 
     def currentToken(self):
-        temp = self.current_token #Here storing currentToken to temp to return it.
         if self.tokenType() == STRING_CONST:
-            temp = temp[1:-1]
-        self.current_token = '' #Here again current_token is set to empty.
-        return temp
+            temp = temp[1:-1] #removes quotes in the string
+        return self.current_token
+    
+    def tokenXMLCode(self):
+        tokenType = self.tokenType()
+        return f'<{tokenType}> {self.currentToken()} </{tokenType}>\n'
