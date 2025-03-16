@@ -18,6 +18,7 @@ class Tokenizer:
         self.pos = 0
         self.current_token = ''
         self.code_length = len(self.jack_code)
+        self.XML_SYMBOLS = {'<':'&lt;', '>':'&gt;', '&':'&amp;', '"':'&quot;'}
 
     def hasMoreTokens(self):
         if self.pos >= len(self.jack_code): #Checks if the current pos is at the end or not
@@ -78,10 +79,16 @@ class Tokenizer:
 
 
     def currentToken(self):
-        if self.tokenType() == STRING_CONST:
+        temp = self.current_token 
+        if self.tokenType() == STRING_CONST:     
             temp = temp[1:-1] #removes quotes in the string
-        return self.current_token
+        
+        return temp
     
     def tokenXMLCode(self):
         tokenType = self.tokenType()
-        return f'<{tokenType}> {self.currentToken()} </{tokenType}>\n'
+        token = self.currentToken()
+        #If the token is a symbol then we have to replace the symbol with the corresponding xml entity
+        if token in self.XML_SYMBOLS:
+            token = self.XML_SYMBOLS[token]
+        return f'<{tokenType}> {token} </{tokenType}>\n'

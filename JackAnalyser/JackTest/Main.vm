@@ -1,5 +1,0 @@
-function Main.main 1
-    push constant 10
-    pop local 0
-    push constant 0
-    return

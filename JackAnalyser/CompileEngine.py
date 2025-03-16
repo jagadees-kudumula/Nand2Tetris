@@ -1,8 +1,10 @@
-from Tokenizer import Tokenizer
+from Tokenizer import Tokenizer, IDENTIFIER
 
 SUBROUTINE_TYPES = ['function', 'method', 'constructor']
 CLASS_VARIBALES_DEC = ['field', 'static']
 STATEMENT_TYPES = ['return', 'do', 'while', 'if', 'let']
+BINARY_OP = ['+', '-', '*', '/', '&', '<', '>', '=', '|']
+UNARY_OP = ['-', '~']
 class compileEngine:
     """
     A class to compile Jack code into XML format.
@@ -72,14 +74,14 @@ class compileEngine:
         #This process '}' symbol
         self.xml_code += self.tokenizer.tokenXMLCode()
 
-        self.xml_code += '</class>\n'
+        self.xml_code += '</class>'
 
 
     def compileClassVarDec(self):
-        self.xml_code += '<classVarDec>\n'
-
         #This loop is for multiple classVarDec statements
         while(self.next_token in CLASS_VARIBALES_DEC):
+
+            self.xml_code += '<classVarDec>\n'
 
             #Adds the keyword static or field
             self.xml_code += self.tokenizer.tokenXMLCode() 
@@ -106,15 +108,14 @@ class compileEngine:
             #This serach for next statement whether it is varDec or subroutineDec
             self.searchNextToken()
 
-        self.xml_code += '</classVarDec>\n'
+            self.xml_code += '</classVarDec>\n'
             
 
     def compileSubroutine(self):
-        self.xml_code += '<subroutineDec>\n'
-
+    
         #This loop is for multiple subroutines
         while (self.next_token in SUBROUTINE_TYPES):
-
+            self.xml_code += '<subroutineDec>\n'
             #Adds the keyword 'function', 'method' or 'constructor' to the xml code
             self.xml_code += self.tokenizer.tokenXMLCode()
 
@@ -133,7 +134,7 @@ class compileEngine:
             #This is to search for another subroutine
             self.searchNextToken()
         
-        self.xml_code += '</subroutineDec>\n'
+            self.xml_code += '</subroutineDec>\n'
 
     def compileParameterList(self):
         self.xml_code += '<parameterList>\n'
@@ -183,9 +184,9 @@ class compileEngine:
     
     def compileVarDec(self):
         #This method is same as the compileClassVarDec method with some changes
-        self.xml_code += '<varDec>\n'
-
         while (self.next_token == 'var'):
+            self.xml_code += '<varDec>\n'
+
             #This to process keyword 'var'
             self.xml_code += self.tokenizer.tokenXMLCode()
             #This is to process type and varName
@@ -205,7 +206,7 @@ class compileEngine:
 
             self.searchNextToken()
 
-        self.xml_code += '</varDec>\n'
+            self.xml_code += '</varDec>\n'
 
     def compileStatements(self):
         self.xml_code += '<statements>\n'
@@ -213,40 +214,244 @@ class compileEngine:
         while (self.next_token in STATEMENT_TYPES):
             if self.next_token == 'let':
                 self.compileLet()
-            if self.next_token == 'if':
+            elif self.next_token == 'if':
                 self.compileIf()
-            if self.next_token == 'while':
+            elif self.next_token == 'while':
                 self.compileWhile()
-            if self.next_token == 'do':
+            elif self.next_token == 'do':
                 self.compileDo()
-            if self.next_token == 'return':
+            elif self.next_token == 'return':
                 self.compileReturn()
-            
-            self.searchNextToken()
         
         self.xml_code += '</statements>\n'
 
     def compileIf(self):
-        pass
+        self.xml_code += '<ifStatement>\n'
 
+        #This is to process 'if' keyword
+        self.xml_code += self.tokenizer.tokenXMLCode()
+        #This is to process '(' symbol
+        self.eat()
+        #strictly we have to assign the next_token before calling the compileExpression method
+        self.searchNextToken()
+        #This is to proces the expression
+        self.compileExpression()
+        #This is to process ')' symbol
+        self.xml_code += self.tokenizer.tokenXMLCode()
+        #This is to process '{'statements'}'
+        self.compileStatementsBlock()
+        #This is to search for 'else'
+        #If not 'else' then next_token will contain other statement keyword or symbol '}' .
+        self.searchNextToken()
+
+        if self.next_token == 'else':
+            #This is to process the 'else' keyword
+            self.xml_code += self.tokenizer.tokenXMLCode()
+            #This is to process '{'statements'}'
+            self.compileStatementsBlock()
+            #This is to search for keyword in the next_statement
+            self.searchNextToken()
+
+        self.xml_code += '</ifStatement>\n'
+        
     def compileLet(self):
-        pass
+        self.xml_code += '<letStatement>\n'
+
+        #This is to process 'let' keyword
+        self.xml_code += self.tokenizer.tokenXMLCode()
+        #This is to process varName
+        self.eat()
+        #This is to search for symbol '[' else next_token = '='
+        self.searchNextToken()
+
+        if (self.next_token == '['):
+            #This is to process '[' symbol
+            self.xml_code += self.tokenizer.tokenXMLCode()
+            #strictly we have to assign the next_token before calling the compileExpression method
+            self.searchNextToken()
+            #This is to process expressions
+            self.compileExpression()
+            #This is to process ']' symbol
+            self.xml_code += self.tokenizer.tokenXMLCode()
+            #This is to search '=' symbol
+            self.searchNextToken()
+
+        #This is to process '=' symbol
+        self.xml_code += self.tokenizer.tokenXMLCode()
+        #strictly we have to assign the next_token before calling the compileExpression method
+        self.searchNextToken()
+        #This is to process expressions
+        self.compileExpression()
+        #This is to process ';' symbol
+        self.xml_code += self.tokenizer.tokenXMLCode()
+        #This is to search for keyword in the next_statement 
+        self.searchNextToken()
+
+        self.xml_code += '</letStatement>\n'
 
     def compileWhile(self):
-        pass
+        self.xml_code += '<whileStatement>\n'
+
+        #This is to process 'while' keyword
+        self.xml_code += self.tokenizer.tokenXMLCode()
+        #This is to process '(' symbol
+        self.eat()
+        #strictly we have to assign the next_token before calling the compileExpression method
+        self.searchNextToken()
+        #This is to process expression
+        self.compileExpression()
+        #This is to process ')' symbol
+        self.xml_code += self.tokenizer.tokenXMLCode()
+        #This is to process statemets
+        self.compileStatementsBlock()
+        #This is to search for keyword in the next_statement
+        self.searchNextToken()
+
+        self.xml_code += '</whileStatement>\n'
 
     def compileDo(self):
-        pass
+            self.xml_code += '<doStatement>\n'
+    
+            #This is to process 'do' keyword
+            self.xml_code += self.tokenizer.tokenXMLCode()
+            #strictly we have to assign the next_token before calling the compileTerm method
+            self.searchNextToken()
+            #This is to check whether the statement is do or not
+            self.do_statement = True 
+            #This is to process subroutine call using the method compileTerm()
+            self.compileTerm()
+            #Remove </term> tag from the xml_code
+            self.xml_code = self.xml_code[:-8]
+            #This is to process the symbol ';'
+            self.xml_code += self.tokenizer.tokenXMLCode()
+            
+            self.searchNextToken()
+    
+            self.xml_code += '</doStatement>\n'
 
     def compileReturn(self):
-        pass
+        self.xml_code += '<returnStatement>\n'
+
+        #This is to process 'return' keyword
+        self.xml_code += self.tokenizer.tokenXMLCode()
+        #This is to search ';' symbol
+        self.searchNextToken()
+
+        if self.next_token != ';':
+            #This is to process expression
+            self.compileExpression()
+
+        #This is to process ';' symbol
+        self.xml_code += self.tokenizer.tokenXMLCode()
+        self.searchNextToken()
+    
+        self.xml_code += '</returnStatement>\n'
+
+    def compileExpression(self):
+        self.xml_code += '<expression>\n'
+
+        #This is to process the term(operand)
+        self.compileTerm()
+
+        #This is to process opeartor and opearand
+        while (self.next_token in BINARY_OP):
+            #This is to process opeartor
+            self.xml_code += self.tokenizer.tokenXMLCode()
+            #strictly we have to assign the next_token before calling the compileTerm method
+            self.searchNextToken()
+            #This is to compile the term
+            self.compileTerm()
+        
+        self.xml_code += '</expression>\n'
 
     def compileTerm(self):
-        pass
+        self.xml_code += '<term>\n'
 
+        #This is to process term or '(' or '~ or -'
+        self.xml_code += self.tokenizer.tokenXMLCode()
+
+        if self.tokenizer.tokenType() == IDENTIFIER:
+            #This is to search for '.' or '[' followed 
+            self.searchNextToken()
+
+            if self.next_token == '[':
+                #This is to process '[' symbol
+                self.xml_code += self.tokenizer.tokenXMLCode()
+                #strictly we have to assign the next_token before calling the compileExpression method
+                self.searchNextToken()
+                #This is to process the expression
+                self.compileExpression()
+                #This to process the ']' symbol
+                self.xml_code += self.tokenizer.tokenXMLCode()
+            elif self.next_token == '.':
+                #This is to process '.' symbol
+                self.xml_code += self.tokenizer.tokenXMLCode()
+                #This is to process subroutineName and '(' symbol
+                self.eat(2)
+                #This is to process the arguments in the subroutine
+                self.compileExpressionList()
+                #This is to process the ')' symbol
+                self.xml_code += self.tokenizer.tokenXMLCode()
+            elif self.next_token == '(':
+                #This is to process the '(' symbol
+                self.xml_code += self.tokenizer.tokenXMLCode()
+                #This is to process the arguments in the subroutine
+                self.compileExpressionList()
+                #This is to process the ')' symbol
+                self.xml_code += self.tokenizer.tokenXMLCode()
+            else:
+                self.xml_code += '</term>\n'
+                return
+
+        #This is to process (expression) 
+        elif self.next_token == '(':
+            #Documented Later
+            self.searchNextToken()
+            #This is to process the expression
+            self.compileExpression()
+            #This is to process ')' symbol
+            self.xml_code += self.tokenizer.tokenXMLCode()
+        
+        #This is to process ('~'|'-') term
+        elif self.next_token in UNARY_OP:
+            self.searchNextToken()
+            #This is to process the term
+            self.compileTerm()
+
+            self.xml_code += '</term>\n'
+            return
+            
+        #Documented Later
+        self.searchNextToken()
+
+        
+        self.xml_code += '</term>\n'
+            
+        
+            
     def compileExpressionList(self):
-        pass
+        self.xml_code += '<expressionList>\n'
 
+        #strictly we have to assign the next_token before calling the compileExpression method
+        self.searchNextToken()
+        #If the expression list is empty then return
+        if (self.next_token == ')'):
+            self.xml_code += '</expressionList>\n'
+            return
+        #This is to compiles the argument expression
+        self.compileExpression()
+
+        while(self.next_token == ','):
+            #This is to process ',' symbol
+            self.xml_code += self.tokenizer.tokenXMLCode()
+            #Documented Later
+            self.searchNextToken()
+            #This is to process expression
+            self.compileExpression()
+        
+        self.xml_code += '</expressionList>\n'
+
+    #Advances the tokenizer and appends the token's XML code to xml_code.
     def eat(self, n=1):
         while(n):
             self.tokenizer.advance()
@@ -257,6 +462,14 @@ class compileEngine:
     def searchNextToken(self):
         self.tokenizer.advance()
         self.next_token = self.tokenizer.currentToken()
-
-
-        
+    
+    #This method is used to compile '{' statements '}'
+    def compileStatementsBlock(self):
+        #This is to process '}' symbol
+        self.eat()
+        #Searches for key word in the statement such as if, let, while, return or do
+        self.searchNextToken()
+        #compiles statements
+        self.compileStatements()
+        #This to process '}' symbol
+        self.xml_code += self.tokenizer.tokenXMLCode()
