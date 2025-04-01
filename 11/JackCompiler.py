@@ -19,7 +19,6 @@ def main():
             continue
         with open(file_name, "r") as file:
             jack_code = ''
-            xml_code = ''
 
             # Process each line to remove inline comments
             for line in file:
@@ -47,10 +46,8 @@ def main():
             compile_engine.compileClass()
 
             # Write the compiled XML code to a file
-            with open(file_name.split('.')[0] + '.xml', "w") as out:
-                # Handle extra newline and term tag in the do statement
-                compile_engine.xml_code = compile_engine.xml_code.replace('<keyword> do </keyword>\n<term>', '<keyword> do </keyword>')
-                out.write(compile_engine.xml_code)
+            with open(file_name.split('.')[0] + '.vm', "w") as out:
+                out.write(compile_engine.vmcode)
 
 if __name__ == '__main__':
     main()
