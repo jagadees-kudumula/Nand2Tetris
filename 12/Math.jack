@@ -1,0 +1,141 @@
+
+class Math {
+    
+    static Array twoToThe; //this array is used to store the 1 or 0 at corresponding bit
+    static Array placeValues; //this array is used to store place values such as 1 at 0th index, 8 at 3rd index and etc..
+
+    function void init() {
+        var int i;
+
+        //we will iterate over the loop upto 2^14 only at 2^15 the number becomes negative as per the 2's compliment
+        let placeValues = Array.new(15);
+        let twoToThe = Array.new(16);
+
+        //Initialize placeValues array and variable i
+        let placeValues[0] = 1;
+        let i = 1;
+
+        while (~(i > 14)) {
+            let placeValues[i] = placeValues[i-1] + placeValues[i-1];
+            let i = i + 1;
+        }
+
+        return;
+    }
+
+    function int multiply(int x, int y) {
+
+        var int sum, xShifted, i, temp;
+
+        let sum = 0;
+        let xShifted = x;
+        let i = 0;
+
+        //This method is called to fill the bits of the operand in the twoToThe array.
+        do Math.fillBits(y);
+
+        while (~(i > 15)) {
+            if (Math.bit(i)) {
+                let sum = sum + xShifted;
+            }
+            let xShifted = xShifted + xShifted;
+            let i = i + 1;
+        }
+
+        return sum;
+    }
+
+    function int divide(int x, int y) {
+
+        var int q;
+        var int flag;
+        var int temp;
+
+        let flag = 1;
+
+        if (x < 0) {
+            let x = Math.abs(x);
+            if (flag = 1) {let flag = -1;}
+            else {let flag = 1;}
+        }
+
+        if (y < 0) {
+            let y = Math.abs(y);
+            if (flag = 1) {let flag = -1;}
+            else {let flag = 1;}
+        }
+
+        if (y > x) {
+            return 0;
+        }
+
+        let temp = 2 * y;
+
+        if (temp < 0) {return 0;}
+
+        let q = Math.divide(x, temp);
+
+
+        if ((x - (2*q*y)) < y) {
+            return 2 * q * flag;
+        }
+        else {
+            return (2 * q + 1) * flag;
+        }
+    }
+
+    function boolean bit(int i) {
+        if (twoToThe[i] = 1) {
+            return true;
+        }
+        return false;
+    }
+
+    function void fillBits(int x) {
+        var int i;
+        let i = 14;
+
+        //This is to handle bits of the negative number
+        if (x < 0) {
+            let x = x + (32767 + 1); //Here (326767+1) = -32768
+            let twoToThe[15] = 1;
+        }
+        else {
+            let twoToThe[15] = 0;
+        }
+
+        while (~(i < 0)) {
+            
+            if (~(x < placeValues[i])) {
+                let twoToThe[i] = 1;
+                let x = x - placeValues[i];
+            }
+            else {
+                let twoToThe[i] = 0;
+            }
+
+            let i = i - 1;
+        }
+
+        return;
+    }
+
+    function int abs(int x) {
+        if (x < 0) {
+            return ~(x + (-1));
+        }
+        else {
+            return x;
+        }
+    }
+
+    function int min(int x, int y) {
+        if (x < y) {return x;}
+        else {return y;}
+    }
+
+    funtion int max(int x, int y) {
+        if (x > y) {return x;}
+        else {return y;}
+    }
+}

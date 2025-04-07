@@ -1,0 +1,23 @@
+class Memory {
+    static Array ram;
+
+    function void init() {
+        let ram = 0;
+        return;
+    }
+
+    function int peek(int address) {
+        if (~(ram[address] < 0)) {
+            return ram[address];
+        }
+        return 0;
+    }
+
+    function void poke(int address, int value) {
+        if (~(ram[address] < 0)) {
+            let ram[address] = value;
+            return;
+        }
+        return;
+    }
+}
