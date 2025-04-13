@@ -9,16 +9,16 @@ class Math {
 
         let twoToThe = Array.new(16);
 
-        let twoToThe[0] = 1;
-        let twoToThe[1] = 2;
-        let twoToThe[2] = 4;
-        let twoToThe[3] = 8;
-        let twoToThe[4] = 16;
-        let twoToThe[5] = 32;
-        let twoToThe[6] = 64;
-        let twoToThe[7] = 128;
-        let twoToThe[8] = 256;
-        let twoToThe[9] = 512;
+        let twoToThe[0]  = 1;
+        let twoToThe[1]  = 2;
+        let twoToThe[2]  = 4;
+        let twoToThe[3]  = 8;
+        let twoToThe[4]  = 16;
+        let twoToThe[5]  = 32;
+        let twoToThe[6]  = 64;
+        let twoToThe[7]  = 128;
+        let twoToThe[8]  = 256;
+        let twoToThe[9]  = 512;
         let twoToThe[10] = 1024;
         let twoToThe[11] = 2048;
         let twoToThe[12] = 4096;
@@ -57,26 +57,12 @@ class Math {
 
     function int divide(int x, int y) {
 
-        var int q;
-        var int temp;
-        var int flag;
-        var int result;
+        var int q, temp, flag, result;
 
-        let flag = 1;
+        let flag = ((x < 0) = (y < 0));
 
-        //If the x is negative then we will assign absolutevalue of x to the x accordingly flag is modified
-        if (x < 0) {
-            let x = Math.abs(x);
-            if (flag = 1) {let flag = -1;}
-            else {let flag = 1;}
-        }
-
-        //If the y is negative then we will assign absolutevalue of y to the y accordingly flag is modified
-        if (y < 0) {
-            let y = Math.abs(y);
-            if (flag = 1) {let flag = -1;}
-            else {let flag = 1;}
-        }
+        let x = Math.abs(x);
+        let y = Math.abs(y);
 
         //We have to exit from the function by returning 0 if there is divisionOverFlow or y > x (divisor > dividend)
         if (y > x | divisionOverFlow) {
@@ -88,7 +74,7 @@ class Math {
         }
 
         let temp = y + y;
-        if (temp < 0) {let divisionOverFlow = true;} //If there positive num ges negative by addition then it is overflown
+        let divisionOverFlow = true & (temp < 0); //If there positive num ges negative by addition then it is overflown
 
         let q = Math.divide(x, temp);
 
@@ -100,68 +86,44 @@ class Math {
             let result = q + q + 1;
         }
 
-        //If flag is -1 then condition is true in jack so the result will be -result else result
-        if (flag) {return -result;}
-        return result;
+        if (flag) {return result;}
+        return -result;
     }
 
     function int sqrt(int x) {
-        var int y; //y^2 <= x < (y + 1)^2 for 0 <= x < 2^n
-        var int n; //n stands for no of bits
-        var int i; //This is used as incrementer or counter
-        var int mid; 
-        var int temp;
+        //y^2 <= x < (y + 1)^2 for 0 <= x < 2^n
+        //i is used as incrementer or counter
 
-        var Array twoToThe;
-        let twoToThe = Array.new(8);
+        var int y, i, mid, temp1, temp2; 
 
-        let n = 16;
-
-        let twoToThe[0] = 1;
-        let i = 1;
-
-        let mid = n/2;
-
+        let mid = 8;
         let y = 0;
-
-        
-        // i <= n/2-1 (mid)
-        while (i < mid) {
-            let twoToThe[i] = twoToThe[i-1] + twoToThe[i-1];
-            let i = i + 1;
-        }
-
         let i = mid - 1;
 
         while (~(i < 0)) {
-            let temp = (y + twoToThe[i]) * (y + twoToThe[i]);
+            let temp1 = y + Math.twoToThe(i);
+            let temp2 = temp1 * temp1;
             //If temp is negative then it is overflown.
-            if (~(temp > x) & (temp > 0)) {
-                let y = y + twoToThe[i];
+            if (~(temp2 > x) & (temp2 > 0)) {
+                let y = temp1;
             }
             let i = i - 1;
         }
-
-        do twoToThe.dispose();
         return y;
     }
 
     function int abs(int x) {
-        if (x < 0) {
-            return ~(x + (-1));
-        }
-        else {
-            return x;
-        }
+        if (x < 0) {return -x;}
+        return x;
     }
 
     function int min(int x, int y) {
         if (x < y) {return x;}
-        else {return y;}
+        return y;
     }
 
     function int max(int x, int y) {
         if (x > y) {return x;}
-        else {return y;}
+        return y;
     }
 }

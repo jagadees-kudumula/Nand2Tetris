@@ -1,0 +1,149 @@
+function Memory.init 0
+    push constant 0
+    pop static 0
+    push constant 2048
+    pop static 1
+    push constant 0
+    push static 1
+    add
+    push constant 0
+    pop temp 0
+    pop pointer 1
+    push temp 0
+    pop that 0
+    push constant 1
+    push static 1
+    add
+    push constant 16384
+    push constant 2048
+    sub
+    push constant 2
+    sub
+    pop temp 0
+    pop pointer 1
+    push temp 0
+    pop that 0
+    push static 1
+    push constant 2
+    add
+    pop static 1
+    push constant 0
+    return
+function Memory.peek 0
+    push argument 0
+    push static 0
+    add
+    pop pointer 1
+    push that 0
+    return
+function Memory.poke 0
+    push argument 0
+    push static 0
+    add
+    push argument 1
+    pop temp 0
+    pop pointer 1
+    push temp 0
+    pop that 0
+    push constant 0
+    return
+function Memory.alloc 2
+    push static 1
+    pop local 0
+label Memory_0
+    push local 0
+    push constant 0
+    eq
+    not
+    not
+    if-goto Memory_1
+    push constant 1
+    neg
+    push local 0
+    add
+    pop pointer 1
+    push that 0
+    push argument 0
+    push constant 2
+    add
+    lt
+    not
+    not
+    if-goto Memory_3
+    push constant 1
+    neg
+    push local 0
+    add
+    push constant 1
+    neg
+    push local 0
+    add
+    pop pointer 1
+    push that 0
+    push argument 0
+    push constant 2
+    add
+    sub
+    pop temp 0
+    pop pointer 1
+    push temp 0
+    pop that 0
+    push local 0
+    push constant 1
+    neg
+    push local 0
+    add
+    pop pointer 1
+    push that 0
+    add
+    pop local 1
+    push constant 0
+    push local 1
+    add
+    push constant 0
+    pop temp 0
+    pop pointer 1
+    push temp 0
+    pop that 0
+    push constant 1
+    push local 1
+    add
+    push argument 0
+    pop temp 0
+    pop pointer 1
+    push temp 0
+    pop that 0
+    push local 1
+    push constant 2
+    add
+    pop local 1
+    push local 1
+    return
+    goto Memory_2
+label Memory_3
+label Memory_2
+    push constant 2
+    neg
+    push local 0
+    add
+    pop pointer 1
+    push that 0
+    pop local 0
+    goto Memory_0
+label Memory_1
+    push constant 0
+    return
+function Memory.deAlloc 0
+    push constant 2
+    neg
+    push argument 0
+    add
+    push static 1
+    pop temp 0
+    pop pointer 1
+    push temp 0
+    pop that 0
+    push argument 0
+    pop static 1
+    push constant 0
+    return

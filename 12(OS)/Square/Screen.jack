@@ -1,0 +1,310 @@
+class Screen {
+
+    /* Note in screen indexing is left to right like (0, 0) to (0, 255)
+       Each word is represented as 
+       0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15
+
+       but binary numbers are represnted in
+       15 14 13 12 11 10 9 8 7 6 5 4 3 2 1 0
+
+       in simple words on the screen binary represntation will be in reverse.
+
+    */
+
+    static boolean color;                   // Current drawing color (true = black, false = white)
+    static Array rectOrCircleAddr;         // Used during rectangle/circle drawing to cache address
+    static int rectOrCircleMod16;          // Cached mod16 of X used in optimized horizontal line fill
+    static boolean isRectOrCircle;         // Flag used to optimize horizontal line drawing inside rect/circle
+
+    /** Initializes the screen with default color (black) */
+    function void init() {
+        let color = true;
+        let isRectOrCircle = false; //This is used in drawLine function to check whether the drawLine is called from circle or rectangle
+        return;
+    }
+
+    /** Clears the entire screen by setting all memory-mapped screen locations to 0 (black) */
+    function void clearScreen() {
+        var int Screen, i, j;
+
+        let Screen = 16384;
+        let i = 0;
+
+        while (i < 256) {
+            let j = 0;
+            while (j < 32) {
+                do Memory.poke(Screen + i + j, false); // Clear each word
+                let j = j + 1;
+            }
+            let i = i + 1;
+        }
+        return;
+    }
+
+    /** Sets the color used for drawing pixels */
+    function void setColor(boolean b) {
+        let color = b;
+        return;
+    }
+
+    /** Draws a single pixel at (x, y) on screen */
+    function void drawPixel(int x, int y) {
+        var int addr, xBy16, xMod16, value, resultValue, bit;
+        
+        let xBy16 = x / 16;                        // 16 pixels per word
+        let xMod16 = x - (16 * xBy16);             // Bit position in the word
+        let addr = 32 * y + xBy16;                 // Address of the word, where the pixel is located on the Screen
+
+        let value = Memory.peek(16384 + addr);     // Read current screen word
+        let bit = Math.twoToThe(xMod16);           // Bitmask for the target bit (example: if xMod16 is 10 then bit = 1024 = (0000 0100 0000 0000))
+
+        // Clear the bit. This means that the xMod16 bit in the value becomes 0 and all other bits are same as the bits before in the value
+        let resultValue = value & (~bit);         
+
+        //If the colour is true then its value is -1 i.e (1111 1111 1111 1111) else its value is false 
+        //So we will perform & operation between them and perform | operation between the resultValue and the value got by doing & operation
+        let resultValue = resultValue | (bit & color); 
+
+        do Memory.poke(16384 + addr, resultValue);      // Write updated value back
+
+        return;
+    }
+
+    /** Draws a line from (x1, y1) to (x2, y2) */
+    function void drawLine(int x1, int y1, int x2, int y2) {
+        var int x, y, dx, dy, a, b, diff, aSign, bSign;
+        var int xBy16, xMod16, addr, value, temp, noOfPixels;
+
+        let x = x1;
+        let y = y1;
+
+        let dx = Math.abs(x2 - x1);
+        let dy = Math.abs(y2 - y1);
+
+        // Handle vertical lines
+        if (dx = 0) {
+            //We will draw vertical lines always from top to bottom
+            //If user want to draw line from botttom to up we will exchange the values and draw the line from top to bottom
+            if (y2 < y1) {
+                let y = y2;
+                let y2 = y1;
+            }
+
+            //Find address of the word where the line starting pixel is and store it in addr variable
+            //Find the pixel which is starting pixel, this is nothing but xMod16
+            let xBy16 = x / 16;
+            let xMod16 = x - (16 * xBy16);
+            let addr = 32 * y + xBy16;
+
+            //This is the value in the word 
+            let value = Memory.peek(16384 + addr);
+
+            let temp = Math.twoToThe(xMod16);
+
+            //Modify each bit in a word in each row
+            while (~(y > y2)) {
+                do Memory.poke(16384 + addr, (value & ~temp) | (temp & color));
+                let addr = addr + 32; 
+                let y = y + 1;
+            }
+
+            return;
+        }
+
+        // Handle horizontal lines with optimized bit-filling
+        if (dy = 0) {
+            //We will always draw horizontal lines from left to right only. (The logic is same as for vertical lines)
+            if (x2 < x1) {
+                let x = x2;
+                let x2 = x1;
+            }
+            
+            //If the drawLine function is called from the drawRect or drawCircle
+            //then the global variable 'rectOrCircleAddr' has the address and 'rectOrCircleMod16' has the xMod16 values.
+            if (~isRectOrCircle) {
+                let xBy16 = x / 16;
+                let xMod16 = x - (16 * xBy16);
+                let addr = 32 * y + xBy16;
+            } else {
+                let xMod16 = rectOrCircleMod16;
+                let addr = rectOrCircleAddr;
+            }
+
+            let value = Memory.peek(16384 + addr);
+
+            //No Of Pixels we have to draw
+            let noOfPixels = dx + 1;
+
+            // Temp will have the number which have 1 bits, where the bits should be modified
+
+            /*
+            Example if xMod16 = 4 then Math.twoToThe(xMod16)-1 = (0000 0000 0000 1000), temp = (1111 1111 1111 1111 0000)
+            
+                Math.twoToThe(xMod16) = 0000 0000 0001 0000
+                                   -1 = 1111 1111 1111 1111
+                                   -------------------------
+                                  (+)   0000 0000 0000 1111
+            */
+
+            let temp = ~(Math.twoToThe(xMod16)-1);
+
+            // If all pixels can be drawn in same word then we have fill the bits upto which we needed.
+            if (~(noOfPixels > (16 - xMod16))) {
+                // If sum of no of pixels and xMod16 < 16 then 
+                // we have to add Math.twoToThe(noOfPixels + xMod16) to temp
+                //else we dont have to do anything as all the bits have to be filled
+                /*
+                    example:
+                    let temp = 1111 0000 0000 0000
+                    let xMod16 = 4 
+                    let noOfPixels = 3           
+                    then 
+                    we add twoToThe[xMod16 + noOfPixels] to temp
+
+                    1111 1111 1111 0000    (temp)
+                (+) 0000 0000 1000 0000    (twoToThe[xMod16 + noOfPixels] = twoToThe[7])
+                    -------------------    
+                    0000 0000 0011 0000
+                */
+                if ((noOfPixels + xMod16) < 16) {
+                    let temp = temp + Math.twoToThe(noOfPixels + xMod16);
+                }
+            
+                do Memory.poke(16384 + addr, (value & ~temp) | (temp & color));
+
+                return;
+            }
+
+            //If al pixels cant draw in a single word then we will the last bits with the color after xMod16 bits.
+            do Memory.poke(16384 + addr, (value & ~temp) | (temp & color));
+            //We have filled 16 - xMod16 pixels so we will subtract that count from the no of pixels to be drawn
+            let noOfPixels = (noOfPixels - (16 - xMod16));
+            //We have to increment addr pointer to point to the next word
+            let addr = addr + 1;
+            
+            // Draw full words (16 bits at once)
+            //if noOfPixels < 16 then get out of the loop
+            while (~(noOfPixels < 16)) {
+                //Here color is true or false, which is represented as -1 or 0, so depending on color it will fill the word
+                do Memory.poke(16384 + addr, color);
+                let noOfPixels = noOfPixels - 16;
+                let addr = addr + 1;
+                //If no of pixels to be filled is 0 then exit the function
+                if (noOfPixels = 0) {return;}
+            }
+
+            // Handle remaining pixels
+            //This will fill the starting bits of the word
+
+            let temp = Math.twoToThe(noOfPixels) - 1;
+            let value = Memory.peek(16384 + addr);
+
+            do Memory.poke(16384 + addr, (value & ~temp) | (temp & color));
+
+            return;
+        }
+
+        let aSign = (x1 < x2);
+        let bSign = (y1 < y2);
+
+        while (~(a > dx) & ~(b > dy)) {
+            //if aSign is true then we will perform x + a, else we will perform x - a
+            //if bSign is true then we will perform y - b, else we will perform y + b
+            do Screen.drawPixel(x + ((a & aSign) | ~(a | aSign)), y - ((b & bSign) | ~(b | bSign)));
+
+            if (diff < 0) {
+                let a = a + 1;
+                let diff = diff + dy;
+            } else {
+                let b = b - 1;
+                let diff = diff - dx;
+            }
+        }
+
+        return;
+    }
+
+    /* Draws rectangle with coordinates x1, y1, x2 and y2 */
+    function void drawRectangle(int x1, int y1, int x2, int y2) {
+        var int x, y, xBy16;
+        //we can only draw rectangle from top left to bottom right
+        if ((x1 > x2) | (y1 > y2)) {return;}
+
+        let x = x1;
+        let y = y1;
+
+        //set the rectangleOrCircle flag to true before calling drawLine function
+        let isRectOrCircle = true;
+
+        //Calculate the starting or base address of the first pixel
+        let xBy16 = x / 16;
+        //Assign both rectOrCircleMod16 and rectOrCircleAddr accordingly these are used in the drawLine
+        let rectOrCircleMod16 = x - (16 * xBy16);
+        let rectOrCircleAddr = 32 * y + xBy16;
+
+        //Fill all the rows until y <= y2
+        while (~(y > y2)) {
+            do Screen.drawLine(x, y, x2, y);
+            //After drawing a line in a row then change the address to the next row
+            //Every row has same modulo so need to calculate it again
+            let rectOrCircleAddr = rectOrCircleAddr + 32;
+            let y = y + 1;
+        }
+
+        //After completion drawing rectangle assign the flag to false
+        let isRectOrCircle = false;
+    
+        return;
+    }
+
+    /** DrawsCircle with parametrs x, y and radius r */
+    function void drawCircle(int x, int y, int r) {
+        var int dy, temp, x1, y1, x2, y2;
+        var int addr, xMod16, xBy16, symmetricAddr;
+
+        //set the rectangleOrCircle flag to true before calling drawLine function
+        let isRectOrCircle = true;
+
+        let dy = r;
+
+        //this will loop from dy to 0 i.e r <= 0 only half of the radius
+        while (~(dy < 0)) {
+            
+            let temp = Math.sqrt((r * r) - (dy * dy));
+
+            let x1 = x - temp;
+            let y1 = y + dy;
+            let x2 = x + temp;
+            let y2 = y + dy;
+            
+            //Calculate the address of the word
+            let xBy16 = x1 / 16;
+            //Assign both rectOrCircleMod16 and rectOrCircleAddr accordingly these are used in the drawLine.
+            let rectOrCircleMod16 = x1 - (16 * xBy16);
+            let rectOrCircleAddr = 32 * y1 + xBy16;
+
+            do Screen.drawLine(x1, y1, x2, y2);
+
+            //Assign y1 with y - dy nothing but y - r.
+            //Above we have assigned y1 with y + dy which is y + r.
+            //y + r and y - r are symmetric in circle
+
+            let y1 = y - dy;
+            let y2 = y - dy;
+
+            //Calculate the symmetric address
+            let symmetricAddr = 32 * y1 + xBy16;
+            //Assign the symmetric address to rectOrCircleAddr Note:Here two lines have same mod16
+            let rectOrCircleAddr = symmetricAddr;
+
+            do Screen.drawLine(x1, y1, x2, y2);
+
+            let dy = dy - 1;
+        }
+
+        //After completion drawing circle assign the flag to false
+        let isRectOrCircle = false;
+
+        return;
+    }
+}

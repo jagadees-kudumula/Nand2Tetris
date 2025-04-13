@@ -1,7 +1,148 @@
 function Math.init 0
     push constant 0
     pop static 0
+    push constant 16
+    call Array.new 1
+    pop static 1
     push constant 0
+    push static 1
+    add
+    push constant 1
+    pop temp 0
+    pop pointer 1
+    push temp 0
+    pop that 0
+    push constant 1
+    push static 1
+    add
+    push constant 2
+    pop temp 0
+    pop pointer 1
+    push temp 0
+    pop that 0
+    push constant 2
+    push static 1
+    add
+    push constant 4
+    pop temp 0
+    pop pointer 1
+    push temp 0
+    pop that 0
+    push constant 3
+    push static 1
+    add
+    push constant 8
+    pop temp 0
+    pop pointer 1
+    push temp 0
+    pop that 0
+    push constant 4
+    push static 1
+    add
+    push constant 16
+    pop temp 0
+    pop pointer 1
+    push temp 0
+    pop that 0
+    push constant 5
+    push static 1
+    add
+    push constant 32
+    pop temp 0
+    pop pointer 1
+    push temp 0
+    pop that 0
+    push constant 6
+    push static 1
+    add
+    push constant 64
+    pop temp 0
+    pop pointer 1
+    push temp 0
+    pop that 0
+    push constant 7
+    push static 1
+    add
+    push constant 128
+    pop temp 0
+    pop pointer 1
+    push temp 0
+    pop that 0
+    push constant 8
+    push static 1
+    add
+    push constant 256
+    pop temp 0
+    pop pointer 1
+    push temp 0
+    pop that 0
+    push constant 9
+    push static 1
+    add
+    push constant 512
+    pop temp 0
+    pop pointer 1
+    push temp 0
+    pop that 0
+    push constant 10
+    push static 1
+    add
+    push constant 1024
+    pop temp 0
+    pop pointer 1
+    push temp 0
+    pop that 0
+    push constant 11
+    push static 1
+    add
+    push constant 2048
+    pop temp 0
+    pop pointer 1
+    push temp 0
+    pop that 0
+    push constant 12
+    push static 1
+    add
+    push constant 4096
+    pop temp 0
+    pop pointer 1
+    push temp 0
+    pop that 0
+    push constant 13
+    push static 1
+    add
+    push constant 8192
+    pop temp 0
+    pop pointer 1
+    push temp 0
+    pop that 0
+    push constant 14
+    push static 1
+    add
+    push constant 16384
+    pop temp 0
+    pop pointer 1
+    push temp 0
+    pop that 0
+    push constant 15
+    push static 1
+    add
+    push constant 32767
+    neg
+    push constant 1
+    sub
+    pop temp 0
+    pop pointer 1
+    push temp 0
+    pop that 0
+    push constant 0
+    return
+function Math.twoToThe 0
+    push argument 0
+    push static 1
+    add
+    pop pointer 1
+    push that 0
     return
 function Math.multiply 5
     push constant 0
@@ -10,8 +151,6 @@ function Math.multiply 5
     pop local 1
     push constant 0
     pop local 2
-    push constant 1
-    pop local 3
 label Math_0
     push local 2
     push constant 15
@@ -20,7 +159,11 @@ label Math_0
     not
     if-goto Math_1
     push argument 1
-    push local 3
+    push local 2
+    push static 1
+    add
+    pop pointer 1
+    push that 0
     and
     pop local 4
     push local 4
@@ -44,10 +187,6 @@ label Math_2
     push constant 1
     add
     pop local 2
-    push local 3
-    push local 3
-    add
-    pop local 3
     goto Math_0
 label Math_1
     push local 0
