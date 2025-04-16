@@ -106,7 +106,7 @@ lt
 pop this 7
 push this 7
 not
-if-goto Ball_18
+if-goto Ball_0
 push local 0
 pop local 2
 push local 1
@@ -121,8 +121,8 @@ push this 0
 push argument 1
 lt
 pop this 9
-goto Ball_19
-label Ball_18
+goto Ball_1
+label Ball_0
 push this 0
 push argument 1
 lt
@@ -131,7 +131,7 @@ push this 1
 push argument 2
 lt
 pop this 9
-label Ball_19
+label Ball_1
 push constant 2
 push local 1
 call Math.multiply 2
@@ -160,130 +160,130 @@ push this 4
 push constant 0
 lt
 not
-if-goto Ball_20
+if-goto Ball_2
 push this 4
 push this 5
 add
 pop this 4
-goto Ball_21
-label Ball_20
+goto Ball_3
+label Ball_2
 push this 4
 push this 6
 add
 pop this 4
 push this 9
 not
-if-goto Ball_22
+if-goto Ball_4
 push this 7
 not
-if-goto Ball_23
+if-goto Ball_5
 push this 0
 push constant 4
 add
 pop this 0
-goto Ball_24
-label Ball_23
+goto Ball_6
+label Ball_5
 push this 1
 push constant 4
 add
 pop this 1
-label Ball_24
-goto Ball_25
-label Ball_22
+label Ball_6
+goto Ball_7
+label Ball_4
 push this 7
 not
-if-goto Ball_26
+if-goto Ball_8
 push this 0
 push constant 4
 sub
 pop this 0
-goto Ball_27
-label Ball_26
+goto Ball_9
+label Ball_8
 push this 1
 push constant 4
 sub
 pop this 1
-label Ball_27
-label Ball_25
-label Ball_21
+label Ball_9
+label Ball_7
+label Ball_3
 push this 8
 not
-if-goto Ball_28
+if-goto Ball_10
 push this 7
 not
-if-goto Ball_29
+if-goto Ball_11
 push this 1
 push constant 4
 add
 pop this 1
-goto Ball_30
-label Ball_29
+goto Ball_12
+label Ball_11
 push this 0
 push constant 4
 add
 pop this 0
-label Ball_30
-goto Ball_31
-label Ball_28
+label Ball_12
+goto Ball_13
+label Ball_10
 push this 7
 not
-if-goto Ball_32
+if-goto Ball_14
 push this 1
 push constant 4
 sub
 pop this 1
-goto Ball_33
-label Ball_32
+goto Ball_15
+label Ball_14
 push this 0
 push constant 4
 sub
 pop this 0
-label Ball_33
-label Ball_31
+label Ball_15
+label Ball_13
 push this 0
 push this 10
 gt
 not
 not
-if-goto Ball_34
+if-goto Ball_16
 push constant 1
 pop this 14
 push this 10
 pop this 0
-label Ball_34
+label Ball_16
 push this 0
 push this 11
 lt
 not
 not
-if-goto Ball_35
+if-goto Ball_17
 push constant 2
 pop this 14
 push this 11
 pop this 0
-label Ball_35
+label Ball_17
 push this 1
 push this 12
 gt
 not
 not
-if-goto Ball_36
+if-goto Ball_18
 push constant 3
 pop this 14
 push this 12
 pop this 1
-label Ball_36
+label Ball_18
 push this 1
 push this 13
 lt
 not
 not
-if-goto Ball_37
+if-goto Ball_19
 push constant 4
 pop this 14
 push this 13
 pop this 1
-label Ball_37
+label Ball_19
 push pointer 0
 call Ball.show 1
 pop temp 0
@@ -304,11 +304,11 @@ push argument 1
 push constant 0
 eq
 not
-if-goto Ball_38
+if-goto Ball_20
 push constant 10
 pop local 4
-goto Ball_39
-label Ball_38
+goto Ball_21
+label Ball_20
 push this 2
 push constant 0
 lt
@@ -327,20 +327,20 @@ eq
 and
 or
 not
-if-goto Ball_40
+if-goto Ball_22
 push constant 20
 pop local 4
-goto Ball_41
-label Ball_40
+goto Ball_23
+label Ball_22
 push constant 5
 pop local 4
-label Ball_41
-label Ball_39
+label Ball_23
+label Ball_21
 push this 14
 push constant 1
 eq
 not
-if-goto Ball_42
+if-goto Ball_24
 push constant 506
 pop local 0
 push local 3
@@ -356,13 +356,13 @@ push local 4
 call Math.multiply 2
 add
 pop local 1
-goto Ball_43
-label Ball_42
+goto Ball_25
+label Ball_24
 push this 14
 push constant 2
 eq
 not
-if-goto Ball_44
+if-goto Ball_26
 push constant 0
 pop local 0
 push local 3
@@ -377,13 +377,13 @@ push local 4
 call Math.multiply 2
 add
 pop local 1
-goto Ball_45
-label Ball_44
+goto Ball_27
+label Ball_26
 push this 14
 push constant 3
 eq
 not
-if-goto Ball_46
+if-goto Ball_28
 push constant 250
 pop local 1
 push local 2
@@ -399,8 +399,8 @@ push local 4
 call Math.multiply 2
 add
 pop local 0
-goto Ball_47
-label Ball_46
+goto Ball_29
+label Ball_28
 push constant 0
 pop local 1
 push local 2
@@ -415,9 +415,9 @@ push local 4
 call Math.multiply 2
 add
 pop local 0
-label Ball_47
-label Ball_45
-label Ball_43
+label Ball_29
+label Ball_27
+label Ball_25
 push pointer 0
 push local 0
 push local 1

@@ -22,11 +22,15 @@ def main():
     with open(outFile+".asm", "a") as out:
         out.write(bootstrapCode+"\n"+codewriter.trans_call(tokens)+"\n")
 
-    if ('.' in fileName):
+    if ('.vm' in fileName):
         outFile = outFile.split('.')[0]
         write_file(fileName)
     else:
+        #Here fileName is folder name and filename is actual file name
         for filename in os.listdir(fileName):
+            #If file is not a vm file then do not process it.
+            if (not ('.vm' in filename)):
+                continue
             filePath = os.path.join(fileName, filename)
             write_file(filePath)
     
@@ -34,8 +38,8 @@ def main():
 def write_file(fileName):
     global i
     with open(fileName) as f:
-        if '/' in fileName:
-            fileName = fileName.split('/')[1]
+        if '\\' in fileName:
+            fileName = fileName.split('\\')[1]
         instruction = f.readline() #reading first line
         while (instruction):
             instruction = instruction.split('//')[0] #Remove Comments

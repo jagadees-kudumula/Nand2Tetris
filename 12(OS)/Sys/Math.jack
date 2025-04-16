@@ -1,0 +1,167 @@
+class Math {
+    //This variable is used as a flag for divisionOverFlow
+    static boolean divisionOverFlow;
+    static Array twoToThe;
+
+    function void init() {
+        //Initialise this variable by assigning false to it
+        let divisionOverFlow = false;
+
+        let twoToThe = Array.new(16);
+
+        let twoToThe[0] = 1;
+        let twoToThe[1] = 2;
+        let twoToThe[2] = 4;
+        let twoToThe[3] = 8;
+        let twoToThe[4] = 16;
+        let twoToThe[5] = 32;
+        let twoToThe[6] = 64;
+        let twoToThe[7] = 128;
+        let twoToThe[8] = 256;
+        let twoToThe[9] = 512;
+        let twoToThe[10] = 1024;
+        let twoToThe[11] = 2048;
+        let twoToThe[12] = 4096;
+        let twoToThe[13] = 8192;
+        let twoToThe[14] = 16384;
+        let twoToThe[15] = -32767-1;
+
+        return;
+    }
+
+    function int twoToThe(int i) {
+        return twoToThe[i];
+    }
+
+    function int multiply(int x, int y) {
+
+        var int sum, xShifted, i, placeValue, bitCheck;
+
+        let sum = 0;
+        let xShifted = x;
+        let i = 0; //This used as counter or incrementer
+
+        while (~(i > 15)) {
+            //In placeValue only 1 bit is 1 and others are zero that one bit is ith indexed, 
+            //if y also have one at that position we will add xShifted to the sum
+            let bitCheck = (y & twoToThe[i]); 
+            if (~(bitCheck = 0)) {
+                let sum = sum + xShifted;
+            }
+            let xShifted = xShifted + xShifted; //This works as left shift.Refer to long division method.
+            let i = i + 1;
+        }
+
+        return sum;
+    }
+
+    function int divide(int x, int y) {
+
+        var int q;
+        var int temp;
+        var int flag;
+        var int result;
+
+        let flag = 1;
+
+        //If the x is negative then we will assign absolutevalue of x to the x accordingly flag is modified
+        if (x < 0) {
+            let x = Math.abs(x);
+            if (flag = 1) {let flag = -1;}
+            else {let flag = 1;}
+        }
+
+        //If the y is negative then we will assign absolutevalue of y to the y accordingly flag is modified
+        if (y < 0) {
+            let y = Math.abs(y);
+            if (flag = 1) {let flag = -1;}
+            else {let flag = 1;}
+        }
+
+        //We have to exit from the function by returning 0 if there is divisionOverFlow or y > x (divisor > dividend)
+        if (y > x | divisionOverFlow) {
+            //This is crucial if there is divisionOverFlow then that variable is assigned true.
+            //And that is static variable so we must assing false to that variabl before returing,
+            //else the divisionOverFlow variable will have true always once it gets assigned with true value.
+            let divisionOverFlow = false;
+            return 0;
+        }
+
+        let temp = y + y;
+        if (temp < 0) {let divisionOverFlow = true;} //If there positive num ges negative by addition then it is overflown
+
+        let q = Math.divide(x, temp);
+
+        //Result is stored in result variable used only addition operations for efficiency
+        if ((x - ((q + q)*y)) < y) {
+            let result = q + q;
+        }
+        else {
+            let result = q + q + 1;
+        }
+
+        //If flag is -1 then condition is true in jack so the result will be -result else result
+        if (flag) {return -result;}
+        return result;
+    }
+
+    function int sqrt(int x) {
+        var int y; //y^2 <= x < (y + 1)^2 for 0 <= x < 2^n
+        var int n; //n stands for no of bits
+        var int i; //This is used as incrementer or counter
+        var int mid; 
+        var int temp;
+
+        var Array twoToThe;
+        let twoToThe = Array.new(8);
+
+        let n = 16;
+
+        let twoToThe[0] = 1;
+        let i = 1;
+
+        let mid = n/2;
+
+        let y = 0;
+
+        
+        // i <= n/2-1 (mid)
+        while (i < mid) {
+            let twoToThe[i] = twoToThe[i-1] + twoToThe[i-1];
+            let i = i + 1;
+        }
+
+        let i = mid - 1;
+
+        while (~(i < 0)) {
+            let temp = (y + twoToThe[i]) * (y + twoToThe[i]);
+            //If temp is negative then it is overflown.
+            if (~(temp > x) & (temp > 0)) {
+                let y = y + twoToThe[i];
+            }
+            let i = i - 1;
+        }
+
+        do twoToThe.dispose();
+        return y;
+    }
+
+    function int abs(int x) {
+        if (x < 0) {
+            return ~(x + (-1));
+        }
+        else {
+            return x;
+        }
+    }
+
+    function int min(int x, int y) {
+        if (x < y) {return x;}
+        else {return y;}
+    }
+
+    function int max(int x, int y) {
+        if (x > y) {return x;}
+        else {return y;}
+    }
+}

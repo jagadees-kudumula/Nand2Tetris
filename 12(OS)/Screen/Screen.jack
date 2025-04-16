@@ -33,7 +33,7 @@ class Screen {
         while (i < 256) {
             let j = 0;
             while (j < 32) {
-                do Memory.poke(Screen + i + j, false); // Clear each word
+                do Memory.poke((Screen + i + j), false); // Clear each word
                 let j = j + 1;
             }
             let i = i + 1;
@@ -51,9 +51,9 @@ class Screen {
     function void drawPixel(int x, int y) {
         var int addr, xBy16, xMod16, value, resultValue, bit;
         
-        let xBy16 = x / 16;                        // 16 pixels per word
-        let xMod16 = x - (16 * xBy16);             // Bit position in the word
-        let addr = 32 * y + xBy16;                 // Address of the word, where the pixel is located on the Screen
+        let xBy16 = (x / 16);                        // 16 pixels per word
+        let xMod16 =( x - (16 * xBy16) );             // Bit position in the word
+        let addr = (32 * y) + xBy16;                 // Address of the word, where the pixel is located on the Screen
 
         let value = Memory.peek(16384 + addr);     // Read current screen word
         let bit = Math.twoToThe(xMod16);           // Bitmask for the target bit (example: if xMod16 is 10 then bit = 1024 = (0000 0100 0000 0000))
@@ -63,7 +63,7 @@ class Screen {
 
         //If the colour is true then its value is -1 i.e (1111 1111 1111 1111) else its value is false 
         //So we will perform & operation between them and perform | operation between the resultValue and the value got by doing & operation
-        let resultValue = resultValue | (bit & color); 
+        let resultValue = (resultValue | (bit & color)); 
 
         do Memory.poke(16384 + addr, resultValue);      // Write updated value back
 
@@ -94,7 +94,7 @@ class Screen {
             //Find the pixel which is starting pixel, this is nothing but xMod16
             let xBy16 = x / 16;
             let xMod16 = x - (16 * xBy16);
-            let addr = 32 * y + xBy16;
+            let addr = (32 * y) + xBy16;
 
             //This is the value in the word 
             let value = Memory.peek(16384 + addr);
@@ -103,7 +103,7 @@ class Screen {
 
             //Modify each bit in a word in each row
             while (~(y > y2)) {
-                do Memory.poke(16384 + addr, (value & ~temp) | (temp & color));
+                do Memory.poke(16384 + addr, ((value & ~temp) | (temp & color)));
                 let addr = addr + 32; 
                 let y = y + 1;
             }
@@ -124,7 +124,7 @@ class Screen {
             if (~isRectOrCircle) {
                 let xBy16 = x / 16;
                 let xMod16 = x - (16 * xBy16);
-                let addr = 32 * y + xBy16;
+                let addr = (32 * y) + xBy16;
             } else {
                 let xMod16 = rectOrCircleMod16;
                 let addr = rectOrCircleAddr;
@@ -170,7 +170,7 @@ class Screen {
                     let temp = temp + Math.twoToThe(noOfPixels + xMod16);
                 }
             
-                do Memory.poke(16384 + addr, (value & ~temp) | (temp & color));
+                do Memory.poke(16384 + addr, ((value & ~temp) | (temp & color)));
 
                 return;
             }
@@ -244,7 +244,7 @@ class Screen {
         let xBy16 = x / 16;
         //Assign both rectOrCircleMod16 and rectOrCircleAddr accordingly these are used in the drawLine
         let rectOrCircleMod16 = x - (16 * xBy16);
-        let rectOrCircleAddr = 32 * y + xBy16;
+        let rectOrCircleAddr = (32 * y) + xBy16;
 
         //Fill all the rows until y <= y2
         while (~(y > y2)) {
@@ -285,7 +285,7 @@ class Screen {
             let xBy16 = x1 / 16;
             //Assign both rectOrCircleMod16 and rectOrCircleAddr accordingly these are used in the drawLine.
             let rectOrCircleMod16 = x1 - (16 * xBy16);
-            let rectOrCircleAddr = 32 * y1 + xBy16;
+            let rectOrCircleAddr = (32 * y1) + xBy16;
 
             do Screen.drawLine(x1, y1, x2, y2);
 
@@ -297,7 +297,7 @@ class Screen {
             let y2 = y - dy;
 
             //Calculate the symmetric address
-            let symmetricAddr = 32 * y1 + xBy16;
+            let symmetricAddr = (32 * y1) + xBy16;
             //Assign the symmetric address to rectOrCircleAddr Note:Here two lines have same mod16
             let rectOrCircleAddr = symmetricAddr;
 

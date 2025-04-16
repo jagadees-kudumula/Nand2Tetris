@@ -1,0 +1,116 @@
+// This file is part of www.nand2tetris.org
+// and the book "The Elements of Computing Systems"
+// by Nisan and Schocken, MIT Press.
+// File name: projects/12/Keyboard.jack
+/**
+ * A library for handling user input from the keyboard.
+ */
+class Keyboard {
+
+    /**
+     * Returns the character of the currently pressed key on the keyboard;
+     * if no key is currently pressed, returns 0.
+     *
+     * Recognizes all ASCII characters, as well as the following keys:
+     * new line = 128 = String.newline()
+     * backspace = 129 = String.backspace()
+     * left arrow = 130
+     * up arrow = 131
+     * right arrow = 132
+     * down arrow = 133
+     * home = 134
+     * End = 135
+     * page up = 136
+     * page down = 137
+     * insert = 138
+     * delete = 139
+     * ESC = 140
+     * F1 - F12 = 141 - 152
+     */
+    
+    /** This will return the current character pressed on the keyboard. If no key is pressed it will return 0. */
+    function char keyPressed() {
+        return Memory.peek(24576);
+    }
+
+    /**	Waits until a key is pressed on the keyboard and released,
+     *  then echoes the key to the screen, and returns the character 
+     *  of the pressed key. */
+    function char readChar() {
+        var char c;
+
+        //This works as cursor.A rectangle will be created as a cursor.
+        do Output.printChar(0);
+
+        //While key is not pressed do nothing.
+        while ((Keyboard.keyPressed() = 0)) {
+            
+        }
+
+        //If the key is pressed then store the character in the 'c' variable.
+        let c = Keyboard.keyPressed();
+
+        //Do nothing until the pressed key is released.
+        while (~(Keyboard.keyPressed() = 0)) {
+
+        }
+
+        //Removes the cursor
+        do Output.backSpace();
+        //Print the pressed character on the screen.
+        do Output.printChar(c);
+
+        return c;
+    }
+
+    /**	Displays the message on the screen, reads from the keyboard the entered
+     *  text until a newline character is detected, echoes the text to the screen,
+     *  and returns its value. Also handles user backspaces. */
+    function String readLine(String message) {
+        var char c;
+        var String str;
+
+        //This will print the message.
+        do Output.printString(message);
+
+        //Here 50 is an arbitary number.
+        let str = String.new(50);
+
+        while (true) {
+            //This will read the pressed character and display it on the screen and move the cursor.
+            let c = Keyboard.readChar();  
+
+            //If the user presses enter then stop reading input.
+            if (c = String.newLine()) {
+                do Output.backSpace(); //This to remove the black rectangle created by readChar function for the newLine character
+                do Output.println(); //Moves the cursor to the next Line
+                return str;
+            }
+
+            //This will remove the previous character.
+            if (c = String.backSpace()) {
+                do Output.backSpace(); //This to remove the black rectangle created by readChar function for the backSpace character
+                do Output.backSpace(); //This is to remove the before character
+                do str.eraseLastChar(); //This removes the last character from the string.
+            } else {
+                let str = str.appendChar(c); //This will append the character to the string.
+            }
+        }
+
+        return str;
+    }   
+
+    /** Displays the message on the screen, reads from the keyboard the entered
+     *  text until a newline character is detected, echoes the text to the screen,
+     *  and returns its integer value (until the first non-digit character in the
+     *  entered text is detected). Also handles user backspaces. */
+    function int readInt(String message) {
+        var String str;
+        var int output;
+
+        let str = Keyboard.readLine(message);
+        let output = str.intValue(); //This will convert string into integer.
+
+        return output;
+    }
+}

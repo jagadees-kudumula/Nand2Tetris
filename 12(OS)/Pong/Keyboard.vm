@@ -1,0 +1,94 @@
+function Keyboard.keyPressed 0
+    push constant 24576
+    call Memory.peek 1
+    return
+function Keyboard.readChar 1
+    push constant 0
+    call Output.printChar 1
+    pop temp 0
+label Keyboard_0
+    call Keyboard.keyPressed 0
+    push constant 0
+    eq
+    not
+    if-goto Keyboard_1
+    goto Keyboard_0
+label Keyboard_1
+    call Keyboard.keyPressed 0
+    pop local 0
+label Keyboard_2
+    call Keyboard.keyPressed 0
+    push constant 0
+    eq
+    not
+    not
+    if-goto Keyboard_3
+    goto Keyboard_2
+label Keyboard_3
+    call Output.backSpace 0
+    pop temp 0
+    push local 0
+    call Output.printChar 1
+    pop temp 0
+    push local 0
+    return
+function Keyboard.readLine 2
+    push argument 0
+    call Output.printString 1
+    pop temp 0
+    push constant 50
+    call String.new 1
+    pop local 1
+label Keyboard_4
+    push constant 1
+    neg
+    not
+    if-goto Keyboard_5
+    call Keyboard.readChar 0
+    pop local 0
+    push local 0
+    call String.newLine 0
+    eq
+    not
+    if-goto Keyboard_7
+    call Output.backSpace 0
+    pop temp 0
+    call Output.println 0
+    pop temp 0
+    push local 1
+    return
+    goto Keyboard_6
+label Keyboard_7
+label Keyboard_6
+    push local 0
+    call String.backSpace 0
+    eq
+    not
+    if-goto Keyboard_9
+    call Output.backSpace 0
+    pop temp 0
+    call Output.backSpace 0
+    pop temp 0
+    push local 1
+    call String.eraseLastChar 1
+    pop temp 0
+    goto Keyboard_8
+label Keyboard_9
+    push local 1
+    push local 0
+    call String.appendChar 2
+    pop local 1
+label Keyboard_8
+    goto Keyboard_4
+label Keyboard_5
+    push local 1
+    return
+function Keyboard.readInt 2
+    push argument 0
+    call Keyboard.readLine 1
+    pop local 0
+    push local 0
+    call String.intValue 1
+    pop local 1
+    push local 1
+    return

@@ -1,0 +1,106 @@
+function Sys.init 0
+    call Memory.init 0
+    pop temp 0
+    call Math.init 0
+    pop temp 0
+    call Screen.init 0
+    pop temp 0
+    call String.init 0
+    pop temp 0
+    call Output.init 0
+    pop temp 0
+    call Main.main 0
+    pop temp 0
+    push constant 0
+    return
+function Sys.wait 2
+    push argument 0
+    pop local 0
+    push argument 0
+    pop local 1
+label Sys_0
+    push local 1
+    push constant 0
+    gt
+    not
+    if-goto Sys_1
+    push local 1
+    push constant 1
+    call Math.multiply 2
+    pop local 1
+label Sys_2
+    push local 0
+    push constant 0
+    gt
+    not
+    if-goto Sys_3
+    push local 0
+    push constant 1
+    call Math.multiply 2
+    pop local 0
+    push local 0
+    push constant 1
+    call Math.multiply 2
+    pop local 0
+label Sys_4
+    push argument 0
+    push constant 0
+    gt
+    not
+    if-goto Sys_5
+    push argument 0
+    push constant 1
+    call Math.multiply 2
+    pop argument 0
+    push argument 0
+    push constant 1
+    sub
+    pop argument 0
+    push argument 0
+    push constant 1
+    call Math.multiply 2
+    pop argument 0
+    goto Sys_4
+label Sys_5
+    push local 0
+    push constant 1
+    sub
+    pop local 0
+    goto Sys_2
+label Sys_3
+    push local 1
+    push constant 1
+    sub
+    pop local 1
+    goto Sys_0
+label Sys_1
+    push constant 0
+    return
+function Sys.error 0
+    push constant 3
+    call String.new 1
+    push constant 69
+    call String.appendChar 2
+    push constant 82
+    call String.appendChar 2
+    push constant 82
+    call String.appendChar 2
+    call Output.printString 1
+    pop temp 0
+    push argument 0
+    call Output.printInt 1
+    pop temp 0
+    call Sys.halt 0
+    pop temp 0
+    push constant 0
+    return
+function Sys.halt 0
+label Sys_6
+    push constant 1
+    neg
+    not
+    if-goto Sys_7
+    goto Sys_6
+label Sys_7
+    push constant 0
+    return

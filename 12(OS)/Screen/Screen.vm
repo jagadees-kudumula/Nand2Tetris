@@ -373,6 +373,12 @@ label Screen_21
     goto Screen_10
 label Screen_11
 label Screen_10
+    push constant 0
+    pop local 4
+    push constant 0
+    pop local 5
+    push constant 0
+    pop local 6
     push argument 0
     push argument 2
     lt
