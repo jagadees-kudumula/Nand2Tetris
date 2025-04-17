@@ -2,24 +2,37 @@
 // and the book "The Elements of Computing Systems"
 // by Nisan and Schocken, MIT Press.
 // File name: projects/3/b/RAM16K.hdl
+
 /**
- * Memory of 16K 16-bit registers.
- * If load is asserted, the value of the register selected by
- * address is set to in; Otherwise, the value does not change.
- * The value of the selected register is emitted by out.
+ * RAM16K:
+ * Implements a memory unit with 16K (2^14) 16-bit registers.
+ * 
+ * Inputs:
+ *   - in[16]: The data to be written.
+ *   - load: Controls whether to write the input data into the addressed location.
+ *   - address[14]: Selects one of the 16K registers.
+ * 
+ * Output:
+ *   - out[16]: The data stored at the selected address.
  */
+
 CHIP RAM16K {
-    IN in[16], load, address[14];
+    IN in[16], load, address[14];  // 14-bit address space = 16K locations
     OUT out[16];
 
     PARTS:
-    //// Replace this comment with your code.
+
+    // Step 1: Use the top 2 bits (address[12..13]) to divide memory into 4 blocks of 4K
+    // The DMux4Way sends the load signal to only one of the four RAM4K units
     DMux4Way(in=load, sel=address[12..13], a=a, b=b, c=c, d=d);
-    RAM4K(in=in, load=a, address=address[0..11], out=r1);
-    RAM4K(in=in, load=b, address=address[0..11], out=r2);
-    RAM4K(in=in, load=c, address=address[0..11], out=r3);
-    RAM4K(in=in, load=d, address=address[0..11], out=r4);
+
+    // Step 2: Use the lower 12 bits (address[0..11]) to address within each RAM4K block
+    RAM4K(in=in, load=a, address=address[0..11], out=r1); // First 4K block
+    RAM4K(in=in, load=b, address=address[0..11], out=r2); // Second 4K block
+    RAM4K(in=in, load=c, address=address[0..11], out=r3); // Third 4K block
+    RAM4K(in=in, load=d, address=address[0..11], out=r4); // Fourth 4K block
+
+    // Step 3: Use Mux4Way16 to select the output from the correct RAM4K block
+    // based on address[12..13]
     Mux4Way16(a=r1, b=r2, c=r3, d=r4, sel=address[12..13], out=out);
-
-
 }
