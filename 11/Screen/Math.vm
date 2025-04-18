@@ -151,13 +151,13 @@ push argument 0
 pop local 1
 push constant 0
 pop local 2
-label Math_43
+label Math_9
 push local 2
 push constant 15
 gt
 not
 not
-if-goto Math_44
+if-goto Math_10
 push argument 1
 push static 1
 push local 2
@@ -171,12 +171,12 @@ push constant 0
 eq
 not
 not
-if-goto Math_45
+if-goto Math_11
 push local 0
 push local 1
 add
 pop local 0
-label Math_45
+label Math_11
 push local 1
 push local 1
 add
@@ -185,8 +185,8 @@ push local 2
 push constant 1
 add
 pop local 2
-goto Math_43
-label Math_44
+goto Math_9
+label Math_10
 push local 0
 return
 function Math.divide 4
@@ -196,7 +196,7 @@ push argument 0
 push constant 0
 lt
 not
-if-goto Math_46
+if-goto Math_12
 push argument 0
 call Math.abs 1
 pop argument 0
@@ -204,21 +204,21 @@ push local 2
 push constant 1
 eq
 not
-if-goto Math_47
+if-goto Math_13
 push constant 1
 neg
 pop local 2
-goto Math_48
-label Math_47
+goto Math_14
+label Math_13
 push constant 1
 pop local 2
-label Math_48
-label Math_46
+label Math_14
+label Math_12
 push argument 1
 push constant 0
 lt
 not
-if-goto Math_49
+if-goto Math_15
 push argument 1
 call Math.abs 1
 pop argument 1
@@ -226,28 +226,28 @@ push local 2
 push constant 1
 eq
 not
-if-goto Math_50
+if-goto Math_16
 push constant 1
 neg
 pop local 2
-goto Math_51
-label Math_50
+goto Math_17
+label Math_16
 push constant 1
 pop local 2
-label Math_51
-label Math_49
+label Math_17
+label Math_15
 push argument 1
 push argument 0
 push static 0
 or
 gt
 not
-if-goto Math_52
+if-goto Math_18
 push constant 0
 pop static 0
 push constant 0
 return
-label Math_52
+label Math_18
 push argument 1
 push argument 1
 add
@@ -256,11 +256,11 @@ push local 1
 push constant 0
 lt
 not
-if-goto Math_53
+if-goto Math_19
 push constant 1
 neg
 pop static 0
-label Math_53
+label Math_19
 push argument 0
 push local 1
 call Math.divide 2
@@ -275,27 +275,27 @@ sub
 push argument 1
 lt
 not
-if-goto Math_54
+if-goto Math_20
 push local 0
 push local 0
 add
 pop local 3
-goto Math_55
-label Math_54
+goto Math_21
+label Math_20
 push local 0
 push local 0
 push constant 1
 add
 add
 pop local 3
-label Math_55
+label Math_21
 push local 2
 not
-if-goto Math_56
+if-goto Math_22
 push local 3
 neg
 return
-label Math_56
+label Math_22
 push local 3
 return
 function Math.sqrt 6
@@ -320,12 +320,12 @@ call Math.divide 2
 pop local 3
 push constant 0
 pop local 0
-label Math_57
+label Math_23
 push local 2
 push local 3
 lt
 not
-if-goto Math_58
+if-goto Math_24
 push local 5
 push local 2
 add
@@ -352,19 +352,19 @@ push local 2
 push constant 1
 add
 pop local 2
-goto Math_57
-label Math_58
+goto Math_23
+label Math_24
 push local 3
 push constant 1
 sub
 pop local 2
-label Math_59
+label Math_25
 push local 2
 push constant 0
 lt
 not
 not
-if-goto Math_60
+if-goto Math_26
 push local 0
 push local 5
 push local 2
@@ -390,7 +390,7 @@ push constant 0
 gt
 and
 not
-if-goto Math_61
+if-goto Math_27
 push local 0
 push local 5
 push local 2
@@ -399,13 +399,13 @@ pop pointer 1
 push that 0
 add
 pop local 0
-label Math_61
+label Math_27
 push local 2
 push constant 1
 sub
 pop local 2
-goto Math_59
-label Math_60
+goto Math_25
+label Math_26
 push local 5
 call Array.dispose 1
 pop temp 0
@@ -416,38 +416,38 @@ push argument 0
 push constant 0
 lt
 not
-if-goto Math_62
+if-goto Math_28
 push argument 0
 neg
 return
-goto Math_63
-label Math_62
+goto Math_29
+label Math_28
 push argument 0
 return
-label Math_63
+label Math_29
 function Math.min 0
 push argument 0
 push argument 1
 lt
 not
-if-goto Math_64
+if-goto Math_30
 push argument 0
 return
-goto Math_65
-label Math_64
+goto Math_31
+label Math_30
 push argument 1
 return
-label Math_65
+label Math_31
 function Math.max 0
 push argument 0
 push argument 1
 gt
 not
-if-goto Math_66
+if-goto Math_32
 push argument 0
 return
-goto Math_67
-label Math_66
+goto Math_33
+label Math_32
 push argument 1
 return
-label Math_67
+label Math_33

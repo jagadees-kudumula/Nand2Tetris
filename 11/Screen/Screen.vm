@@ -11,20 +11,20 @@ push constant 16384
 pop local 0
 push constant 0
 pop local 1
-label Screen_101
+label Screen_49
 push local 1
 push constant 256
 lt
 not
-if-goto Screen_102
+if-goto Screen_50
 push constant 0
 pop local 2
-label Screen_103
+label Screen_51
 push local 2
 push constant 32
 lt
 not
-if-goto Screen_104
+if-goto Screen_52
 push local 0
 push local 1
 push local 2
@@ -37,14 +37,14 @@ push local 2
 push constant 1
 add
 pop local 2
-goto Screen_103
-label Screen_104
+goto Screen_51
+label Screen_52
 push local 1
 push constant 1
 add
 pop local 1
-goto Screen_101
-label Screen_102
+goto Screen_49
+label Screen_50
 push constant 0
 return
 function Screen.setColor 0
@@ -115,17 +115,17 @@ push local 2
 push constant 0
 eq
 not
-if-goto Screen_105
+if-goto Screen_53
 push argument 3
 push argument 1
 lt
 not
-if-goto Screen_106
+if-goto Screen_54
 push argument 3
 pop local 1
 push argument 1
 pop argument 3
-label Screen_106
+label Screen_54
 push local 0
 push constant 16
 call Math.divide 2
@@ -150,13 +150,13 @@ pop local 12
 push local 10
 call Math.twoToThe 1
 pop local 13
-label Screen_107
+label Screen_55
 push local 1
 push argument 3
 gt
 not
 not
-if-goto Screen_108
+if-goto Screen_56
 push constant 16384
 push local 11
 add
@@ -178,30 +178,30 @@ push local 1
 push constant 1
 add
 pop local 1
-goto Screen_107
-label Screen_108
+goto Screen_55
+label Screen_56
 push constant 0
 return
-label Screen_105
+label Screen_53
 push local 3
 push constant 0
 eq
 not
-if-goto Screen_109
+if-goto Screen_57
 push argument 2
 push argument 0
 lt
 not
-if-goto Screen_110
+if-goto Screen_58
 push argument 2
 pop local 0
 push argument 0
 pop argument 2
-label Screen_110
+label Screen_58
 push static 3
 not
 not
-if-goto Screen_111
+if-goto Screen_59
 push local 0
 push constant 16
 call Math.divide 2
@@ -218,13 +218,13 @@ call Math.multiply 2
 push local 9
 add
 pop local 11
-goto Screen_112
-label Screen_111
+goto Screen_60
+label Screen_59
 push static 2
 pop local 10
 push static 1
 pop local 11
-label Screen_112
+label Screen_60
 push constant 16384
 push local 11
 add
@@ -247,14 +247,14 @@ sub
 gt
 not
 not
-if-goto Screen_113
+if-goto Screen_61
 push local 14
 push local 10
 add
 push constant 16
 lt
 not
-if-goto Screen_114
+if-goto Screen_62
 push local 13
 push local 14
 push local 10
@@ -262,7 +262,7 @@ add
 call Math.twoToThe 1
 add
 pop local 13
-label Screen_114
+label Screen_62
 push constant 16384
 push local 11
 add
@@ -278,7 +278,7 @@ call Memory.poke 2
 pop temp 0
 push constant 0
 return
-label Screen_113
+label Screen_61
 push constant 16384
 push local 11
 add
@@ -302,13 +302,13 @@ push local 11
 push constant 1
 add
 pop local 11
-label Screen_115
+label Screen_63
 push local 14
 push constant 16
 lt
 not
 not
-if-goto Screen_116
+if-goto Screen_64
 push constant 16384
 push local 11
 add
@@ -327,12 +327,12 @@ push local 14
 push constant 0
 eq
 not
-if-goto Screen_117
+if-goto Screen_65
 push constant 0
 return
-label Screen_117
-goto Screen_115
-label Screen_116
+label Screen_65
+goto Screen_63
+label Screen_64
 push local 14
 call Math.twoToThe 1
 push constant 1
@@ -358,7 +358,7 @@ call Memory.poke 2
 pop temp 0
 push constant 0
 return
-label Screen_109
+label Screen_57
 push constant 0
 pop local 4
 push constant 0
@@ -373,7 +373,7 @@ push argument 1
 push argument 3
 lt
 pop local 8
-label Screen_118
+label Screen_66
 push local 4
 push local 2
 gt
@@ -384,7 +384,7 @@ gt
 not
 and
 not
-if-goto Screen_119
+if-goto Screen_67
 push local 0
 push local 4
 push local 7
@@ -411,7 +411,7 @@ push local 6
 push constant 0
 lt
 not
-if-goto Screen_120
+if-goto Screen_68
 push local 4
 push constant 1
 add
@@ -420,8 +420,8 @@ push local 6
 push local 3
 add
 pop local 6
-goto Screen_121
-label Screen_120
+goto Screen_69
+label Screen_68
 push local 5
 push constant 1
 sub
@@ -430,9 +430,9 @@ push local 6
 push local 2
 sub
 pop local 6
-label Screen_121
-goto Screen_118
-label Screen_119
+label Screen_69
+goto Screen_66
+label Screen_67
 push constant 0
 return
 function Screen.drawRectangle 3
@@ -444,10 +444,10 @@ push argument 3
 gt
 or
 not
-if-goto Screen_122
+if-goto Screen_70
 push constant 0
 return
-label Screen_122
+label Screen_70
 push argument 0
 pop local 0
 push argument 1
@@ -471,13 +471,13 @@ call Math.multiply 2
 push local 2
 add
 pop static 1
-label Screen_123
+label Screen_71
 push local 1
 push argument 3
 gt
 not
 not
-if-goto Screen_124
+if-goto Screen_72
 push local 0
 push local 1
 push argument 2
@@ -492,8 +492,8 @@ push local 1
 push constant 1
 add
 pop local 1
-goto Screen_123
-label Screen_124
+goto Screen_71
+label Screen_72
 push constant 0
 pop static 3
 push constant 0
@@ -504,13 +504,13 @@ neg
 pop static 3
 push argument 2
 pop local 0
-label Screen_125
+label Screen_73
 push local 0
 push constant 0
 lt
 not
 not
-if-goto Screen_126
+if-goto Screen_74
 push argument 2
 push argument 2
 call Math.multiply 2
@@ -584,8 +584,8 @@ push local 0
 push constant 1
 sub
 pop local 0
-goto Screen_125
-label Screen_126
+goto Screen_73
+label Screen_74
 push constant 0
 pop static 3
 push constant 0

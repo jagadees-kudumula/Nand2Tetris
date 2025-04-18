@@ -13,10 +13,10 @@ push this 2
 push constant 0
 eq
 not
-if-goto String_127
+if-goto String_75
 push constant 1
 pop this 2
-label String_127
+label String_75
 push this 2
 call Array.new 1
 pop this 0
@@ -69,7 +69,7 @@ push this 1
 push this 2
 lt
 not
-if-goto String_128
+if-goto String_76
 push this 0
 push this 1
 add
@@ -82,7 +82,7 @@ push this 1
 push constant 1
 add
 pop this 1
-label String_128
+label String_76
 push pointer 0
 return
 function String.eraseLastChar 0
@@ -92,12 +92,12 @@ push this 1
 push constant 0
 gt
 not
-if-goto String_129
+if-goto String_77
 push this 1
 push constant 1
 sub
 pop this 1
-label String_129
+label String_77
 push constant 0
 return
 function String.intValue 3
@@ -115,14 +115,14 @@ call String.charAt 2
 push constant 45
 eq
 not
-if-goto String_130
+if-goto String_78
 push constant 1
 neg
 pop local 0
 push constant 1
 pop local 1
-label String_130
-label String_131
+label String_78
+label String_79
 push local 1
 push this 1
 lt
@@ -133,7 +133,7 @@ call String.charAt 2
 call String.isDigit 2
 and
 not
-if-goto String_132
+if-goto String_80
 push local 2
 push constant 10
 call Math.multiply 2
@@ -148,15 +148,15 @@ push local 1
 push constant 1
 add
 pop local 1
-goto String_131
-label String_132
+goto String_79
+label String_80
 push local 0
 not
-if-goto String_133
+if-goto String_81
 push local 2
 neg
 return
-label String_133
+label String_81
 push local 2
 return
 function String.isDigit 0
@@ -177,14 +177,14 @@ push argument 1
 push constant 0
 lt
 not
-if-goto String_134
+if-goto String_82
 push constant 1
 neg
 pop static 0
 push argument 1
 neg
 pop argument 1
-label String_134
+label String_82
 push argument 1
 push constant 10
 call Math.divide 2
@@ -203,17 +203,17 @@ push argument 1
 push constant 10
 lt
 not
-if-goto String_135
+if-goto String_83
 push constant 0
 pop this 1
 push static 0
 not
-if-goto String_136
+if-goto String_84
 push pointer 0
 push constant 45
 call String.appendChar 2
 pop temp 0
-label String_136
+label String_84
 push pointer 0
 push local 2
 call String.appendChar 2
@@ -222,8 +222,8 @@ push constant 0
 pop static 0
 push constant 0
 return
-goto String_137
-label String_135
+goto String_85
+label String_83
 push pointer 0
 push local 1
 call String.setInt 2
@@ -232,7 +232,7 @@ push pointer 0
 push local 2
 call String.appendChar 2
 pop temp 0
-label String_137
+label String_85
 push constant 0
 return
 function String.newLine 0

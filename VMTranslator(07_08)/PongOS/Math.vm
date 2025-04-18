@@ -1,467 +1,453 @@
 function Math.init 0
-    push constant 0
-    pop static 0
-    push constant 16
-    call Array.new 1
-    pop static 1
-    push constant 0
-    push static 1
-    add
-    push constant 1
-    pop temp 0
-    pop pointer 1
-    push temp 0
-    pop that 0
-    push constant 1
-    push static 1
-    add
-    push constant 2
-    pop temp 0
-    pop pointer 1
-    push temp 0
-    pop that 0
-    push constant 2
-    push static 1
-    add
-    push constant 4
-    pop temp 0
-    pop pointer 1
-    push temp 0
-    pop that 0
-    push constant 3
-    push static 1
-    add
-    push constant 8
-    pop temp 0
-    pop pointer 1
-    push temp 0
-    pop that 0
-    push constant 4
-    push static 1
-    add
-    push constant 16
-    pop temp 0
-    pop pointer 1
-    push temp 0
-    pop that 0
-    push constant 5
-    push static 1
-    add
-    push constant 32
-    pop temp 0
-    pop pointer 1
-    push temp 0
-    pop that 0
-    push constant 6
-    push static 1
-    add
-    push constant 64
-    pop temp 0
-    pop pointer 1
-    push temp 0
-    pop that 0
-    push constant 7
-    push static 1
-    add
-    push constant 128
-    pop temp 0
-    pop pointer 1
-    push temp 0
-    pop that 0
-    push constant 8
-    push static 1
-    add
-    push constant 256
-    pop temp 0
-    pop pointer 1
-    push temp 0
-    pop that 0
-    push constant 9
-    push static 1
-    add
-    push constant 512
-    pop temp 0
-    pop pointer 1
-    push temp 0
-    pop that 0
-    push constant 10
-    push static 1
-    add
-    push constant 1024
-    pop temp 0
-    pop pointer 1
-    push temp 0
-    pop that 0
-    push constant 11
-    push static 1
-    add
-    push constant 2048
-    pop temp 0
-    pop pointer 1
-    push temp 0
-    pop that 0
-    push constant 12
-    push static 1
-    add
-    push constant 4096
-    pop temp 0
-    pop pointer 1
-    push temp 0
-    pop that 0
-    push constant 13
-    push static 1
-    add
-    push constant 8192
-    pop temp 0
-    pop pointer 1
-    push temp 0
-    pop that 0
-    push constant 14
-    push static 1
-    add
-    push constant 16384
-    pop temp 0
-    pop pointer 1
-    push temp 0
-    pop that 0
-    push constant 15
-    push static 1
-    add
-    push constant 32767
-    neg
-    push constant 1
-    sub
-    pop temp 0
-    pop pointer 1
-    push temp 0
-    pop that 0
-    push constant 0
-    return
+push constant 0
+pop static 0
+push constant 16
+call Array.new 1
+pop static 1
+push static 1
+push constant 0
+add
+push constant 1
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push static 1
+push constant 1
+add
+push constant 2
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push static 1
+push constant 2
+add
+push constant 4
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push static 1
+push constant 3
+add
+push constant 8
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push static 1
+push constant 4
+add
+push constant 16
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push static 1
+push constant 5
+add
+push constant 32
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push static 1
+push constant 6
+add
+push constant 64
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push static 1
+push constant 7
+add
+push constant 128
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push static 1
+push constant 8
+add
+push constant 256
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push static 1
+push constant 9
+add
+push constant 512
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push static 1
+push constant 10
+add
+push constant 1024
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push static 1
+push constant 11
+add
+push constant 2048
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push static 1
+push constant 12
+add
+push constant 4096
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push static 1
+push constant 13
+add
+push constant 8192
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push static 1
+push constant 14
+add
+push constant 16384
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push static 1
+push constant 15
+add
+push constant 32767
+neg
+push constant 1
+sub
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 0
+return
 function Math.twoToThe 0
-    push argument 0
-    push static 1
-    add
-    pop pointer 1
-    push that 0
-    return
+push static 1
+push argument 0
+add
+pop pointer 1
+push that 0
+return
 function Math.multiply 5
-    push constant 0
-    pop local 0
-    push argument 0
-    pop local 1
-    push constant 0
-    pop local 2
-label Math_0
-    push local 2
-    push constant 15
-    gt
-    not
-    not
-    if-goto Math_1
-    push argument 1
-    push local 2
-    push static 1
-    add
-    pop pointer 1
-    push that 0
-    and
-    pop local 4
-    push local 4
-    push constant 0
-    eq
-    not
-    not
-    if-goto Math_3
-    push local 0
-    push local 1
-    add
-    pop local 0
-    goto Math_2
-label Math_3
-label Math_2
-    push local 1
-    push local 1
-    add
-    pop local 1
-    push local 2
-    push constant 1
-    add
-    pop local 2
-    goto Math_0
-label Math_1
-    push local 0
-    return
+push constant 0
+pop local 0
+push argument 0
+pop local 1
+push constant 0
+pop local 2
+label Math_43
+push local 2
+push constant 15
+gt
+not
+not
+if-goto Math_44
+push argument 1
+push static 1
+push local 2
+add
+pop pointer 1
+push that 0
+and
+pop local 4
+push local 4
+push constant 0
+eq
+not
+not
+if-goto Math_45
+push local 0
+push local 1
+add
+pop local 0
+label Math_45
+push local 1
+push local 1
+add
+pop local 1
+push local 2
+push constant 1
+add
+pop local 2
+goto Math_43
+label Math_44
+push local 0
+return
 function Math.divide 4
-    push constant 1
-    pop local 2
-    push argument 0
-    push constant 0
-    lt
-    not
-    if-goto Math_5
-    push argument 0
-    call Math.abs 1
-    pop argument 0
-    push local 2
-    push constant 1
-    eq
-    not
-    if-goto Math_7
-    push constant 1
-    neg
-    pop local 2
-    goto Math_6
-label Math_7
-    push constant 1
-    pop local 2
-label Math_6
-    goto Math_4
-label Math_5
-label Math_4
-    push argument 1
-    push constant 0
-    lt
-    not
-    if-goto Math_9
-    push argument 1
-    call Math.abs 1
-    pop argument 1
-    push local 2
-    push constant 1
-    eq
-    not
-    if-goto Math_11
-    push constant 1
-    neg
-    pop local 2
-    goto Math_10
-label Math_11
-    push constant 1
-    pop local 2
-label Math_10
-    goto Math_8
-label Math_9
-label Math_8
-    push argument 1
-    push argument 0
-    gt
-    push static 0
-    or
-    not
-    if-goto Math_13
-    push constant 0
-    pop static 0
-    push constant 0
-    return
-    goto Math_12
-label Math_13
-label Math_12
-    push argument 1
-    push argument 1
-    add
-    pop local 1
-    push local 1
-    push constant 0
-    lt
-    not
-    if-goto Math_15
-    push constant 1
-    neg
-    pop static 0
-    goto Math_14
-label Math_15
-label Math_14
-    push argument 0
-    push local 1
-    call Math.divide 2
-    pop local 0
-    push argument 0
-    push local 0
-    push local 0
-    add
-    push argument 1
-    call Math.multiply 2
-    sub
-    push argument 1
-    lt
-    not
-    if-goto Math_17
-    push local 0
-    push local 0
-    add
-    pop local 3
-    goto Math_16
-label Math_17
-    push local 0
-    push local 0
-    add
-    push constant 1
-    add
-    pop local 3
-label Math_16
-    push local 2
-    not
-    if-goto Math_19
-    push local 3
-    neg
-    return
-    goto Math_18
-label Math_19
-label Math_18
-    push local 3
-    return
+push constant 1
+pop local 2
+push argument 0
+push constant 0
+lt
+not
+if-goto Math_46
+push argument 0
+call Math.abs 1
+pop argument 0
+push local 2
+push constant 1
+eq
+not
+if-goto Math_47
+push constant 1
+neg
+pop local 2
+goto Math_48
+label Math_47
+push constant 1
+pop local 2
+label Math_48
+label Math_46
+push argument 1
+push constant 0
+lt
+not
+if-goto Math_49
+push argument 1
+call Math.abs 1
+pop argument 1
+push local 2
+push constant 1
+eq
+not
+if-goto Math_50
+push constant 1
+neg
+pop local 2
+goto Math_51
+label Math_50
+push constant 1
+pop local 2
+label Math_51
+label Math_49
+push argument 1
+push argument 0
+push static 0
+or
+gt
+not
+if-goto Math_52
+push constant 0
+pop static 0
+push constant 0
+return
+label Math_52
+push argument 1
+push argument 1
+add
+pop local 1
+push local 1
+push constant 0
+lt
+not
+if-goto Math_53
+push constant 1
+neg
+pop static 0
+label Math_53
+push argument 0
+push local 1
+call Math.divide 2
+pop local 0
+push argument 0
+push local 0
+push local 0
+add
+push argument 1
+call Math.multiply 2
+sub
+push argument 1
+lt
+not
+if-goto Math_54
+push local 0
+push local 0
+add
+pop local 3
+goto Math_55
+label Math_54
+push local 0
+push local 0
+push constant 1
+add
+add
+pop local 3
+label Math_55
+push local 2
+not
+if-goto Math_56
+push local 3
+neg
+return
+label Math_56
+push local 3
+return
 function Math.sqrt 6
-    push constant 8
-    call Array.new 1
-    pop local 5
-    push constant 16
-    pop local 1
-    push constant 0
-    push local 5
-    add
-    push constant 1
-    pop temp 0
-    pop pointer 1
-    push temp 0
-    pop that 0
-    push constant 1
-    pop local 2
-    push local 1
-    push constant 2
-    call Math.divide 2
-    pop local 3
-    push constant 0
-    pop local 0
-label Math_20
-    push local 2
-    push local 3
-    lt
-    not
-    if-goto Math_21
-    push local 2
-    push local 5
-    add
-    push local 2
-    push constant 1
-    sub
-    push local 5
-    add
-    pop pointer 1
-    push that 0
-    push local 2
-    push constant 1
-    sub
-    push local 5
-    add
-    pop pointer 1
-    push that 0
-    add
-    pop temp 0
-    pop pointer 1
-    push temp 0
-    pop that 0
-    push local 2
-    push constant 1
-    add
-    pop local 2
-    goto Math_20
-label Math_21
-    push local 3
-    push constant 1
-    sub
-    pop local 2
-label Math_22
-    push local 2
-    push constant 0
-    lt
-    not
-    not
-    if-goto Math_23
-    push local 0
-    push local 2
-    push local 5
-    add
-    pop pointer 1
-    push that 0
-    add
-    push local 0
-    push local 2
-    push local 5
-    add
-    pop pointer 1
-    push that 0
-    add
-    call Math.multiply 2
-    pop local 4
-    push local 4
-    push argument 0
-    gt
-    not
-    push local 4
-    push constant 0
-    gt
-    and
-    not
-    if-goto Math_25
-    push local 0
-    push local 2
-    push local 5
-    add
-    pop pointer 1
-    push that 0
-    add
-    pop local 0
-    goto Math_24
-label Math_25
-label Math_24
-    push local 2
-    push constant 1
-    sub
-    pop local 2
-    goto Math_22
-label Math_23
-    push local 5
-    call Array.dispose 1
-    pop temp 0
-    push local 0
-    return
+push constant 8
+call Array.new 1
+pop local 5
+push constant 16
+pop local 1
+push local 5
+push constant 0
+add
+push constant 1
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 1
+pop local 2
+push local 1
+push constant 2
+call Math.divide 2
+pop local 3
+push constant 0
+pop local 0
+label Math_57
+push local 2
+push local 3
+lt
+not
+if-goto Math_58
+push local 5
+push local 2
+add
+push local 5
+push local 2
+push constant 1
+sub
+add
+pop pointer 1
+push that 0
+push local 5
+push local 2
+push constant 1
+sub
+add
+pop pointer 1
+push that 0
+add
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push local 2
+push constant 1
+add
+pop local 2
+goto Math_57
+label Math_58
+push local 3
+push constant 1
+sub
+pop local 2
+label Math_59
+push local 2
+push constant 0
+lt
+not
+not
+if-goto Math_60
+push local 0
+push local 5
+push local 2
+add
+pop pointer 1
+push that 0
+add
+push local 0
+push local 5
+push local 2
+add
+pop pointer 1
+push that 0
+add
+call Math.multiply 2
+pop local 4
+push local 4
+push argument 0
+gt
+not
+push local 4
+push constant 0
+gt
+and
+not
+if-goto Math_61
+push local 0
+push local 5
+push local 2
+add
+pop pointer 1
+push that 0
+add
+pop local 0
+label Math_61
+push local 2
+push constant 1
+sub
+pop local 2
+goto Math_59
+label Math_60
+push local 5
+call Array.dispose 1
+pop temp 0
+push local 0
+return
 function Math.abs 0
-    push argument 0
-    push constant 0
-    lt
-    not
-    if-goto Math_27
-    push argument 0
-    neg
-    return
-    goto Math_26
-label Math_27
-    push argument 0
-    return
-label Math_26
+push argument 0
+push constant 0
+lt
+not
+if-goto Math_62
+push argument 0
+neg
+return
+goto Math_63
+label Math_62
+push argument 0
+return
+label Math_63
 function Math.min 0
-    push argument 0
-    push argument 1
-    lt
-    not
-    if-goto Math_29
-    push argument 0
-    return
-    goto Math_28
-label Math_29
-    push argument 1
-    return
-label Math_28
+push argument 0
+push argument 1
+lt
+not
+if-goto Math_64
+push argument 0
+return
+goto Math_65
+label Math_64
+push argument 1
+return
+label Math_65
 function Math.max 0
-    push argument 0
-    push argument 1
-    gt
-    not
-    if-goto Math_31
-    push argument 0
-    return
-    goto Math_30
-label Math_31
-    push argument 1
-    return
-label Math_30
+push argument 0
+push argument 1
+gt
+not
+if-goto Math_66
+push argument 0
+return
+goto Math_67
+label Math_66
+push argument 1
+return
+label Math_67

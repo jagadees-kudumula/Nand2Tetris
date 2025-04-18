@@ -2420,11 +2420,11 @@ M=M+1
 @SP
 A=M-1
 M=!M
-//if-goto Ball_1
+//if-goto Ball_0
 @SP
 AM=M-1
 D=M
-@Ball_1
+@Ball_0
 D;JNE
 //push local 0
 @0
@@ -2614,11 +2614,11 @@ D=M
 @addr
 A=M
 M=D
-//goto Ball_0
-@Ball_0
+//goto Ball_1
+@Ball_1
 0;JEQ
-//label Ball_1
-(Ball_1)
+//label Ball_0
+(Ball_0)
 //push this 0
 @0
 D=A
@@ -2735,8 +2735,8 @@ D=M
 @addr
 A=M
 M=D
-//label Ball_0
-(Ball_0)
+//label Ball_1
+(Ball_1)
 //push constant 2
 @2
 D=A
@@ -3279,11 +3279,11 @@ M=-1
 @SP
 A=M-1
 M=!M
-//if-goto Ball_3
+//if-goto Ball_2
 @SP
 AM=M-1
 D=M
-@Ball_3
+@Ball_2
 D;JNE
 //push this 4
 @4
@@ -3327,11 +3327,11 @@ D=M
 @addr
 A=M
 M=D
-//goto Ball_2
-@Ball_2
+//goto Ball_3
+@Ball_3
 0;JEQ
-//label Ball_3
-(Ball_3)
+//label Ball_2
+(Ball_2)
 //push this 4
 @4
 D=A
@@ -3389,11 +3389,11 @@ M=M+1
 @SP
 A=M-1
 M=!M
-//if-goto Ball_5
+//if-goto Ball_4
 @SP
 AM=M-1
 D=M
-@Ball_5
+@Ball_4
 D;JNE
 //push this 7
 @7
@@ -3410,11 +3410,11 @@ M=M+1
 @SP
 A=M-1
 M=!M
-//if-goto Ball_7
+//if-goto Ball_5
 @SP
 AM=M-1
 D=M
-@Ball_7
+@Ball_5
 D;JNE
 //push this 0
 @0
@@ -3458,8 +3458,8 @@ M=D
 //goto Ball_6
 @Ball_6
 0;JEQ
-//label Ball_7
-(Ball_7)
+//label Ball_5
+(Ball_5)
 //push this 1
 @1
 D=A
@@ -3501,11 +3501,11 @@ A=M
 M=D
 //label Ball_6
 (Ball_6)
-//goto Ball_4
-@Ball_4
+//goto Ball_7
+@Ball_7
 0;JEQ
-//label Ball_5
-(Ball_5)
+//label Ball_4
+(Ball_4)
 //push this 7
 @7
 D=A
@@ -3521,11 +3521,11 @@ M=M+1
 @SP
 A=M-1
 M=!M
-//if-goto Ball_9
+//if-goto Ball_8
 @SP
 AM=M-1
 D=M
-@Ball_9
+@Ball_8
 D;JNE
 //push this 0
 @0
@@ -3566,11 +3566,11 @@ D=M
 @addr
 A=M
 M=D
-//goto Ball_8
-@Ball_8
+//goto Ball_9
+@Ball_9
 0;JEQ
-//label Ball_9
-(Ball_9)
+//label Ball_8
+(Ball_8)
 //push this 1
 @1
 D=A
@@ -3610,14 +3610,35 @@ D=M
 @addr
 A=M
 M=D
-//label Ball_8
-(Ball_8)
-//label Ball_4
-(Ball_4)
-//label Ball_2
-(Ball_2)
+//label Ball_9
+(Ball_9)
+//label Ball_7
+(Ball_7)
+//label Ball_3
+(Ball_3)
 //push this 8
 @8
+D=A
+@THIS
+A=D+M
+D=M
+@SP
+A=M
+M=D
+@SP
+M=M+1
+//not
+@SP
+A=M-1
+M=!M
+//if-goto Ball_10
+@SP
+AM=M-1
+D=M
+@Ball_10
+D;JNE
+//push this 7
+@7
 D=A
 @THIS
 A=D+M
@@ -3636,27 +3657,6 @@ M=!M
 AM=M-1
 D=M
 @Ball_11
-D;JNE
-//push this 7
-@7
-D=A
-@THIS
-A=D+M
-D=M
-@SP
-A=M
-M=D
-@SP
-M=M+1
-//not
-@SP
-A=M-1
-M=!M
-//if-goto Ball_13
-@SP
-AM=M-1
-D=M
-@Ball_13
 D;JNE
 //push this 1
 @1
@@ -3700,8 +3700,8 @@ M=D
 //goto Ball_12
 @Ball_12
 0;JEQ
-//label Ball_13
-(Ball_13)
+//label Ball_11
+(Ball_11)
 //push this 0
 @0
 D=A
@@ -3743,11 +3743,11 @@ A=M
 M=D
 //label Ball_12
 (Ball_12)
-//goto Ball_10
-@Ball_10
+//goto Ball_13
+@Ball_13
 0;JEQ
-//label Ball_11
-(Ball_11)
+//label Ball_10
+(Ball_10)
 //push this 7
 @7
 D=A
@@ -3763,11 +3763,11 @@ M=M+1
 @SP
 A=M-1
 M=!M
-//if-goto Ball_15
+//if-goto Ball_14
 @SP
 AM=M-1
 D=M
-@Ball_15
+@Ball_14
 D;JNE
 //push this 1
 @1
@@ -3808,11 +3808,11 @@ D=M
 @addr
 A=M
 M=D
-//goto Ball_14
-@Ball_14
+//goto Ball_15
+@Ball_15
 0;JEQ
-//label Ball_15
-(Ball_15)
+//label Ball_14
+(Ball_14)
 //push this 0
 @0
 D=A
@@ -3852,10 +3852,10 @@ D=M
 @addr
 A=M
 M=D
-//label Ball_14
-(Ball_14)
-//label Ball_10
-(Ball_10)
+//label Ball_15
+(Ball_15)
+//label Ball_13
+(Ball_13)
 //push this 0
 @0
 D=A
@@ -3909,11 +3909,11 @@ M=!M
 @SP
 A=M-1
 M=!M
-//if-goto Ball_17
+//if-goto Ball_16
 @SP
 AM=M-1
 D=M
-@Ball_17
+@Ball_16
 D;JNE
 //push constant 1
 @1
@@ -3960,11 +3960,6 @@ D=M
 @addr
 A=M
 M=D
-//goto Ball_16
-@Ball_16
-0;JEQ
-//label Ball_17
-(Ball_17)
 //label Ball_16
 (Ball_16)
 //push this 0
@@ -4000,18 +3995,18 @@ A=M-1
 D=M
 @y
 D=D-M
-@TRUE272
+@TRUE270
 D;JLT
 @SP
 A=M-1
 M=0
-@NEXT272
+@NEXT270
 0;JEQ
-(TRUE272)
+(TRUE270)
 @SP
 A=M-1
 M=-1
-(NEXT272)
+(NEXT270)
 //not
 @SP
 A=M-1
@@ -4020,11 +4015,11 @@ M=!M
 @SP
 A=M-1
 M=!M
-//if-goto Ball_19
+//if-goto Ball_17
 @SP
 AM=M-1
 D=M
-@Ball_19
+@Ball_17
 D;JNE
 //push constant 2
 @2
@@ -4071,13 +4066,8 @@ D=M
 @addr
 A=M
 M=D
-//goto Ball_18
-@Ball_18
-0;JEQ
-//label Ball_19
-(Ball_19)
-//label Ball_18
-(Ball_18)
+//label Ball_17
+(Ball_17)
 //push this 1
 @1
 D=A
@@ -4111,18 +4101,18 @@ A=M-1
 D=M
 @y
 D=D-M
-@TRUE285
+@TRUE281
 D;JGT
 @SP
 A=M-1
 M=0
-@NEXT285
+@NEXT281
 0;JEQ
-(TRUE285)
+(TRUE281)
 @SP
 A=M-1
 M=-1
-(NEXT285)
+(NEXT281)
 //not
 @SP
 A=M-1
@@ -4131,11 +4121,11 @@ M=!M
 @SP
 A=M-1
 M=!M
-//if-goto Ball_21
+//if-goto Ball_18
 @SP
 AM=M-1
 D=M
-@Ball_21
+@Ball_18
 D;JNE
 //push constant 3
 @3
@@ -4182,13 +4172,8 @@ D=M
 @addr
 A=M
 M=D
-//goto Ball_20
-@Ball_20
-0;JEQ
-//label Ball_21
-(Ball_21)
-//label Ball_20
-(Ball_20)
+//label Ball_18
+(Ball_18)
 //push this 1
 @1
 D=A
@@ -4222,18 +4207,18 @@ A=M-1
 D=M
 @y
 D=D-M
-@TRUE298
+@TRUE292
 D;JLT
 @SP
 A=M-1
 M=0
-@NEXT298
+@NEXT292
 0;JEQ
-(TRUE298)
+(TRUE292)
 @SP
 A=M-1
 M=-1
-(NEXT298)
+(NEXT292)
 //not
 @SP
 A=M-1
@@ -4242,11 +4227,11 @@ M=!M
 @SP
 A=M-1
 M=!M
-//if-goto Ball_23
+//if-goto Ball_19
 @SP
 AM=M-1
 D=M
-@Ball_23
+@Ball_19
 D;JNE
 //push constant 4
 @4
@@ -4293,13 +4278,8 @@ D=M
 @addr
 A=M
 M=D
-//goto Ball_22
-@Ball_22
-0;JEQ
-//label Ball_23
-(Ball_23)
-//label Ball_22
-(Ball_22)
+//label Ball_19
+(Ball_19)
 //push pointer 0
 @THIS
 D=M
@@ -4454,18 +4434,18 @@ A=M
 D=A
 @n
 M=D-1
-(LOOP314)
+(LOOP306)
 @n
 D=M
 M=M-1
-@NEXT314
+@NEXT306
 D;JLT
 @LCL
 A=D+M
 M=0
-@LOOP314
+@LOOP306
 0;JEQ
-(NEXT314)
+(NEXT306)
 @5
 D=A
 @SP
@@ -4701,27 +4681,27 @@ A=M-1
 D=M
 @y
 D=D-M
-@TRUE327
+@TRUE319
 D;JEQ
 @SP
 A=M-1
 M=0
-@NEXT327
+@NEXT319
 0;JEQ
-(TRUE327)
+(TRUE319)
 @SP
 A=M-1
 M=-1
-(NEXT327)
+(NEXT319)
 //not
 @SP
 A=M-1
 M=!M
-//if-goto Ball_25
+//if-goto Ball_20
 @SP
 AM=M-1
 D=M
-@Ball_25
+@Ball_20
 D;JNE
 //push constant 10
 @10
@@ -4744,11 +4724,106 @@ D=M
 @addr
 A=M
 M=D
-//goto Ball_24
-@Ball_24
+//goto Ball_21
+@Ball_21
 0;JEQ
-//label Ball_25
-(Ball_25)
+//label Ball_20
+(Ball_20)
+//push this 2
+@2
+D=A
+@THIS
+A=D+M
+D=M
+@SP
+A=M
+M=D
+@SP
+M=M+1
+//push constant 0
+@0
+D=A
+@SP
+A=M
+M=D
+@SP
+M=M+1
+//lt
+@SP
+AM=M-1
+D=M
+@y
+M=D
+@SP
+A=M-1
+D=M
+@y
+D=D-M
+@TRUE328
+D;JLT
+@SP
+A=M-1
+M=0
+@NEXT328
+0;JEQ
+(TRUE328)
+@SP
+A=M-1
+M=-1
+(NEXT328)
+//not
+@SP
+A=M-1
+M=!M
+//push argument 1
+@1
+D=A
+@ARG
+A=D+M
+D=M
+@SP
+A=M
+M=D
+@SP
+M=M+1
+//push constant 1
+@1
+D=A
+@SP
+A=M
+M=D
+@SP
+M=M+1
+//eq
+@SP
+AM=M-1
+D=M
+@y
+M=D
+@SP
+A=M-1
+D=M
+@y
+D=D-M
+@TRUE332
+D;JEQ
+@SP
+A=M-1
+M=0
+@NEXT332
+0;JEQ
+(TRUE332)
+@SP
+A=M-1
+M=-1
+(NEXT332)
+//and
+@SP
+AM=M-1
+D=M
+@SP
+A=M-1
+M=D&M
 //push this 2
 @2
 D=A
@@ -4791,101 +4866,6 @@ M=0
 A=M-1
 M=-1
 (NEXT336)
-//not
-@SP
-A=M-1
-M=!M
-//push argument 1
-@1
-D=A
-@ARG
-A=D+M
-D=M
-@SP
-A=M
-M=D
-@SP
-M=M+1
-//push constant 1
-@1
-D=A
-@SP
-A=M
-M=D
-@SP
-M=M+1
-//eq
-@SP
-AM=M-1
-D=M
-@y
-M=D
-@SP
-A=M-1
-D=M
-@y
-D=D-M
-@TRUE340
-D;JEQ
-@SP
-A=M-1
-M=0
-@NEXT340
-0;JEQ
-(TRUE340)
-@SP
-A=M-1
-M=-1
-(NEXT340)
-//and
-@SP
-AM=M-1
-D=M
-@SP
-A=M-1
-M=D&M
-//push this 2
-@2
-D=A
-@THIS
-A=D+M
-D=M
-@SP
-A=M
-M=D
-@SP
-M=M+1
-//push constant 0
-@0
-D=A
-@SP
-A=M
-M=D
-@SP
-M=M+1
-//lt
-@SP
-AM=M-1
-D=M
-@y
-M=D
-@SP
-A=M-1
-D=M
-@y
-D=D-M
-@TRUE344
-D;JLT
-@SP
-A=M-1
-M=0
-@NEXT344
-0;JEQ
-(TRUE344)
-@SP
-A=M-1
-M=-1
-(NEXT344)
 //push argument 1
 @1
 D=A
@@ -4920,18 +4900,18 @@ A=M-1
 D=M
 @y
 D=D-M
-@TRUE348
+@TRUE340
 D;JEQ
 @SP
 A=M-1
 M=0
-@NEXT348
+@NEXT340
 0;JEQ
-(TRUE348)
+(TRUE340)
 @SP
 A=M-1
 M=-1
-(NEXT348)
+(NEXT340)
 //and
 @SP
 AM=M-1
@@ -4950,11 +4930,11 @@ M=D|M
 @SP
 A=M-1
 M=!M
-//if-goto Ball_27
+//if-goto Ball_22
 @SP
 AM=M-1
 D=M
-@Ball_27
+@Ball_22
 D;JNE
 //push constant 20
 @20
@@ -4977,11 +4957,11 @@ D=M
 @addr
 A=M
 M=D
-//goto Ball_26
-@Ball_26
+//goto Ball_23
+@Ball_23
 0;JEQ
-//label Ball_27
-(Ball_27)
+//label Ball_22
+(Ball_22)
 //push constant 5
 @5
 D=A
@@ -5003,10 +4983,10 @@ D=M
 @addr
 A=M
 M=D
-//label Ball_26
-(Ball_26)
-//label Ball_24
-(Ball_24)
+//label Ball_23
+(Ball_23)
+//label Ball_21
+(Ball_21)
 //push this 14
 @14
 D=A
@@ -5037,27 +5017,27 @@ A=M-1
 D=M
 @y
 D=D-M
-@TRUE363
+@TRUE355
 D;JEQ
 @SP
 A=M-1
 M=0
-@NEXT363
+@NEXT355
 0;JEQ
-(TRUE363)
+(TRUE355)
 @SP
 A=M-1
 M=-1
-(NEXT363)
+(NEXT355)
 //not
 @SP
 A=M-1
 M=!M
-//if-goto Ball_29
+//if-goto Ball_24
 @SP
 AM=M-1
 D=M
-@Ball_29
+@Ball_24
 D;JNE
 //push constant 506
 @506
@@ -5360,11 +5340,11 @@ D=M
 @addr
 A=M
 M=D
-//goto Ball_28
-@Ball_28
+//goto Ball_25
+@Ball_25
 0;JEQ
-//label Ball_29
-(Ball_29)
+//label Ball_24
+(Ball_24)
 //push this 14
 @14
 D=A
@@ -5395,27 +5375,27 @@ A=M-1
 D=M
 @y
 D=D-M
-@TRUE385
+@TRUE377
 D;JEQ
 @SP
 A=M-1
 M=0
-@NEXT385
+@NEXT377
 0;JEQ
-(TRUE385)
+(TRUE377)
 @SP
 A=M-1
 M=-1
-(NEXT385)
+(NEXT377)
 //not
 @SP
 A=M-1
 M=!M
-//if-goto Ball_31
+//if-goto Ball_26
 @SP
 AM=M-1
 D=M
-@Ball_31
+@Ball_26
 D;JNE
 //push constant 0
 @0
@@ -5714,11 +5694,11 @@ D=M
 @addr
 A=M
 M=D
-//goto Ball_30
-@Ball_30
+//goto Ball_27
+@Ball_27
 0;JEQ
-//label Ball_31
-(Ball_31)
+//label Ball_26
+(Ball_26)
 //push this 14
 @14
 D=A
@@ -5749,27 +5729,27 @@ A=M-1
 D=M
 @y
 D=D-M
-@TRUE406
+@TRUE398
 D;JEQ
 @SP
 A=M-1
 M=0
-@NEXT406
+@NEXT398
 0;JEQ
-(TRUE406)
+(TRUE398)
 @SP
 A=M-1
 M=-1
-(NEXT406)
+(NEXT398)
 //not
 @SP
 A=M-1
 M=!M
-//if-goto Ball_33
+//if-goto Ball_28
 @SP
 AM=M-1
 D=M
-@Ball_33
+@Ball_28
 D;JNE
 //push constant 250
 @250
@@ -6072,11 +6052,11 @@ D=M
 @addr
 A=M
 M=D
-//goto Ball_32
-@Ball_32
+//goto Ball_29
+@Ball_29
 0;JEQ
-//label Ball_33
-(Ball_33)
+//label Ball_28
+(Ball_28)
 //push constant 0
 @0
 D=A
@@ -6374,12 +6354,12 @@ D=M
 @addr
 A=M
 M=D
-//label Ball_32
-(Ball_32)
-//label Ball_30
-(Ball_30)
-//label Ball_28
-(Ball_28)
+//label Ball_29
+(Ball_29)
+//label Ball_27
+(Ball_27)
+//label Ball_25
+(Ball_25)
 //push pointer 0
 @THIS
 D=M
@@ -6553,18 +6533,18 @@ A=M
 D=A
 @n
 M=D-1
-(LOOP450)
+(LOOP442)
 @n
 D=M
 M=M-1
-@NEXT450
+@NEXT442
 D;JLT
 @LCL
 A=D+M
 M=0
-@LOOP450
+@LOOP442
 0;JEQ
-(NEXT450)
+(NEXT442)
 @0
 D=A
 @SP
@@ -6911,18 +6891,18 @@ A=M
 D=A
 @n
 M=D-1
-(LOOP469)
+(LOOP461)
 @n
 D=M
 M=M-1
-@NEXT469
+@NEXT461
 D;JLT
 @LCL
 A=D+M
 M=0
-@LOOP469
+@LOOP461
 0;JEQ
-(NEXT469)
+(NEXT461)
 @0
 D=A
 @SP
@@ -7095,18 +7075,18 @@ A=M
 D=A
 @n
 M=D-1
-(LOOP477)
+(LOOP469)
 @n
 D=M
 M=M-1
-@NEXT477
+@NEXT469
 D;JLT
 @LCL
 A=D+M
 M=0
-@LOOP477
+@LOOP469
 0;JEQ
-(NEXT477)
+(NEXT469)
 @0
 D=A
 @SP
@@ -7357,18 +7337,18 @@ A=M
 D=A
 @n
 M=D-1
-(LOOP489)
+(LOOP481)
 @n
 D=M
 M=M-1
-@NEXT489
+@NEXT481
 D;JLT
 @LCL
 A=D+M
 M=0
-@LOOP489
+@LOOP481
 0;JEQ
-(NEXT489)
+(NEXT481)
 @0
 D=A
 @SP
@@ -7615,18 +7595,18 @@ A=M
 D=A
 @n
 M=D-1
-(LOOP500)
+(LOOP492)
 @n
 D=M
 M=M-1
-@NEXT500
+@NEXT492
 D;JLT
 @LCL
 A=D+M
 M=0
-@LOOP500
+@LOOP492
 0;JEQ
-(NEXT500)
+(NEXT492)
 @0
 D=A
 @SP
@@ -7871,18 +7851,18 @@ A=M
 D=A
 @n
 M=D-1
-(LOOP515)
+(LOOP507)
 @n
 D=M
 M=M-1
-@NEXT515
+@NEXT507
 D;JLT
 @LCL
 A=D+M
 M=0
-@LOOP515
+@LOOP507
 0;JEQ
-(NEXT515)
+(NEXT507)
 @0
 D=A
 @SP
@@ -8005,18 +7985,18 @@ A=M
 D=A
 @n
 M=D-1
-(LOOP522)
+(LOOP514)
 @n
 D=M
 M=M-1
-@NEXT522
+@NEXT514
 D;JLT
 @LCL
 A=D+M
 M=0
-@LOOP522
+@LOOP514
 0;JEQ
-(NEXT522)
+(NEXT514)
 @0
 D=A
 @SP
@@ -8118,18 +8098,18 @@ A=M
 D=A
 @n
 M=D-1
-(LOOP527)
+(LOOP519)
 @n
 D=M
 M=M-1
-@NEXT527
+@NEXT519
 D;JLT
 @LCL
 A=D+M
 M=0
-@LOOP527
+@LOOP519
 0;JEQ
-(NEXT527)
+(NEXT519)
 @0
 D=A
 @SP
@@ -8249,18 +8229,18 @@ A=M
 D=A
 @n
 M=D-1
-(LOOP534)
+(LOOP526)
 @n
 D=M
 M=M-1
-@NEXT534
+@NEXT526
 D;JLT
 @LCL
 A=D+M
 M=0
-@LOOP534
+@LOOP526
 0;JEQ
-(NEXT534)
+(NEXT526)
 @0
 D=A
 @SP
@@ -8531,18 +8511,18 @@ A=M
 D=A
 @n
 M=D-1
-(LOOP547)
+(LOOP539)
 @n
 D=M
 M=M-1
-@NEXT547
+@NEXT539
 D;JLT
 @LCL
 A=D+M
 M=0
-@LOOP547
+@LOOP539
 0;JEQ
-(NEXT547)
+(NEXT539)
 @0
 D=A
 @SP
@@ -8594,27 +8574,27 @@ A=M-1
 D=M
 @y
 D=D-M
-@TRUE552
+@TRUE544
 D;JEQ
 @SP
 A=M-1
 M=0
-@NEXT552
+@NEXT544
 0;JEQ
-(TRUE552)
+(TRUE544)
 @SP
 A=M-1
 M=-1
-(NEXT552)
+(NEXT544)
 //not
 @SP
 A=M-1
 M=!M
-//if-goto Bat_1
+//if-goto Bat_30
 @SP
 AM=M-1
 D=M
-@Bat_1
+@Bat_30
 D;JNE
 //push this 0
 @0
@@ -8685,27 +8665,27 @@ A=M-1
 D=M
 @y
 D=D-M
-@TRUE561
+@TRUE553
 D;JLT
 @SP
 A=M-1
 M=0
-@NEXT561
+@NEXT553
 0;JEQ
-(TRUE561)
+(TRUE553)
 @SP
 A=M-1
 M=-1
-(NEXT561)
+(NEXT553)
 //not
 @SP
 A=M-1
 M=!M
-//if-goto Bat_3
+//if-goto Bat_31
 @SP
 AM=M-1
 D=M
-@Bat_3
+@Bat_31
 D;JNE
 //push constant 0
 @0
@@ -8728,13 +8708,8 @@ D=M
 @addr
 A=M
 M=D
-//goto Bat_2
-@Bat_2
-0;JEQ
-//label Bat_3
-(Bat_3)
-//label Bat_2
-(Bat_2)
+//label Bat_31
+(Bat_31)
 //push constant 0
 @0
 D=A
@@ -9224,11 +9199,11 @@ AM=M-1
 D=M
 @5
 M=D
-//goto Bat_0
-@Bat_0
+//goto Bat_32
+@Bat_32
 0;JEQ
-//label Bat_1
-(Bat_1)
+//label Bat_30
+(Bat_30)
 //push this 0
 @0
 D=A
@@ -9316,27 +9291,27 @@ A=M-1
 D=M
 @y
 D=D-M
-@TRUE612
+@TRUE602
 D;JGT
 @SP
 A=M-1
 M=0
-@NEXT612
+@NEXT602
 0;JEQ
-(TRUE612)
+(TRUE602)
 @SP
 A=M-1
 M=-1
-(NEXT612)
+(NEXT602)
 //not
 @SP
 A=M-1
 M=!M
-//if-goto Bat_5
+//if-goto Bat_33
 @SP
 AM=M-1
 D=M
-@Bat_5
+@Bat_33
 D;JNE
 //push constant 511
 @511
@@ -9377,13 +9352,8 @@ D=M
 @addr
 A=M
 M=D
-//goto Bat_4
-@Bat_4
-0;JEQ
-//label Bat_5
-(Bat_5)
-//label Bat_4
-(Bat_4)
+//label Bat_33
+(Bat_33)
 //push constant 0
 @0
 D=A
@@ -9873,8 +9843,8 @@ AM=M-1
 D=M
 @5
 M=D
-//label Bat_0
-(Bat_0)
+//label Bat_32
+(Bat_32)
 //push constant 0
 @0
 D=A
@@ -9952,18 +9922,18 @@ A=M
 D=A
 @n
 M=D-1
-(LOOP658)
+(LOOP646)
 @n
 D=M
 M=M-1
-@NEXT658
+@NEXT646
 D;JLT
 @LCL
 A=D+M
 M=0
-@LOOP658
+@LOOP646
 0;JEQ
-(NEXT658)
+(NEXT646)
 @0
 D=A
 @SP
@@ -10105,18 +10075,18 @@ A=M
 D=A
 @n
 M=D-1
-(LOOP662)
+(LOOP650)
 @n
 D=M
 M=M-1
-@NEXT662
+@NEXT650
 D;JLT
 @LCL
 A=D+M
 M=0
-@LOOP662
+@LOOP650
 0;JEQ
-(NEXT662)
+(NEXT650)
 @1
 D=A
 @SP
@@ -10195,8 +10165,8 @@ AM=M-1
 D=M
 @5
 M=D
-//label Keyboard_0
-(Keyboard_0)
+//label Keyboard_34
+(Keyboard_34)
 //call Keyboard.keyPressed 0
 //push retAddrLabel on to the stack
 @Keyboard.keyPressed$ret.1
@@ -10276,33 +10246,33 @@ A=M-1
 D=M
 @y
 D=D-M
-@TRUE669
+@TRUE657
 D;JEQ
 @SP
 A=M-1
 M=0
-@NEXT669
+@NEXT657
 0;JEQ
-(TRUE669)
+(TRUE657)
 @SP
 A=M-1
 M=-1
-(NEXT669)
+(NEXT657)
 //not
 @SP
 A=M-1
 M=!M
-//if-goto Keyboard_1
+//if-goto Keyboard_35
 @SP
 AM=M-1
 D=M
-@Keyboard_1
+@Keyboard_35
 D;JNE
-//goto Keyboard_0
-@Keyboard_0
+//goto Keyboard_34
+@Keyboard_34
 0;JEQ
-//label Keyboard_1
-(Keyboard_1)
+//label Keyboard_35
+(Keyboard_35)
 //call Keyboard.keyPressed 0
 //push retAddrLabel on to the stack
 @Keyboard.keyPressed$ret.2
@@ -10376,8 +10346,8 @@ D=M
 @addr
 A=M
 M=D
-//label Keyboard_2
-(Keyboard_2)
+//label Keyboard_36
+(Keyboard_36)
 //call Keyboard.keyPressed 0
 //push retAddrLabel on to the stack
 @Keyboard.keyPressed$ret.3
@@ -10457,18 +10427,18 @@ A=M-1
 D=M
 @y
 D=D-M
-@TRUE679
+@TRUE667
 D;JEQ
 @SP
 A=M-1
 M=0
-@NEXT679
+@NEXT667
 0;JEQ
-(TRUE679)
+(TRUE667)
 @SP
 A=M-1
 M=-1
-(NEXT679)
+(NEXT667)
 //not
 @SP
 A=M-1
@@ -10477,17 +10447,17 @@ M=!M
 @SP
 A=M-1
 M=!M
-//if-goto Keyboard_3
+//if-goto Keyboard_37
 @SP
 AM=M-1
 D=M
-@Keyboard_3
+@Keyboard_37
 D;JNE
-//goto Keyboard_2
-@Keyboard_2
+//goto Keyboard_36
+@Keyboard_36
 0;JEQ
-//label Keyboard_3
-(Keyboard_3)
+//label Keyboard_37
+(Keyboard_37)
 //call Output.backSpace 0
 //push retAddrLabel on to the stack
 @Output.backSpace$ret.1
@@ -10711,18 +10681,18 @@ A=M
 D=A
 @n
 M=D-1
-(LOOP692)
+(LOOP680)
 @n
 D=M
 M=M-1
-@NEXT692
+@NEXT680
 D;JLT
 @LCL
 A=D+M
 M=0
-@LOOP692
+@LOOP680
 0;JEQ
-(NEXT692)
+(NEXT680)
 @2
 D=A
 @SP
@@ -10885,8 +10855,8 @@ D=M
 @addr
 A=M
 M=D
-//label Keyboard_4
-(Keyboard_4)
+//label Keyboard_38
+(Keyboard_38)
 //push constant 1
 @1
 D=A
@@ -10903,11 +10873,11 @@ M=-M
 @SP
 A=M-1
 M=!M
-//if-goto Keyboard_5
+//if-goto Keyboard_39
 @SP
 AM=M-1
 D=M
-@Keyboard_5
+@Keyboard_39
 D;JNE
 //call Keyboard.readChar 0
 //push retAddrLabel on to the stack
@@ -11064,27 +11034,27 @@ A=M-1
 D=M
 @y
 D=D-M
-@TRUE708
+@TRUE696
 D;JEQ
 @SP
 A=M-1
 M=0
-@NEXT708
+@NEXT696
 0;JEQ
-(TRUE708)
+(TRUE696)
 @SP
 A=M-1
 M=-1
-(NEXT708)
+(NEXT696)
 //not
 @SP
 A=M-1
 M=!M
-//if-goto Keyboard_7
+//if-goto Keyboard_40
 @SP
 AM=M-1
 D=M
-@Keyboard_7
+@Keyboard_40
 D;JNE
 //call Output.backSpace 0
 //push retAddrLabel on to the stack
@@ -11292,13 +11262,8 @@ M=D
 @retAddr
 A=M
 0;JEQ
-//goto Keyboard_6
-@Keyboard_6
-0;JEQ
-//label Keyboard_7
-(Keyboard_7)
-//label Keyboard_6
-(Keyboard_6)
+//label Keyboard_40
+(Keyboard_40)
 //push local 0
 @0
 D=A
@@ -11381,27 +11346,27 @@ A=M-1
 D=M
 @y
 D=D-M
-@TRUE722
+@TRUE708
 D;JEQ
 @SP
 A=M-1
 M=0
-@NEXT722
+@NEXT708
 0;JEQ
-(TRUE722)
+(TRUE708)
 @SP
 A=M-1
 M=-1
-(NEXT722)
+(NEXT708)
 //not
 @SP
 A=M-1
 M=!M
-//if-goto Keyboard_9
+//if-goto Keyboard_41
 @SP
 AM=M-1
 D=M
-@Keyboard_9
+@Keyboard_41
 D;JNE
 //call Output.backSpace 0
 //push retAddrLabel on to the stack
@@ -11612,11 +11577,11 @@ AM=M-1
 D=M
 @5
 M=D
-//goto Keyboard_8
-@Keyboard_8
+//goto Keyboard_42
+@Keyboard_42
 0;JEQ
-//label Keyboard_9
-(Keyboard_9)
+//label Keyboard_41
+(Keyboard_41)
 //push local 1
 @1
 D=A
@@ -11712,13 +11677,13 @@ D=M
 @addr
 A=M
 M=D
-//label Keyboard_8
-(Keyboard_8)
-//goto Keyboard_4
-@Keyboard_4
+//label Keyboard_42
+(Keyboard_42)
+//goto Keyboard_38
+@Keyboard_38
 0;JEQ
-//label Keyboard_5
-(Keyboard_5)
+//label Keyboard_39
+(Keyboard_39)
 //push local 1
 @1
 D=A
@@ -11799,18 +11764,18 @@ A=M
 D=A
 @n
 M=D-1
-(LOOP743)
+(LOOP729)
 @n
 D=M
 M=M-1
-@NEXT743
+@NEXT729
 D;JLT
 @LCL
 A=D+M
 M=0
-@LOOP743
+@LOOP729
 0;JEQ
-(NEXT743)
+(NEXT729)
 @2
 D=A
 @SP
@@ -12063,18 +12028,18 @@ A=M
 D=A
 @n
 M=D-1
-(LOOP752)
+(LOOP738)
 @n
 D=M
 M=M-1
-@NEXT752
+@NEXT738
 D;JLT
 @LCL
 A=D+M
 M=0
-@LOOP752
+@LOOP738
 0;JEQ
-(NEXT752)
+(NEXT738)
 @1
 D=A
 @SP
@@ -12449,18 +12414,18 @@ A=M
 D=A
 @n
 M=D-1
-(LOOP765)
+(LOOP751)
 @n
 D=M
 M=M-1
-@NEXT765
+@NEXT751
 D;JLT
 @LCL
 A=D+M
 M=0
-@LOOP765
+@LOOP751
 0;JEQ
-(NEXT765)
+(NEXT751)
 @0
 D=A
 @SP
@@ -12553,6 +12518,14 @@ AM=M-1
 D=M
 @Math.1
 M=D
+//push static 1
+@Math.1
+D=M
+@SP
+A=M
+M=D
+@SP
+M=M+1
 //push constant 0
 @0
 D=A
@@ -12561,14 +12534,6 @@ A=M
 M=D
 @SP
 M=M+1
-//push static 1
-@Math.1
-D=M
-@SP
-A=M
-M=D
-@SP
-M=M+1
 //add
 @SP
 AM=M-1
@@ -12617,17 +12582,17 @@ D=M
 @addr
 A=M
 M=D
-//push constant 1
-@1
-D=A
+//push static 1
+@Math.1
+D=M
 @SP
 A=M
 M=D
 @SP
 M=M+1
-//push static 1
-@Math.1
-D=M
+//push constant 1
+@1
+D=A
 @SP
 A=M
 M=D
@@ -12681,17 +12646,17 @@ D=M
 @addr
 A=M
 M=D
-//push constant 2
-@2
-D=A
+//push static 1
+@Math.1
+D=M
 @SP
 A=M
 M=D
 @SP
 M=M+1
-//push static 1
-@Math.1
-D=M
+//push constant 2
+@2
+D=A
 @SP
 A=M
 M=D
@@ -12745,17 +12710,17 @@ D=M
 @addr
 A=M
 M=D
-//push constant 3
-@3
-D=A
+//push static 1
+@Math.1
+D=M
 @SP
 A=M
 M=D
 @SP
 M=M+1
-//push static 1
-@Math.1
-D=M
+//push constant 3
+@3
+D=A
 @SP
 A=M
 M=D
@@ -12809,17 +12774,17 @@ D=M
 @addr
 A=M
 M=D
-//push constant 4
-@4
-D=A
+//push static 1
+@Math.1
+D=M
 @SP
 A=M
 M=D
 @SP
 M=M+1
-//push static 1
-@Math.1
-D=M
+//push constant 4
+@4
+D=A
 @SP
 A=M
 M=D
@@ -12873,17 +12838,17 @@ D=M
 @addr
 A=M
 M=D
-//push constant 5
-@5
-D=A
+//push static 1
+@Math.1
+D=M
 @SP
 A=M
 M=D
 @SP
 M=M+1
-//push static 1
-@Math.1
-D=M
+//push constant 5
+@5
+D=A
 @SP
 A=M
 M=D
@@ -12937,17 +12902,17 @@ D=M
 @addr
 A=M
 M=D
-//push constant 6
-@6
-D=A
+//push static 1
+@Math.1
+D=M
 @SP
 A=M
 M=D
 @SP
 M=M+1
-//push static 1
-@Math.1
-D=M
+//push constant 6
+@6
+D=A
 @SP
 A=M
 M=D
@@ -13001,17 +12966,17 @@ D=M
 @addr
 A=M
 M=D
-//push constant 7
-@7
-D=A
+//push static 1
+@Math.1
+D=M
 @SP
 A=M
 M=D
 @SP
 M=M+1
-//push static 1
-@Math.1
-D=M
+//push constant 7
+@7
+D=A
 @SP
 A=M
 M=D
@@ -13065,17 +13030,17 @@ D=M
 @addr
 A=M
 M=D
-//push constant 8
-@8
-D=A
+//push static 1
+@Math.1
+D=M
 @SP
 A=M
 M=D
 @SP
 M=M+1
-//push static 1
-@Math.1
-D=M
+//push constant 8
+@8
+D=A
 @SP
 A=M
 M=D
@@ -13129,17 +13094,17 @@ D=M
 @addr
 A=M
 M=D
-//push constant 9
-@9
-D=A
+//push static 1
+@Math.1
+D=M
 @SP
 A=M
 M=D
 @SP
 M=M+1
-//push static 1
-@Math.1
-D=M
+//push constant 9
+@9
+D=A
 @SP
 A=M
 M=D
@@ -13193,17 +13158,17 @@ D=M
 @addr
 A=M
 M=D
-//push constant 10
-@10
-D=A
+//push static 1
+@Math.1
+D=M
 @SP
 A=M
 M=D
 @SP
 M=M+1
-//push static 1
-@Math.1
-D=M
+//push constant 10
+@10
+D=A
 @SP
 A=M
 M=D
@@ -13257,17 +13222,17 @@ D=M
 @addr
 A=M
 M=D
-//push constant 11
-@11
-D=A
+//push static 1
+@Math.1
+D=M
 @SP
 A=M
 M=D
 @SP
 M=M+1
-//push static 1
-@Math.1
-D=M
+//push constant 11
+@11
+D=A
 @SP
 A=M
 M=D
@@ -13321,17 +13286,17 @@ D=M
 @addr
 A=M
 M=D
-//push constant 12
-@12
-D=A
+//push static 1
+@Math.1
+D=M
 @SP
 A=M
 M=D
 @SP
 M=M+1
-//push static 1
-@Math.1
-D=M
+//push constant 12
+@12
+D=A
 @SP
 A=M
 M=D
@@ -13385,17 +13350,17 @@ D=M
 @addr
 A=M
 M=D
-//push constant 13
-@13
-D=A
+//push static 1
+@Math.1
+D=M
 @SP
 A=M
 M=D
 @SP
 M=M+1
-//push static 1
-@Math.1
-D=M
+//push constant 13
+@13
+D=A
 @SP
 A=M
 M=D
@@ -13449,17 +13414,17 @@ D=M
 @addr
 A=M
 M=D
-//push constant 14
-@14
-D=A
+//push static 1
+@Math.1
+D=M
 @SP
 A=M
 M=D
 @SP
 M=M+1
-//push static 1
-@Math.1
-D=M
+//push constant 14
+@14
+D=A
 @SP
 A=M
 M=D
@@ -13513,17 +13478,17 @@ D=M
 @addr
 A=M
 M=D
-//push constant 15
-@15
-D=A
+//push static 1
+@Math.1
+D=M
 @SP
 A=M
 M=D
 @SP
 M=M+1
-//push static 1
-@Math.1
-D=M
+//push constant 15
+@15
+D=A
 @SP
 A=M
 M=D
@@ -13673,35 +13638,35 @@ A=M
 D=A
 @n
 M=D-1
-(LOOP904)
+(LOOP890)
 @n
 D=M
 M=M-1
-@NEXT904
+@NEXT890
 D;JLT
 @LCL
 A=D+M
 M=0
-@LOOP904
+@LOOP890
 0;JEQ
-(NEXT904)
+(NEXT890)
 @0
 D=A
 @SP
 M=D+M
-//push argument 0
-@0
-D=A
-@ARG
-A=D+M
+//push static 1
+@Math.1
 D=M
 @SP
 A=M
 M=D
 @SP
 M=M+1
-//push static 1
-@Math.1
+//push argument 0
+@0
+D=A
+@ARG
+A=D+M
 D=M
 @SP
 A=M
@@ -13801,18 +13766,18 @@ A=M
 D=A
 @n
 M=D-1
-(LOOP911)
+(LOOP897)
 @n
 D=M
 M=M-1
-@NEXT911
+@NEXT897
 D;JLT
 @LCL
 A=D+M
 M=0
-@LOOP911
+@LOOP897
 0;JEQ
-(NEXT911)
+(NEXT897)
 @5
 D=A
 @SP
@@ -13883,8 +13848,8 @@ D=M
 @addr
 A=M
 M=D
-//label Math_0
-(Math_0)
+//label Math_43
+(Math_43)
 //push local 2
 @2
 D=A
@@ -13915,18 +13880,18 @@ A=M-1
 D=M
 @y
 D=D-M
-@TRUE921
+@TRUE907
 D;JGT
 @SP
 A=M-1
 M=0
-@NEXT921
+@NEXT907
 0;JEQ
-(TRUE921)
+(TRUE907)
 @SP
 A=M-1
 M=-1
-(NEXT921)
+(NEXT907)
 //not
 @SP
 A=M-1
@@ -13935,11 +13900,11 @@ M=!M
 @SP
 A=M-1
 M=!M
-//if-goto Math_1
+//if-goto Math_44
 @SP
 AM=M-1
 D=M
-@Math_1
+@Math_44
 D;JNE
 //push argument 1
 @1
@@ -13952,19 +13917,19 @@ A=M
 M=D
 @SP
 M=M+1
-//push local 2
-@2
-D=A
-@LCL
-A=D+M
+//push static 1
+@Math.1
 D=M
 @SP
 A=M
 M=D
 @SP
 M=M+1
-//push static 1
-@Math.1
+//push local 2
+@2
+D=A
+@LCL
+A=D+M
 D=M
 @SP
 A=M
@@ -14045,18 +14010,18 @@ A=M-1
 D=M
 @y
 D=D-M
-@TRUE935
+@TRUE921
 D;JEQ
 @SP
 A=M-1
 M=0
-@NEXT935
+@NEXT921
 0;JEQ
-(TRUE935)
+(TRUE921)
 @SP
 A=M-1
 M=-1
-(NEXT935)
+(NEXT921)
 //not
 @SP
 A=M-1
@@ -14065,11 +14030,11 @@ M=!M
 @SP
 A=M-1
 M=!M
-//if-goto Math_3
+//if-goto Math_45
 @SP
 AM=M-1
 D=M
-@Math_3
+@Math_45
 D;JNE
 //push local 0
 @0
@@ -14113,13 +14078,8 @@ D=M
 @addr
 A=M
 M=D
-//goto Math_2
-@Math_2
-0;JEQ
-//label Math_3
-(Math_3)
-//label Math_2
-(Math_2)
+//label Math_45
+(Math_45)
 //push local 1
 @1
 D=A
@@ -14201,11 +14161,11 @@ D=M
 @addr
 A=M
 M=D
-//goto Math_0
-@Math_0
+//goto Math_43
+@Math_43
 0;JEQ
-//label Math_1
-(Math_1)
+//label Math_44
+(Math_44)
 //push local 0
 @0
 D=A
@@ -14286,18 +14246,18 @@ A=M
 D=A
 @n
 M=D-1
-(LOOP958)
+(LOOP942)
 @n
 D=M
 M=M-1
-@NEXT958
+@NEXT942
 D;JLT
 @LCL
 A=D+M
 M=0
-@LOOP958
+@LOOP942
 0;JEQ
-(NEXT958)
+(NEXT942)
 @4
 D=A
 @SP
@@ -14353,27 +14313,27 @@ A=M-1
 D=M
 @y
 D=D-M
-@TRUE963
+@TRUE947
 D;JLT
 @SP
 A=M-1
 M=0
-@NEXT963
+@NEXT947
 0;JEQ
-(TRUE963)
+(TRUE947)
 @SP
 A=M-1
 M=-1
-(NEXT963)
+(NEXT947)
 //not
 @SP
 A=M-1
 M=!M
-//if-goto Math_5
+//if-goto Math_46
 @SP
 AM=M-1
 D=M
-@Math_5
+@Math_46
 D;JNE
 //push argument 0
 @0
@@ -14489,27 +14449,27 @@ A=M-1
 D=M
 @y
 D=D-M
-@TRUE971
+@TRUE955
 D;JEQ
 @SP
 A=M-1
 M=0
-@NEXT971
+@NEXT955
 0;JEQ
-(TRUE971)
+(TRUE955)
 @SP
 A=M-1
 M=-1
-(NEXT971)
+(NEXT955)
 //not
 @SP
 A=M-1
 M=!M
-//if-goto Math_7
+//if-goto Math_47
 @SP
 AM=M-1
 D=M
-@Math_7
+@Math_47
 D;JNE
 //push constant 1
 @1
@@ -14536,11 +14496,11 @@ D=M
 @addr
 A=M
 M=D
-//goto Math_6
-@Math_6
+//goto Math_48
+@Math_48
 0;JEQ
-//label Math_7
-(Math_7)
+//label Math_47
+(Math_47)
 //push constant 1
 @1
 D=A
@@ -14562,15 +14522,10 @@ D=M
 @addr
 A=M
 M=D
-//label Math_6
-(Math_6)
-//goto Math_4
-@Math_4
-0;JEQ
-//label Math_5
-(Math_5)
-//label Math_4
-(Math_4)
+//label Math_48
+(Math_48)
+//label Math_46
+(Math_46)
 //push argument 1
 @1
 D=A
@@ -14601,27 +14556,27 @@ A=M-1
 D=M
 @y
 D=D-M
-@TRUE987
+@TRUE969
 D;JLT
 @SP
 A=M-1
 M=0
-@NEXT987
+@NEXT969
 0;JEQ
-(TRUE987)
+(TRUE969)
 @SP
 A=M-1
 M=-1
-(NEXT987)
+(NEXT969)
 //not
 @SP
 A=M-1
 M=!M
-//if-goto Math_9
+//if-goto Math_49
 @SP
 AM=M-1
 D=M
-@Math_9
+@Math_49
 D;JNE
 //push argument 1
 @1
@@ -14737,27 +14692,27 @@ A=M-1
 D=M
 @y
 D=D-M
-@TRUE995
+@TRUE977
 D;JEQ
 @SP
 A=M-1
 M=0
-@NEXT995
+@NEXT977
 0;JEQ
-(TRUE995)
+(TRUE977)
 @SP
 A=M-1
 M=-1
-(NEXT995)
+(NEXT977)
 //not
 @SP
 A=M-1
 M=!M
-//if-goto Math_11
+//if-goto Math_50
 @SP
 AM=M-1
 D=M
-@Math_11
+@Math_50
 D;JNE
 //push constant 1
 @1
@@ -14784,11 +14739,11 @@ D=M
 @addr
 A=M
 M=D
-//goto Math_10
-@Math_10
+//goto Math_51
+@Math_51
 0;JEQ
-//label Math_11
-(Math_11)
+//label Math_50
+(Math_50)
 //push constant 1
 @1
 D=A
@@ -14810,15 +14765,10 @@ D=M
 @addr
 A=M
 M=D
-//label Math_10
-(Math_10)
-//goto Math_8
-@Math_8
-0;JEQ
-//label Math_9
-(Math_9)
-//label Math_8
-(Math_8)
+//label Math_51
+(Math_51)
+//label Math_49
+(Math_49)
 //push argument 1
 @1
 D=A
@@ -14841,29 +14791,6 @@ A=M
 M=D
 @SP
 M=M+1
-//gt
-@SP
-AM=M-1
-D=M
-@y
-M=D
-@SP
-A=M-1
-D=M
-@y
-D=D-M
-@TRUE1011
-D;JGT
-@SP
-A=M-1
-M=0
-@NEXT1011
-0;JEQ
-(TRUE1011)
-@SP
-A=M-1
-M=-1
-(NEXT1011)
 //push static 0
 @Math.0
 D=M
@@ -14879,15 +14806,38 @@ D=M
 @SP
 A=M-1
 M=D|M
+//gt
+@SP
+AM=M-1
+D=M
+@y
+M=D
+@SP
+A=M-1
+D=M
+@y
+D=D-M
+@TRUE993
+D;JGT
+@SP
+A=M-1
+M=0
+@NEXT993
+0;JEQ
+(TRUE993)
+@SP
+A=M-1
+M=-1
+(NEXT993)
 //not
 @SP
 A=M-1
 M=!M
-//if-goto Math_13
+//if-goto Math_52
 @SP
 AM=M-1
 D=M
-@Math_13
+@Math_52
 D;JNE
 //push constant 0
 @0
@@ -14974,13 +14924,8 @@ M=D
 @retAddr
 A=M
 0;JEQ
-//goto Math_12
-@Math_12
-0;JEQ
-//label Math_13
-(Math_13)
-//label Math_12
-(Math_12)
+//label Math_52
+(Math_52)
 //push argument 1
 @1
 D=A
@@ -15053,27 +14998,27 @@ A=M-1
 D=M
 @y
 D=D-M
-@TRUE1029
+@TRUE1007
 D;JLT
 @SP
 A=M-1
 M=0
-@NEXT1029
+@NEXT1007
 0;JEQ
-(TRUE1029)
+(TRUE1007)
 @SP
 A=M-1
 M=-1
-(NEXT1029)
+(NEXT1007)
 //not
 @SP
 A=M-1
 M=!M
-//if-goto Math_15
+//if-goto Math_53
 @SP
 AM=M-1
 D=M
-@Math_15
+@Math_53
 D;JNE
 //push constant 1
 @1
@@ -15093,13 +15038,8 @@ AM=M-1
 D=M
 @Math.0
 M=D
-//goto Math_14
-@Math_14
-0;JEQ
-//label Math_15
-(Math_15)
-//label Math_14
-(Math_14)
+//label Math_53
+(Math_53)
 //push argument 0
 @0
 D=A
@@ -15335,27 +15275,27 @@ A=M-1
 D=M
 @y
 D=D-M
-@TRUE1050
+@TRUE1026
 D;JLT
 @SP
 A=M-1
 M=0
-@NEXT1050
+@NEXT1026
 0;JEQ
-(TRUE1050)
+(TRUE1026)
 @SP
 A=M-1
 M=-1
-(NEXT1050)
+(NEXT1026)
 //not
 @SP
 A=M-1
 M=!M
-//if-goto Math_17
+//if-goto Math_54
 @SP
 AM=M-1
 D=M
-@Math_17
+@Math_54
 D;JNE
 //push local 0
 @0
@@ -15399,11 +15339,11 @@ D=M
 @addr
 A=M
 M=D
-//goto Math_16
-@Math_16
+//goto Math_55
+@Math_55
 0;JEQ
-//label Math_17
-(Math_17)
+//label Math_54
+(Math_54)
 //push local 0
 @0
 D=A
@@ -15421,6 +15361,14 @@ D=A
 @LCL
 A=D+M
 D=M
+@SP
+A=M
+M=D
+@SP
+M=M+1
+//push constant 1
+@1
+D=A
 @SP
 A=M
 M=D
@@ -15433,14 +15381,6 @@ D=M
 @SP
 A=M-1
 M=D+M
-//push constant 1
-@1
-D=A
-@SP
-A=M
-M=D
-@SP
-M=M+1
 //add
 @SP
 AM=M-1
@@ -15461,8 +15401,8 @@ D=M
 @addr
 A=M
 M=D
-//label Math_16
-(Math_16)
+//label Math_55
+(Math_55)
 //push local 2
 @2
 D=A
@@ -15478,11 +15418,11 @@ M=M+1
 @SP
 A=M-1
 M=!M
-//if-goto Math_19
+//if-goto Math_56
 @SP
 AM=M-1
 D=M
-@Math_19
+@Math_56
 D;JNE
 //push local 3
 @3
@@ -15562,13 +15502,8 @@ M=D
 @retAddr
 A=M
 0;JEQ
-//goto Math_18
-@Math_18
-0;JEQ
-//label Math_19
-(Math_19)
-//label Math_18
-(Math_18)
+//label Math_56
+(Math_56)
 //push local 3
 @3
 D=A
@@ -15649,18 +15584,18 @@ A=M
 D=A
 @n
 M=D-1
-(LOOP1077)
+(LOOP1051)
 @n
 D=M
 M=M-1
-@NEXT1077
+@NEXT1051
 D;JLT
 @LCL
 A=D+M
 M=0
-@LOOP1077
+@LOOP1051
 0;JEQ
-(NEXT1077)
+(NEXT1051)
 @6
 D=A
 @SP
@@ -15767,20 +15702,20 @@ D=M
 @addr
 A=M
 M=D
-//push constant 0
-@0
-D=A
-@SP
-A=M
-M=D
-@SP
-M=M+1
 //push local 5
 @5
 D=A
 @LCL
 A=D+M
 D=M
+@SP
+A=M
+M=D
+@SP
+M=M+1
+//push constant 0
+@0
+D=A
 @SP
 A=M
 M=D
@@ -15968,8 +15903,8 @@ D=M
 @addr
 A=M
 M=D
-//label Math_20
-(Math_20)
+//label Math_57
+(Math_57)
 //push local 2
 @2
 D=A
@@ -16003,30 +15938,30 @@ A=M-1
 D=M
 @y
 D=D-M
-@TRUE1102
+@TRUE1076
 D;JLT
 @SP
 A=M-1
 M=0
-@NEXT1102
+@NEXT1076
 0;JEQ
-(TRUE1102)
+(TRUE1076)
 @SP
 A=M-1
 M=-1
-(NEXT1102)
+(NEXT1076)
 //not
 @SP
 A=M-1
 M=!M
-//if-goto Math_21
+//if-goto Math_58
 @SP
 AM=M-1
 D=M
-@Math_21
+@Math_58
 D;JNE
-//push local 2
-@2
+//push local 5
+@5
 D=A
 @LCL
 A=D+M
@@ -16036,8 +15971,8 @@ A=M
 M=D
 @SP
 M=M+1
-//push local 5
-@5
+//push local 2
+@2
 D=A
 @LCL
 A=D+M
@@ -16054,6 +15989,17 @@ D=M
 @SP
 A=M-1
 M=D+M
+//push local 5
+@5
+D=A
+@LCL
+A=D+M
+D=M
+@SP
+A=M
+M=D
+@SP
+M=M+1
 //push local 2
 @2
 D=A
@@ -16080,17 +16026,6 @@ D=M
 @SP
 A=M-1
 M=M-D
-//push local 5
-@5
-D=A
-@LCL
-A=D+M
-D=M
-@SP
-A=M
-M=D
-@SP
-M=M+1
 //add
 @SP
 AM=M-1
@@ -16115,6 +16050,17 @@ A=M
 M=D
 @SP
 M=M+1
+//push local 5
+@5
+D=A
+@LCL
+A=D+M
+D=M
+@SP
+A=M
+M=D
+@SP
+M=M+1
 //push local 2
 @2
 D=A
@@ -16141,17 +16087,6 @@ D=M
 @SP
 A=M-1
 M=M-D
-//push local 5
-@5
-D=A
-@LCL
-A=D+M
-D=M
-@SP
-A=M
-M=D
-@SP
-M=M+1
 //add
 @SP
 AM=M-1
@@ -16255,11 +16190,11 @@ D=M
 @addr
 A=M
 M=D
-//goto Math_20
-@Math_20
+//goto Math_57
+@Math_57
 0;JEQ
-//label Math_21
-(Math_21)
+//label Math_58
+(Math_58)
 //push local 3
 @3
 D=A
@@ -16299,8 +16234,8 @@ D=M
 @addr
 A=M
 M=D
-//label Math_22
-(Math_22)
+//label Math_59
+(Math_59)
 //push local 2
 @2
 D=A
@@ -16331,18 +16266,18 @@ A=M-1
 D=M
 @y
 D=D-M
-@TRUE1140
+@TRUE1114
 D;JLT
 @SP
 A=M-1
 M=0
-@NEXT1140
+@NEXT1114
 0;JEQ
-(TRUE1140)
+(TRUE1114)
 @SP
 A=M-1
 M=-1
-(NEXT1140)
+(NEXT1114)
 //not
 @SP
 A=M-1
@@ -16351,11 +16286,11 @@ M=!M
 @SP
 A=M-1
 M=!M
-//if-goto Math_23
+//if-goto Math_60
 @SP
 AM=M-1
 D=M
-@Math_23
+@Math_60
 D;JNE
 //push local 0
 @0
@@ -16368,8 +16303,8 @@ A=M
 M=D
 @SP
 M=M+1
-//push local 2
-@2
+//push local 5
+@5
 D=A
 @LCL
 A=D+M
@@ -16379,8 +16314,8 @@ A=M
 M=D
 @SP
 M=M+1
-//push local 5
-@5
+//push local 2
+@2
 D=A
 @LCL
 A=D+M
@@ -16432,8 +16367,8 @@ A=M
 M=D
 @SP
 M=M+1
-//push local 2
-@2
+//push local 5
+@5
 D=A
 @LCL
 A=D+M
@@ -16443,8 +16378,8 @@ A=M
 M=D
 @SP
 M=M+1
-//push local 5
-@5
+//push local 2
+@2
 D=A
 @LCL
 A=D+M
@@ -16591,18 +16526,18 @@ A=M-1
 D=M
 @y
 D=D-M
-@TRUE1162
+@TRUE1136
 D;JGT
 @SP
 A=M-1
 M=0
-@NEXT1162
+@NEXT1136
 0;JEQ
-(TRUE1162)
+(TRUE1136)
 @SP
 A=M-1
 M=-1
-(NEXT1162)
+(NEXT1136)
 //not
 @SP
 A=M-1
@@ -16637,18 +16572,18 @@ A=M-1
 D=M
 @y
 D=D-M
-@TRUE1166
+@TRUE1140
 D;JGT
 @SP
 A=M-1
 M=0
-@NEXT1166
+@NEXT1140
 0;JEQ
-(TRUE1166)
+(TRUE1140)
 @SP
 A=M-1
 M=-1
-(NEXT1166)
+(NEXT1140)
 //and
 @SP
 AM=M-1
@@ -16660,11 +16595,11 @@ M=D&M
 @SP
 A=M-1
 M=!M
-//if-goto Math_25
+//if-goto Math_61
 @SP
 AM=M-1
 D=M
-@Math_25
+@Math_61
 D;JNE
 //push local 0
 @0
@@ -16677,8 +16612,8 @@ A=M
 M=D
 @SP
 M=M+1
-//push local 2
-@2
+//push local 5
+@5
 D=A
 @LCL
 A=D+M
@@ -16688,8 +16623,8 @@ A=M
 M=D
 @SP
 M=M+1
-//push local 5
-@5
+//push local 2
+@2
 D=A
 @LCL
 A=D+M
@@ -16743,13 +16678,8 @@ D=M
 @addr
 A=M
 M=D
-//goto Math_24
-@Math_24
-0;JEQ
-//label Math_25
-(Math_25)
-//label Math_24
-(Math_24)
+//label Math_61
+(Math_61)
 //push local 2
 @2
 D=A
@@ -16789,11 +16719,11 @@ D=M
 @addr
 A=M
 M=D
-//goto Math_22
-@Math_22
+//goto Math_59
+@Math_59
 0;JEQ
-//label Math_23
-(Math_23)
+//label Math_60
+(Math_60)
 //push local 5
 @5
 D=A
@@ -16951,18 +16881,18 @@ A=M
 D=A
 @n
 M=D-1
-(LOOP1192)
+(LOOP1164)
 @n
 D=M
 M=M-1
-@NEXT1192
+@NEXT1164
 D;JLT
 @LCL
 A=D+M
 M=0
-@LOOP1192
+@LOOP1164
 0;JEQ
-(NEXT1192)
+(NEXT1164)
 @0
 D=A
 @SP
@@ -16997,27 +16927,27 @@ A=M-1
 D=M
 @y
 D=D-M
-@TRUE1195
+@TRUE1167
 D;JLT
 @SP
 A=M-1
 M=0
-@NEXT1195
+@NEXT1167
 0;JEQ
-(TRUE1195)
+(TRUE1167)
 @SP
 A=M-1
 M=-1
-(NEXT1195)
+(NEXT1167)
 //not
 @SP
 A=M-1
 M=!M
-//if-goto Math_27
+//if-goto Math_62
 @SP
 AM=M-1
 D=M
-@Math_27
+@Math_62
 D;JNE
 //push argument 0
 @0
@@ -17097,11 +17027,11 @@ M=D
 @retAddr
 A=M
 0;JEQ
-//goto Math_26
-@Math_26
+//goto Math_63
+@Math_63
 0;JEQ
-//label Math_27
-(Math_27)
+//label Math_62
+(Math_62)
 //push argument 0
 @0
 D=A
@@ -17176,26 +17106,26 @@ M=D
 @retAddr
 A=M
 0;JEQ
-//label Math_26
-(Math_26)
+//label Math_63
+(Math_63)
 //function Math.min 0
 (Math.min)
 @0
 D=A
 @n
 M=D-1
-(LOOP1206)
+(LOOP1178)
 @n
 D=M
 M=M-1
-@NEXT1206
+@NEXT1178
 D;JLT
 @LCL
 A=D+M
 M=0
-@LOOP1206
+@LOOP1178
 0;JEQ
-(NEXT1206)
+(NEXT1178)
 @0
 D=A
 @SP
@@ -17233,27 +17163,27 @@ A=M-1
 D=M
 @y
 D=D-M
-@TRUE1209
+@TRUE1181
 D;JLT
 @SP
 A=M-1
 M=0
-@NEXT1209
+@NEXT1181
 0;JEQ
-(TRUE1209)
+(TRUE1181)
 @SP
 A=M-1
 M=-1
-(NEXT1209)
+(NEXT1181)
 //not
 @SP
 A=M-1
 M=!M
-//if-goto Math_29
+//if-goto Math_64
 @SP
 AM=M-1
 D=M
-@Math_29
+@Math_64
 D;JNE
 //push argument 0
 @0
@@ -17329,11 +17259,11 @@ M=D
 @retAddr
 A=M
 0;JEQ
-//goto Math_28
-@Math_28
+//goto Math_65
+@Math_65
 0;JEQ
-//label Math_29
-(Math_29)
+//label Math_64
+(Math_64)
 //push argument 1
 @1
 D=A
@@ -17408,26 +17338,26 @@ M=D
 @retAddr
 A=M
 0;JEQ
-//label Math_28
-(Math_28)
+//label Math_65
+(Math_65)
 //function Math.max 0
 (Math.max)
 @0
 D=A
 @n
 M=D-1
-(LOOP1219)
+(LOOP1191)
 @n
 D=M
 M=M-1
-@NEXT1219
+@NEXT1191
 D;JLT
 @LCL
 A=D+M
 M=0
-@LOOP1219
+@LOOP1191
 0;JEQ
-(NEXT1219)
+(NEXT1191)
 @0
 D=A
 @SP
@@ -17465,27 +17395,27 @@ A=M-1
 D=M
 @y
 D=D-M
-@TRUE1222
+@TRUE1194
 D;JGT
 @SP
 A=M-1
 M=0
-@NEXT1222
+@NEXT1194
 0;JEQ
-(TRUE1222)
+(TRUE1194)
 @SP
 A=M-1
 M=-1
-(NEXT1222)
+(NEXT1194)
 //not
 @SP
 A=M-1
 M=!M
-//if-goto Math_31
+//if-goto Math_66
 @SP
 AM=M-1
 D=M
-@Math_31
+@Math_66
 D;JNE
 //push argument 0
 @0
@@ -17561,11 +17491,11 @@ M=D
 @retAddr
 A=M
 0;JEQ
-//goto Math_30
-@Math_30
+//goto Math_67
+@Math_67
 0;JEQ
-//label Math_31
-(Math_31)
+//label Math_66
+(Math_66)
 //push argument 1
 @1
 D=A
@@ -17640,26 +17570,26 @@ M=D
 @retAddr
 A=M
 0;JEQ
-//label Math_30
-(Math_30)
+//label Math_67
+(Math_67)
 //function Memory.init 0
 (Memory.init)
 @0
 D=A
 @n
 M=D-1
-(LOOP1232)
+(LOOP1204)
 @n
 D=M
 M=M-1
-@NEXT1232
+@NEXT1204
 D;JLT
 @LCL
 A=D+M
 M=0
-@LOOP1232
+@LOOP1204
 0;JEQ
-(NEXT1232)
+(NEXT1204)
 @0
 D=A
 @SP
@@ -17692,17 +17622,17 @@ AM=M-1
 D=M
 @Memory.1
 M=D
-//push constant 0
-@0
-D=A
+//push static 1
+@Memory.1
+D=M
 @SP
 A=M
 M=D
 @SP
 M=M+1
-//push static 1
-@Memory.1
-D=M
+//push constant 0
+@0
+D=A
 @SP
 A=M
 M=D
@@ -17756,17 +17686,17 @@ D=M
 @addr
 A=M
 M=D
-//push constant 1
-@1
-D=A
+//push static 1
+@Memory.1
+D=M
 @SP
 A=M
 M=D
 @SP
 M=M+1
-//push static 1
-@Memory.1
-D=M
+//push constant 1
+@1
+D=A
 @SP
 A=M
 M=D
@@ -17956,35 +17886,35 @@ A=M
 D=A
 @n
 M=D-1
-(LOOP1263)
+(LOOP1235)
 @n
 D=M
 M=M-1
-@NEXT1263
+@NEXT1235
 D;JLT
 @LCL
 A=D+M
 M=0
-@LOOP1263
+@LOOP1235
 0;JEQ
-(NEXT1263)
+(NEXT1235)
 @0
 D=A
 @SP
 M=D+M
-//push argument 0
-@0
-D=A
-@ARG
-A=D+M
+//push static 0
+@Memory.0
 D=M
 @SP
 A=M
 M=D
 @SP
 M=M+1
-//push static 0
-@Memory.0
+//push argument 0
+@0
+D=A
+@ARG
+A=D+M
 D=M
 @SP
 A=M
@@ -18084,35 +18014,35 @@ A=M
 D=A
 @n
 M=D-1
-(LOOP1270)
+(LOOP1242)
 @n
 D=M
 M=M-1
-@NEXT1270
+@NEXT1242
 D;JLT
 @LCL
 A=D+M
 M=0
-@LOOP1270
+@LOOP1242
 0;JEQ
-(NEXT1270)
+(NEXT1242)
 @0
 D=A
 @SP
 M=D+M
-//push argument 0
-@0
-D=A
-@ARG
-A=D+M
+//push static 0
+@Memory.0
 D=M
 @SP
 A=M
 M=D
 @SP
 M=M+1
-//push static 0
-@Memory.0
+//push argument 0
+@0
+D=A
+@ARG
+A=D+M
 D=M
 @SP
 A=M
@@ -18247,18 +18177,18 @@ A=M
 D=A
 @n
 M=D-1
-(LOOP1281)
+(LOOP1253)
 @n
 D=M
 M=M-1
-@NEXT1281
+@NEXT1253
 D;JLT
 @LCL
 A=D+M
 M=0
-@LOOP1281
+@LOOP1253
 0;JEQ
-(NEXT1281)
+(NEXT1253)
 @2
 D=A
 @SP
@@ -18284,8 +18214,8 @@ D=M
 @addr
 A=M
 M=D
-//label Memory_0
-(Memory_0)
+//label Memory_68
+(Memory_68)
 //push local 0
 @0
 D=A
@@ -18316,18 +18246,18 @@ A=M-1
 D=M
 @y
 D=D-M
-@TRUE1287
+@TRUE1259
 D;JEQ
 @SP
 A=M-1
 M=0
-@NEXT1287
+@NEXT1259
 0;JEQ
-(TRUE1287)
+(TRUE1259)
 @SP
 A=M-1
 M=-1
-(NEXT1287)
+(NEXT1259)
 //not
 @SP
 A=M-1
@@ -18336,12 +18266,23 @@ M=!M
 @SP
 A=M-1
 M=!M
-//if-goto Memory_1
+//if-goto Memory_69
 @SP
 AM=M-1
 D=M
-@Memory_1
+@Memory_69
 D;JNE
+//push local 0
+@0
+D=A
+@LCL
+A=D+M
+D=M
+@SP
+A=M
+M=D
+@SP
+M=M+1
 //push constant 1
 @1
 D=A
@@ -18354,17 +18295,6 @@ M=M+1
 @SP
 A=M-1
 M=-M
-//push local 0
-@0
-D=A
-@LCL
-A=D+M
-D=M
-@SP
-A=M
-M=D
-@SP
-M=M+1
 //add
 @SP
 AM=M-1
@@ -18426,18 +18356,18 @@ A=M-1
 D=M
 @y
 D=D-M
-@TRUE1300
+@TRUE1272
 D;JLT
 @SP
 A=M-1
 M=0
-@NEXT1300
+@NEXT1272
 0;JEQ
-(TRUE1300)
+(TRUE1272)
 @SP
 A=M-1
 M=-1
-(NEXT1300)
+(NEXT1272)
 //not
 @SP
 A=M-1
@@ -18446,12 +18376,23 @@ M=!M
 @SP
 A=M-1
 M=!M
-//if-goto Memory_3
+//if-goto Memory_70
 @SP
 AM=M-1
 D=M
-@Memory_3
+@Memory_70
 D;JNE
+//push local 0
+@0
+D=A
+@LCL
+A=D+M
+D=M
+@SP
+A=M
+M=D
+@SP
+M=M+1
 //push constant 1
 @1
 D=A
@@ -18464,17 +18405,6 @@ M=M+1
 @SP
 A=M-1
 M=-M
-//push local 0
-@0
-D=A
-@LCL
-A=D+M
-D=M
-@SP
-A=M
-M=D
-@SP
-M=M+1
 //add
 @SP
 AM=M-1
@@ -18482,6 +18412,17 @@ D=M
 @SP
 A=M-1
 M=D+M
+//push local 0
+@0
+D=A
+@LCL
+A=D+M
+D=M
+@SP
+A=M
+M=D
+@SP
+M=M+1
 //push constant 1
 @1
 D=A
@@ -18494,17 +18435,6 @@ M=M+1
 @SP
 A=M-1
 M=-M
-//push local 0
-@0
-D=A
-@LCL
-A=D+M
-D=M
-@SP
-A=M
-M=D
-@SP
-M=M+1
 //add
 @SP
 AM=M-1
@@ -18606,6 +18536,17 @@ A=M
 M=D
 @SP
 M=M+1
+//push local 0
+@0
+D=A
+@LCL
+A=D+M
+D=M
+@SP
+A=M
+M=D
+@SP
+M=M+1
 //push constant 1
 @1
 D=A
@@ -18618,17 +18559,6 @@ M=M+1
 @SP
 A=M-1
 M=-M
-//push local 0
-@0
-D=A
-@LCL
-A=D+M
-D=M
-@SP
-A=M
-M=D
-@SP
-M=M+1
 //add
 @SP
 AM=M-1
@@ -18673,20 +18603,20 @@ D=M
 @addr
 A=M
 M=D
-//push constant 0
-@0
-D=A
-@SP
-A=M
-M=D
-@SP
-M=M+1
 //push local 1
 @1
 D=A
 @LCL
 A=D+M
 D=M
+@SP
+A=M
+M=D
+@SP
+M=M+1
+//push constant 0
+@0
+D=A
 @SP
 A=M
 M=D
@@ -18740,20 +18670,20 @@ D=M
 @addr
 A=M
 M=D
-//push constant 1
-@1
-D=A
-@SP
-A=M
-M=D
-@SP
-M=M+1
 //push local 1
 @1
 D=A
 @LCL
 A=D+M
 D=M
+@SP
+A=M
+M=D
+@SP
+M=M+1
+//push constant 1
+@1
+D=A
 @SP
 A=M
 M=D
@@ -18923,13 +18853,19 @@ M=D
 @retAddr
 A=M
 0;JEQ
-//goto Memory_2
-@Memory_2
-0;JEQ
-//label Memory_3
-(Memory_3)
-//label Memory_2
-(Memory_2)
+//label Memory_70
+(Memory_70)
+//push local 0
+@0
+D=A
+@LCL
+A=D+M
+D=M
+@SP
+A=M
+M=D
+@SP
+M=M+1
 //push constant 2
 @2
 D=A
@@ -18942,17 +18878,6 @@ M=M+1
 @SP
 A=M-1
 M=-M
-//push local 0
-@0
-D=A
-@LCL
-A=D+M
-D=M
-@SP
-A=M
-M=D
-@SP
-M=M+1
 //add
 @SP
 AM=M-1
@@ -18990,11 +18915,11 @@ D=M
 @addr
 A=M
 M=D
-//goto Memory_0
-@Memory_0
+//goto Memory_68
+@Memory_68
 0;JEQ
-//label Memory_1
-(Memory_1)
+//label Memory_69
+(Memory_69)
 //push constant 0
 @0
 D=A
@@ -19072,22 +18997,33 @@ A=M
 D=A
 @n
 M=D-1
-(LOOP1367)
+(LOOP1337)
 @n
 D=M
 M=M-1
-@NEXT1367
+@NEXT1337
 D;JLT
 @LCL
 A=D+M
 M=0
-@LOOP1367
+@LOOP1337
 0;JEQ
-(NEXT1367)
+(NEXT1337)
 @0
 D=A
 @SP
 M=D+M
+//push argument 0
+@0
+D=A
+@ARG
+A=D+M
+D=M
+@SP
+A=M
+M=D
+@SP
+M=M+1
 //push constant 2
 @2
 D=A
@@ -19100,17 +19036,6 @@ M=M+1
 @SP
 A=M-1
 M=-M
-//push argument 0
-@0
-D=A
-@ARG
-A=D+M
-D=M
-@SP
-A=M
-M=D
-@SP
-M=M+1
 //add
 @SP
 AM=M-1
@@ -19253,18 +19178,18 @@ A=M
 D=A
 @n
 M=D-1
-(LOOP1381)
+(LOOP1351)
 @n
 D=M
 M=M-1
-@NEXT1381
+@NEXT1351
 D;JLT
 @LCL
 A=D+M
 M=0
-@LOOP1381
+@LOOP1351
 0;JEQ
-(NEXT1381)
+(NEXT1351)
 @0
 D=A
 @SP
@@ -19440,18 +19365,18 @@ A=M
 D=A
 @n
 M=D-1
-(LOOP1390)
+(LOOP1360)
 @n
 D=M
 M=M-1
-@NEXT1390
+@NEXT1360
 D;JLT
 @LCL
 A=D+M
 M=0
-@LOOP1390
+@LOOP1360
 0;JEQ
-(NEXT1390)
+(NEXT1360)
 @1
 D=A
 @SP
@@ -35159,18 +35084,18 @@ A=M
 D=A
 @n
 M=D-1
-(LOOP2740)
+(LOOP2710)
 @n
 D=M
 M=M-1
-@NEXT2740
+@NEXT2710
 D;JLT
 @LCL
 A=D+M
 M=0
-@LOOP2740
+@LOOP2710
 0;JEQ
-(NEXT2740)
+(NEXT2710)
 @1
 D=A
 @SP
@@ -35256,19 +35181,19 @@ D=M
 @addr
 A=M
 M=D
-//push argument 0
-@0
-D=A
-@ARG
-A=D+M
+//push static 0
+@Output.0
 D=M
 @SP
 A=M
 M=D
 @SP
 M=M+1
-//push static 0
-@Output.0
+//push argument 0
+@0
+D=A
+@ARG
+A=D+M
 D=M
 @SP
 A=M
@@ -35326,20 +35251,20 @@ D=M
 @addr
 A=M
 M=D
-//push constant 0
-@0
-D=A
-@SP
-A=M
-M=D
-@SP
-M=M+1
 //push local 0
 @0
 D=A
 @LCL
 A=D+M
 D=M
+@SP
+A=M
+M=D
+@SP
+M=M+1
+//push constant 0
+@0
+D=A
 @SP
 A=M
 M=D
@@ -35396,20 +35321,20 @@ D=M
 @addr
 A=M
 M=D
-//push constant 1
-@1
-D=A
-@SP
-A=M
-M=D
-@SP
-M=M+1
 //push local 0
 @0
 D=A
 @LCL
 A=D+M
 D=M
+@SP
+A=M
+M=D
+@SP
+M=M+1
+//push constant 1
+@1
+D=A
 @SP
 A=M
 M=D
@@ -35466,20 +35391,20 @@ D=M
 @addr
 A=M
 M=D
-//push constant 2
-@2
-D=A
-@SP
-A=M
-M=D
-@SP
-M=M+1
 //push local 0
 @0
 D=A
 @LCL
 A=D+M
 D=M
+@SP
+A=M
+M=D
+@SP
+M=M+1
+//push constant 2
+@2
+D=A
 @SP
 A=M
 M=D
@@ -35536,20 +35461,20 @@ D=M
 @addr
 A=M
 M=D
-//push constant 3
-@3
-D=A
-@SP
-A=M
-M=D
-@SP
-M=M+1
 //push local 0
 @0
 D=A
 @LCL
 A=D+M
 D=M
+@SP
+A=M
+M=D
+@SP
+M=M+1
+//push constant 3
+@3
+D=A
 @SP
 A=M
 M=D
@@ -35606,20 +35531,20 @@ D=M
 @addr
 A=M
 M=D
-//push constant 4
-@4
-D=A
-@SP
-A=M
-M=D
-@SP
-M=M+1
 //push local 0
 @0
 D=A
 @LCL
 A=D+M
 D=M
+@SP
+A=M
+M=D
+@SP
+M=M+1
+//push constant 4
+@4
+D=A
 @SP
 A=M
 M=D
@@ -35676,20 +35601,20 @@ D=M
 @addr
 A=M
 M=D
-//push constant 5
-@5
-D=A
-@SP
-A=M
-M=D
-@SP
-M=M+1
 //push local 0
 @0
 D=A
 @LCL
 A=D+M
 D=M
+@SP
+A=M
+M=D
+@SP
+M=M+1
+//push constant 5
+@5
+D=A
 @SP
 A=M
 M=D
@@ -35746,20 +35671,20 @@ D=M
 @addr
 A=M
 M=D
-//push constant 6
-@6
-D=A
-@SP
-A=M
-M=D
-@SP
-M=M+1
 //push local 0
 @0
 D=A
 @LCL
 A=D+M
 D=M
+@SP
+A=M
+M=D
+@SP
+M=M+1
+//push constant 6
+@6
+D=A
 @SP
 A=M
 M=D
@@ -35816,20 +35741,20 @@ D=M
 @addr
 A=M
 M=D
-//push constant 7
-@7
-D=A
-@SP
-A=M
-M=D
-@SP
-M=M+1
 //push local 0
 @0
 D=A
 @LCL
 A=D+M
 D=M
+@SP
+A=M
+M=D
+@SP
+M=M+1
+//push constant 7
+@7
+D=A
 @SP
 A=M
 M=D
@@ -35886,20 +35811,20 @@ D=M
 @addr
 A=M
 M=D
-//push constant 8
-@8
-D=A
-@SP
-A=M
-M=D
-@SP
-M=M+1
 //push local 0
 @0
 D=A
 @LCL
 A=D+M
 D=M
+@SP
+A=M
+M=D
+@SP
+M=M+1
+//push constant 8
+@8
+D=A
 @SP
 A=M
 M=D
@@ -35956,20 +35881,20 @@ D=M
 @addr
 A=M
 M=D
-//push constant 9
-@9
-D=A
-@SP
-A=M
-M=D
-@SP
-M=M+1
 //push local 0
 @0
 D=A
 @LCL
 A=D+M
 D=M
+@SP
+A=M
+M=D
+@SP
+M=M+1
+//push constant 9
+@9
+D=A
 @SP
 A=M
 M=D
@@ -36026,20 +35951,20 @@ D=M
 @addr
 A=M
 M=D
-//push constant 10
-@10
-D=A
-@SP
-A=M
-M=D
-@SP
-M=M+1
 //push local 0
 @0
 D=A
 @LCL
 A=D+M
 D=M
+@SP
+A=M
+M=D
+@SP
+M=M+1
+//push constant 10
+@10
+D=A
 @SP
 A=M
 M=D
@@ -36173,18 +36098,18 @@ A=M
 D=A
 @n
 M=D-1
-(LOOP2842)
+(LOOP2812)
 @n
 D=M
 M=M-1
-@NEXT2842
+@NEXT2812
 D;JLT
 @LCL
 A=D+M
 M=0
-@LOOP2842
+@LOOP2812
 0;JEQ
-(NEXT2842)
+(NEXT2812)
 @0
 D=A
 @SP
@@ -36219,18 +36144,18 @@ A=M-1
 D=M
 @y
 D=D-M
-@TRUE2845
+@TRUE2815
 D;JLT
 @SP
 A=M-1
 M=0
-@NEXT2845
+@NEXT2815
 0;JEQ
-(TRUE2845)
+(TRUE2815)
 @SP
 A=M-1
 M=-1
-(NEXT2845)
+(NEXT2815)
 //push argument 0
 @0
 D=A
@@ -36261,18 +36186,18 @@ A=M-1
 D=M
 @y
 D=D-M
-@TRUE2848
+@TRUE2818
 D;JGT
 @SP
 A=M-1
 M=0
-@NEXT2848
+@NEXT2818
 0;JEQ
-(TRUE2848)
+(TRUE2818)
 @SP
 A=M-1
 M=-1
-(NEXT2848)
+(NEXT2818)
 //or
 @SP
 AM=M-1
@@ -36284,11 +36209,11 @@ M=D|M
 @SP
 A=M-1
 M=!M
-//if-goto Output_1
+//if-goto Output_71
 @SP
 AM=M-1
 D=M
-@Output_1
+@Output_71
 D;JNE
 //push constant 0
 @0
@@ -36311,26 +36236,21 @@ D=M
 @addr
 A=M
 M=D
-//goto Output_0
-@Output_0
-0;JEQ
-//label Output_1
-(Output_1)
-//label Output_0
-(Output_0)
-//push argument 0
-@0
-D=A
-@ARG
-A=D+M
+//label Output_71
+(Output_71)
+//push static 0
+@Output.0
 D=M
 @SP
 A=M
 M=D
 @SP
 M=M+1
-//push static 0
-@Output.0
+//push argument 0
+@0
+D=A
+@ARG
+A=D+M
 D=M
 @SP
 A=M
@@ -36430,18 +36350,18 @@ A=M
 D=A
 @n
 M=D-1
-(LOOP2863)
+(LOOP2831)
 @n
 D=M
 M=M-1
-@NEXT2863
+@NEXT2831
 D;JLT
 @LCL
 A=D+M
 M=0
-@LOOP2863
+@LOOP2831
 0;JEQ
-(NEXT2863)
+(NEXT2831)
 @2
 D=A
 @SP
@@ -36524,27 +36444,27 @@ A=M-1
 D=M
 @y
 D=D-M
-@TRUE2870
+@TRUE2838
 D;JGT
 @SP
 A=M-1
 M=0
-@NEXT2870
+@NEXT2838
 0;JEQ
-(TRUE2870)
+(TRUE2838)
 @SP
 A=M-1
 M=-1
-(NEXT2870)
+(NEXT2838)
 //not
 @SP
 A=M-1
 M=!M
-//if-goto Output_3
+//if-goto Output_72
 @SP
 AM=M-1
 D=M
-@Output_3
+@Output_72
 D;JNE
 //push constant 0
 @0
@@ -36630,13 +36550,8 @@ D=M
 @addr
 A=M
 M=D
-//goto Output_2
-@Output_2
-0;JEQ
-//label Output_3
-(Output_3)
-//label Output_2
-(Output_2)
+//label Output_72
+(Output_72)
 //push argument 0
 @0
 D=A
@@ -36667,27 +36582,27 @@ A=M-1
 D=M
 @y
 D=D-M
-@TRUE2886
+@TRUE2852
 D;JGT
 @SP
 A=M-1
 M=0
-@NEXT2886
+@NEXT2852
 0;JEQ
-(TRUE2886)
+(TRUE2852)
 @SP
 A=M-1
 M=-1
-(NEXT2886)
+(NEXT2852)
 //not
 @SP
 A=M-1
 M=!M
-//if-goto Output_5
+//if-goto Output_73
 @SP
 AM=M-1
 D=M
-@Output_5
+@Output_73
 D;JNE
 //push constant 0
 @0
@@ -36773,13 +36688,8 @@ D=M
 @addr
 A=M
 M=D
-//goto Output_4
-@Output_4
-0;JEQ
-//label Output_5
-(Output_5)
-//label Output_4
-(Output_4)
+//label Output_73
+(Output_73)
 //push local 1
 @1
 D=A
@@ -36810,18 +36720,18 @@ A=M-1
 D=M
 @y
 D=D-M
-@TRUE2902
+@TRUE2866
 D;JGT
 @SP
 A=M-1
 M=0
-@NEXT2902
+@NEXT2866
 0;JEQ
-(TRUE2902)
+(TRUE2866)
 @SP
 A=M-1
 M=-1
-(NEXT2902)
+(NEXT2866)
 //push local 0
 @0
 D=A
@@ -36852,18 +36762,18 @@ A=M-1
 D=M
 @y
 D=D-M
-@TRUE2905
+@TRUE2869
 D;JGT
 @SP
 A=M-1
 M=0
-@NEXT2905
+@NEXT2869
 0;JEQ
-(TRUE2905)
+(TRUE2869)
 @SP
 A=M-1
 M=-1
-(NEXT2905)
+(NEXT2869)
 //and
 @SP
 AM=M-1
@@ -36875,11 +36785,11 @@ M=D&M
 @SP
 A=M-1
 M=!M
-//if-goto Output_7
+//if-goto Output_74
 @SP
 AM=M-1
 D=M
-@Output_7
+@Output_74
 D;JNE
 //push constant 0
 @0
@@ -36923,13 +36833,8 @@ D=M
 @addr
 A=M
 M=D
-//goto Output_6
-@Output_6
-0;JEQ
-//label Output_7
-(Output_7)
-//label Output_6
-(Output_6)
+//label Output_74
+(Output_74)
 //push local 0
 @0
 D=A
@@ -36960,27 +36865,27 @@ A=M-1
 D=M
 @y
 D=D-M
-@TRUE2918
+@TRUE2880
 D;JLT
 @SP
 A=M-1
 M=0
-@NEXT2918
+@NEXT2880
 0;JEQ
-(TRUE2918)
+(TRUE2880)
 @SP
 A=M-1
 M=-1
-(NEXT2918)
+(NEXT2880)
 //not
 @SP
 A=M-1
 M=!M
-//if-goto Output_9
+//if-goto Output_75
 @SP
 AM=M-1
 D=M
-@Output_9
+@Output_75
 D;JNE
 //push constant 0
 @0
@@ -37003,13 +36908,8 @@ D=M
 @addr
 A=M
 M=D
-//goto Output_8
-@Output_8
-0;JEQ
-//label Output_9
-(Output_9)
-//label Output_8
-(Output_8)
+//label Output_75
+(Output_75)
 //push local 1
 @1
 D=A
@@ -37040,27 +36940,27 @@ A=M-1
 D=M
 @y
 D=D-M
-@TRUE2928
+@TRUE2888
 D;JLT
 @SP
 A=M-1
 M=0
-@NEXT2928
+@NEXT2888
 0;JEQ
-(TRUE2928)
+(TRUE2888)
 @SP
 A=M-1
 M=-1
-(NEXT2928)
+(NEXT2888)
 //not
 @SP
 A=M-1
 M=!M
-//if-goto Output_11
+//if-goto Output_76
 @SP
 AM=M-1
 D=M
-@Output_11
+@Output_76
 D;JNE
 //push constant 0
 @0
@@ -37083,13 +36983,8 @@ D=M
 @addr
 A=M
 M=D
-//goto Output_10
-@Output_10
-0;JEQ
-//label Output_11
-(Output_11)
-//label Output_10
-(Output_10)
+//label Output_76
+(Output_76)
 //push argument 1
 @1
 D=A
@@ -37651,18 +37546,18 @@ A=M
 D=A
 @n
 M=D-1
-(LOOP2967)
+(LOOP2925)
 @n
 D=M
 M=M-1
-@NEXT2967
+@NEXT2925
 D;JLT
 @LCL
 A=D+M
 M=0
-@LOOP2967
+@LOOP2925
 0;JEQ
-(NEXT2967)
+(NEXT2925)
 @8
 D=A
 @SP
@@ -38075,8 +37970,8 @@ D=M
 @addr
 A=M
 M=D
-//label Output_12
-(Output_12)
+//label Output_77
+(Output_77)
 //push local 1
 @1
 D=A
@@ -38107,27 +38002,27 @@ A=M-1
 D=M
 @y
 D=D-M
-@TRUE2992
+@TRUE2950
 D;JLT
 @SP
 A=M-1
 M=0
-@NEXT2992
+@NEXT2950
 0;JEQ
-(TRUE2992)
+(TRUE2950)
 @SP
 A=M-1
 M=-1
-(NEXT2992)
+(NEXT2950)
 //not
 @SP
 A=M-1
 M=!M
-//if-goto Output_13
+//if-goto Output_78
 @SP
 AM=M-1
 D=M
-@Output_13
+@Output_78
 D;JNE
 //push constant 16384
 @16384
@@ -38228,8 +38123,8 @@ D=M
 @addr
 A=M
 M=D
-//push local 1
-@1
+//push local 0
+@0
 D=A
 @LCL
 A=D+M
@@ -38239,8 +38134,8 @@ A=M
 M=D
 @SP
 M=M+1
-//push local 0
-@0
+//push local 1
+@1
 D=A
 @LCL
 A=D+M
@@ -38311,8 +38206,8 @@ D=M
 @addr
 A=M
 M=D
-//label Output_14
-(Output_14)
+//label Output_79
+(Output_79)
 //push local 2
 @2
 D=A
@@ -38343,27 +38238,27 @@ A=M-1
 D=M
 @y
 D=D-M
-@TRUE3011
+@TRUE2969
 D;JGT
 @SP
 A=M-1
 M=0
-@NEXT3011
+@NEXT2969
 0;JEQ
-(TRUE3011)
+(TRUE2969)
 @SP
 A=M-1
 M=-1
-(NEXT3011)
+(NEXT2969)
 //not
 @SP
 A=M-1
 M=!M
-//if-goto Output_15
+//if-goto Output_80
 @SP
 AM=M-1
 D=M
-@Output_15
+@Output_80
 D;JNE
 //push local 6
 @6
@@ -38446,11 +38341,11 @@ D=M
 @addr
 A=M
 M=D
-//goto Output_14
-@Output_14
+//goto Output_79
+@Output_79
 0;JEQ
-//label Output_15
-(Output_15)
+//label Output_80
+(Output_80)
 //push constant 16384
 @16384
 D=A
@@ -38674,11 +38569,11 @@ D=M
 @addr
 A=M
 M=D
-//goto Output_12
-@Output_12
+//goto Output_77
+@Output_77
 0;JEQ
-//label Output_13
-(Output_13)
+//label Output_78
+(Output_78)
 //push static 4
 @Output.4
 D=M
@@ -38867,18 +38762,18 @@ A=M
 D=A
 @n
 M=D-1
-(LOOP3054)
+(LOOP3012)
 @n
 D=M
 M=M-1
-@NEXT3054
+@NEXT3012
 D;JLT
 @LCL
 A=D+M
 M=0
-@LOOP3054
+@LOOP3012
 0;JEQ
-(NEXT3054)
+(NEXT3012)
 @2
 D=A
 @SP
@@ -38988,8 +38883,8 @@ D=M
 @addr
 A=M
 M=D
-//label Output_16
-(Output_16)
+//label Output_81
+(Output_81)
 //push local 0
 @0
 D=A
@@ -39023,27 +38918,27 @@ A=M-1
 D=M
 @y
 D=D-M
-@TRUE3063
+@TRUE3021
 D;JLT
 @SP
 A=M-1
 M=0
-@NEXT3063
+@NEXT3021
 0;JEQ
-(TRUE3063)
+(TRUE3021)
 @SP
 A=M-1
 M=-1
-(NEXT3063)
+(NEXT3021)
 //not
 @SP
 A=M-1
 M=!M
-//if-goto Output_17
+//if-goto Output_82
 @SP
 AM=M-1
 D=M
-@Output_17
+@Output_82
 D;JNE
 //push argument 0
 @0
@@ -39232,11 +39127,11 @@ D=M
 @addr
 A=M
 M=D
-//goto Output_16
-@Output_16
+//goto Output_81
+@Output_81
 0;JEQ
-//label Output_17
-(Output_17)
+//label Output_82
+(Output_82)
 //push constant 0
 @0
 D=A
@@ -39314,18 +39209,18 @@ A=M
 D=A
 @n
 M=D-1
-(LOOP3079)
+(LOOP3037)
 @n
 D=M
 M=M-1
-@NEXT3079
+@NEXT3037
 D;JLT
 @LCL
 A=D+M
 M=0
-@LOOP3079
+@LOOP3037
 0;JEQ
-(NEXT3079)
+(NEXT3037)
 @1
 D=A
 @SP
@@ -39653,18 +39548,18 @@ A=M
 D=A
 @n
 M=D-1
-(LOOP3092)
+(LOOP3050)
 @n
 D=M
 M=M-1
-@NEXT3092
+@NEXT3050
 D;JLT
 @LCL
 A=D+M
 M=0
-@LOOP3092
+@LOOP3050
 0;JEQ
-(NEXT3092)
+(NEXT3050)
 @0
 D=A
 @SP
@@ -39843,18 +39738,18 @@ A=M
 D=A
 @n
 M=D-1
-(LOOP3101)
+(LOOP3059)
 @n
 D=M
 M=M-1
-@NEXT3101
+@NEXT3059
 D;JLT
 @LCL
 A=D+M
 M=0
-@LOOP3101
+@LOOP3059
 0;JEQ
-(NEXT3101)
+(NEXT3059)
 @0
 D=A
 @SP
@@ -40033,18 +39928,18 @@ A=M
 D=A
 @n
 M=D-1
-(LOOP3110)
+(LOOP3068)
 @n
 D=M
 M=M-1
-@NEXT3110
+@NEXT3068
 D;JLT
 @LCL
 A=D+M
 M=0
-@LOOP3110
+@LOOP3068
 0;JEQ
-(NEXT3110)
+(NEXT3068)
 @0
 D=A
 @SP
@@ -41551,18 +41446,18 @@ A=M
 D=A
 @n
 M=D-1
-(LOOP3177)
+(LOOP3135)
 @n
 D=M
 M=M-1
-@NEXT3177
+@NEXT3135
 D;JLT
 @LCL
 A=D+M
 M=0
-@LOOP3177
+@LOOP3135
 0;JEQ
-(NEXT3177)
+(NEXT3135)
 @0
 D=A
 @SP
@@ -41889,18 +41784,18 @@ A=M
 D=A
 @n
 M=D-1
-(LOOP3191)
+(LOOP3149)
 @n
 D=M
 M=M-1
-@NEXT3191
+@NEXT3149
 D;JLT
 @LCL
 A=D+M
 M=0
-@LOOP3191
+@LOOP3149
 0;JEQ
-(NEXT3191)
+(NEXT3149)
 @0
 D=A
 @SP
@@ -42048,18 +41943,18 @@ A=M
 D=A
 @n
 M=D-1
-(LOOP3196)
+(LOOP3154)
 @n
 D=M
 M=M-1
-@NEXT3196
+@NEXT3154
 D;JLT
 @LCL
 A=D+M
 M=0
-@LOOP3196
+@LOOP3154
 0;JEQ
-(NEXT3196)
+(NEXT3154)
 @0
 D=A
 @SP
@@ -42141,18 +42036,18 @@ A=M
 D=A
 @n
 M=D-1
-(LOOP3199)
+(LOOP3157)
 @n
 D=M
 M=M-1
-@NEXT3199
+@NEXT3157
 D;JLT
 @LCL
 A=D+M
 M=0
-@LOOP3199
+@LOOP3157
 0;JEQ
-(NEXT3199)
+(NEXT3157)
 @1
 D=A
 @SP
@@ -42174,8 +42069,8 @@ AM=M-1
 D=M
 @THIS
 M=D
-//label PongGame_0
-(PongGame_0)
+//label PongGame_83
+(PongGame_83)
 //push this 3
 @3
 D=A
@@ -42195,14 +42090,14 @@ M=!M
 @SP
 A=M-1
 M=!M
-//if-goto PongGame_1
+//if-goto PongGame_84
 @SP
 AM=M-1
 D=M
-@PongGame_1
+@PongGame_84
 D;JNE
-//label PongGame_2
-(PongGame_2)
+//label PongGame_85
+(PongGame_85)
 //push local 0
 @0
 D=A
@@ -42233,18 +42128,18 @@ A=M-1
 D=M
 @y
 D=D-M
-@TRUE3210
+@TRUE3168
 D;JEQ
 @SP
 A=M-1
 M=0
-@NEXT3210
+@NEXT3168
 0;JEQ
-(TRUE3210)
+(TRUE3168)
 @SP
 A=M-1
 M=-1
-(NEXT3210)
+(NEXT3168)
 //push this 3
 @3
 D=A
@@ -42271,11 +42166,11 @@ M=D&M
 @SP
 A=M-1
 M=!M
-//if-goto PongGame_3
+//if-goto PongGame_86
 @SP
 AM=M-1
 D=M
-@PongGame_3
+@PongGame_86
 D;JNE
 //call Keyboard.keyPressed 0
 //push retAddrLabel on to the stack
@@ -42575,11 +42470,11 @@ AM=M-1
 D=M
 @5
 M=D
-//goto PongGame_2
-@PongGame_2
+//goto PongGame_85
+@PongGame_85
 0;JEQ
-//label PongGame_3
-(PongGame_3)
+//label PongGame_86
+(PongGame_86)
 //push local 0
 @0
 D=A
@@ -42610,27 +42505,27 @@ A=M-1
 D=M
 @y
 D=D-M
-@TRUE3231
+@TRUE3189
 D;JEQ
 @SP
 A=M-1
 M=0
-@NEXT3231
+@NEXT3189
 0;JEQ
-(TRUE3231)
+(TRUE3189)
 @SP
 A=M-1
 M=-1
-(NEXT3231)
+(NEXT3189)
 //not
 @SP
 A=M-1
 M=!M
-//if-goto PongGame_5
+//if-goto PongGame_87
 @SP
 AM=M-1
 D=M
-@PongGame_5
+@PongGame_87
 D;JNE
 //push this 0
 @0
@@ -42717,11 +42612,11 @@ AM=M-1
 D=M
 @5
 M=D
-//goto PongGame_4
-@PongGame_4
+//goto PongGame_88
+@PongGame_88
 0;JEQ
-//label PongGame_5
-(PongGame_5)
+//label PongGame_87
+(PongGame_87)
 //push local 0
 @0
 D=A
@@ -42752,27 +42647,27 @@ A=M-1
 D=M
 @y
 D=D-M
-@TRUE3242
+@TRUE3200
 D;JEQ
 @SP
 A=M-1
 M=0
-@NEXT3242
+@NEXT3200
 0;JEQ
-(TRUE3242)
+(TRUE3200)
 @SP
 A=M-1
 M=-1
-(NEXT3242)
+(NEXT3200)
 //not
 @SP
 A=M-1
 M=!M
-//if-goto PongGame_7
+//if-goto PongGame_89
 @SP
 AM=M-1
 D=M
-@PongGame_7
+@PongGame_89
 D;JNE
 //push this 0
 @0
@@ -42859,11 +42754,11 @@ AM=M-1
 D=M
 @5
 M=D
-//goto PongGame_6
-@PongGame_6
+//goto PongGame_90
+@PongGame_90
 0;JEQ
-//label PongGame_7
-(PongGame_7)
+//label PongGame_89
+(PongGame_89)
 //push local 0
 @0
 D=A
@@ -42894,27 +42789,27 @@ A=M-1
 D=M
 @y
 D=D-M
-@TRUE3253
+@TRUE3211
 D;JEQ
 @SP
 A=M-1
 M=0
-@NEXT3253
+@NEXT3211
 0;JEQ
-(TRUE3253)
+(TRUE3211)
 @SP
 A=M-1
 M=-1
-(NEXT3253)
+(NEXT3211)
 //not
 @SP
 A=M-1
 M=!M
-//if-goto PongGame_9
+//if-goto PongGame_91
 @SP
 AM=M-1
 D=M
-@PongGame_9
+@PongGame_91
 D;JNE
 //push constant 1
 @1
@@ -42941,19 +42836,14 @@ D=M
 @addr
 A=M
 M=D
-//goto PongGame_8
-@PongGame_8
-0;JEQ
-//label PongGame_9
-(PongGame_9)
-//label PongGame_8
-(PongGame_8)
-//label PongGame_6
-(PongGame_6)
-//label PongGame_4
-(PongGame_4)
-//label PongGame_10
-(PongGame_10)
+//label PongGame_91
+(PongGame_91)
+//label PongGame_90
+(PongGame_90)
+//label PongGame_88
+(PongGame_88)
+//label PongGame_92
+(PongGame_92)
 //push local 0
 @0
 D=A
@@ -42984,18 +42874,18 @@ A=M-1
 D=M
 @y
 D=D-M
-@TRUE3267
+@TRUE3223
 D;JEQ
 @SP
 A=M-1
 M=0
-@NEXT3267
+@NEXT3223
 0;JEQ
-(TRUE3267)
+(TRUE3223)
 @SP
 A=M-1
 M=-1
-(NEXT3267)
+(NEXT3223)
 //not
 @SP
 A=M-1
@@ -43026,11 +42916,11 @@ M=D&M
 @SP
 A=M-1
 M=!M
-//if-goto PongGame_11
+//if-goto PongGame_93
 @SP
 AM=M-1
 D=M
-@PongGame_11
+@PongGame_93
 D;JNE
 //call Keyboard.keyPressed 0
 //push retAddrLabel on to the stack
@@ -43330,16 +43220,16 @@ AM=M-1
 D=M
 @5
 M=D
-//goto PongGame_10
-@PongGame_10
+//goto PongGame_92
+@PongGame_92
 0;JEQ
-//label PongGame_11
-(PongGame_11)
-//goto PongGame_0
-@PongGame_0
+//label PongGame_93
+(PongGame_93)
+//goto PongGame_83
+@PongGame_83
 0;JEQ
-//label PongGame_1
-(PongGame_1)
+//label PongGame_84
+(PongGame_84)
 //push this 3
 @3
 D=A
@@ -43355,11 +43245,11 @@ M=M+1
 @SP
 A=M-1
 M=!M
-//if-goto PongGame_13
+//if-goto PongGame_94
 @SP
 AM=M-1
 D=M
-@PongGame_13
+@PongGame_94
 D;JNE
 //push constant 10
 @10
@@ -44189,13 +44079,8 @@ AM=M-1
 D=M
 @5
 M=D
-//goto PongGame_12
-@PongGame_12
-0;JEQ
-//label PongGame_13
-(PongGame_13)
-//label PongGame_12
-(PongGame_12)
+//label PongGame_94
+(PongGame_94)
 //push constant 0
 @0
 D=A
@@ -44273,18 +44158,18 @@ A=M
 D=A
 @n
 M=D-1
-(LOOP3323)
+(LOOP3277)
 @n
 D=M
 M=M-1
-@NEXT3323
+@NEXT3277
 D;JLT
 @LCL
 A=D+M
 M=0
-@LOOP3323
+@LOOP3277
 0;JEQ
-(NEXT3323)
+(NEXT3277)
 @5
 D=A
 @SP
@@ -44420,18 +44305,18 @@ A=M-1
 D=M
 @y
 D=D-M
-@TRUE3331
+@TRUE3285
 D;JGT
 @SP
 A=M-1
 M=0
-@NEXT3331
+@NEXT3285
 0;JEQ
-(TRUE3331)
+(TRUE3285)
 @SP
 A=M-1
 M=-1
-(NEXT3331)
+(NEXT3285)
 //push this 2
 @2
 D=A
@@ -44465,18 +44350,18 @@ A=M-1
 D=M
 @y
 D=D-M
-@TRUE3334
+@TRUE3288
 D;JEQ
 @SP
 A=M-1
 M=0
-@NEXT3334
+@NEXT3288
 0;JEQ
-(TRUE3334)
+(TRUE3288)
 @SP
 A=M-1
 M=-1
-(NEXT3334)
+(NEXT3288)
 //not
 @SP
 A=M-1
@@ -44492,11 +44377,11 @@ M=D&M
 @SP
 A=M-1
 M=!M
-//if-goto PongGame_15
+//if-goto PongGame_95
 @SP
 AM=M-1
 D=M
-@PongGame_15
+@PongGame_95
 D;JNE
 //push this 2
 @2
@@ -44909,27 +44794,27 @@ A=M-1
 D=M
 @y
 D=D-M
-@TRUE3357
+@TRUE3311
 D;JEQ
 @SP
 A=M-1
 M=0
-@NEXT3357
+@NEXT3311
 0;JEQ
-(TRUE3357)
+(TRUE3311)
 @SP
 A=M-1
 M=-1
-(NEXT3357)
+(NEXT3311)
 //not
 @SP
 A=M-1
 M=!M
-//if-goto PongGame_17
+//if-goto PongGame_96
 @SP
 AM=M-1
 D=M
-@PongGame_17
+@PongGame_96
 D;JNE
 //push local 1
 @1
@@ -44964,18 +44849,18 @@ A=M-1
 D=M
 @y
 D=D-M
-@TRUE3362
+@TRUE3316
 D;JGT
 @SP
 A=M-1
 M=0
-@NEXT3362
+@NEXT3316
 0;JEQ
-(TRUE3362)
+(TRUE3316)
 @SP
 A=M-1
 M=-1
-(NEXT3362)
+(NEXT3316)
 //push local 2
 @2
 D=A
@@ -45009,18 +44894,18 @@ A=M-1
 D=M
 @y
 D=D-M
-@TRUE3365
+@TRUE3319
 D;JLT
 @SP
 A=M-1
 M=0
-@NEXT3365
+@NEXT3319
 0;JEQ
-(TRUE3365)
+(TRUE3319)
 @SP
 A=M-1
 M=-1
-(NEXT3365)
+(NEXT3319)
 //or
 @SP
 AM=M-1
@@ -45060,11 +44945,11 @@ M=!M
 @SP
 A=M-1
 M=!M
-//if-goto PongGame_19
+//if-goto PongGame_97
 @SP
 AM=M-1
 D=M
-@PongGame_19
+@PongGame_97
 D;JNE
 //push local 4
 @4
@@ -45114,27 +44999,27 @@ A=M-1
 D=M
 @y
 D=D-M
-@TRUE3376
+@TRUE3330
 D;JLT
 @SP
 A=M-1
 M=0
-@NEXT3376
+@NEXT3330
 0;JEQ
-(TRUE3376)
+(TRUE3330)
 @SP
 A=M-1
 M=-1
-(NEXT3376)
+(NEXT3330)
 //not
 @SP
 A=M-1
 M=!M
-//if-goto PongGame_21
+//if-goto PongGame_98
 @SP
 AM=M-1
 D=M
-@PongGame_21
+@PongGame_98
 D;JNE
 //push constant 1
 @1
@@ -45161,11 +45046,11 @@ D=M
 @addr
 A=M
 M=D
-//goto PongGame_20
-@PongGame_20
+//goto PongGame_99
+@PongGame_99
 0;JEQ
-//label PongGame_21
-(PongGame_21)
+//label PongGame_98
+(PongGame_98)
 //push local 3
 @3
 D=A
@@ -45214,27 +45099,27 @@ A=M-1
 D=M
 @y
 D=D-M
-@TRUE3388
+@TRUE3342
 D;JGT
 @SP
 A=M-1
 M=0
-@NEXT3388
+@NEXT3342
 0;JEQ
-(TRUE3388)
+(TRUE3342)
 @SP
 A=M-1
 M=-1
-(NEXT3388)
+(NEXT3342)
 //not
 @SP
 A=M-1
 M=!M
-//if-goto PongGame_23
+//if-goto PongGame_100
 @SP
 AM=M-1
 D=M
-@PongGame_23
+@PongGame_100
 D;JNE
 //push constant 1
 @1
@@ -45257,15 +45142,10 @@ D=M
 @addr
 A=M
 M=D
-//goto PongGame_22
-@PongGame_22
-0;JEQ
-//label PongGame_23
-(PongGame_23)
-//label PongGame_22
-(PongGame_22)
-//label PongGame_20
-(PongGame_20)
+//label PongGame_100
+(PongGame_100)
+//label PongGame_99
+(PongGame_99)
 //push this 6
 @6
 D=A
@@ -45591,20 +45471,10 @@ AM=M-1
 D=M
 @5
 M=D
-//goto PongGame_18
-@PongGame_18
-0;JEQ
-//label PongGame_19
-(PongGame_19)
-//label PongGame_18
-(PongGame_18)
-//goto PongGame_16
-@PongGame_16
-0;JEQ
-//label PongGame_17
-(PongGame_17)
-//label PongGame_16
-(PongGame_16)
+//label PongGame_97
+(PongGame_97)
+//label PongGame_96
+(PongGame_96)
 //push this 1
 @1
 D=A
@@ -45693,13 +45563,8 @@ AM=M-1
 D=M
 @5
 M=D
-//goto PongGame_14
-@PongGame_14
-0;JEQ
-//label PongGame_15
-(PongGame_15)
-//label PongGame_14
-(PongGame_14)
+//label PongGame_95
+(PongGame_95)
 //push constant 0
 @0
 D=A
@@ -45777,18 +45642,18 @@ A=M
 D=A
 @n
 M=D-1
-(LOOP3431)
+(LOOP3377)
 @n
 D=M
 M=M-1
-@NEXT3431
+@NEXT3377
 D;JLT
 @LCL
 A=D+M
 M=0
-@LOOP3431
+@LOOP3377
 0;JEQ
-(NEXT3431)
+(NEXT3377)
 @0
 D=A
 @SP
@@ -45902,18 +45767,18 @@ A=M
 D=A
 @n
 M=D-1
-(LOOP3439)
+(LOOP3385)
 @n
 D=M
 M=M-1
-@NEXT3439
+@NEXT3385
 D;JLT
 @LCL
 A=D+M
 M=0
-@LOOP3439
+@LOOP3385
 0;JEQ
-(NEXT3439)
+(NEXT3385)
 @3
 D=A
 @SP
@@ -45960,8 +45825,8 @@ D=M
 @addr
 A=M
 M=D
-//label Screen_0
-(Screen_0)
+//label Screen_101
+(Screen_101)
 //push local 1
 @1
 D=A
@@ -45992,27 +45857,27 @@ A=M-1
 D=M
 @y
 D=D-M
-@TRUE3447
+@TRUE3393
 D;JLT
 @SP
 A=M-1
 M=0
-@NEXT3447
+@NEXT3393
 0;JEQ
-(TRUE3447)
+(TRUE3393)
 @SP
 A=M-1
 M=-1
-(NEXT3447)
+(NEXT3393)
 //not
 @SP
 A=M-1
 M=!M
-//if-goto Screen_1
+//if-goto Screen_102
 @SP
 AM=M-1
 D=M
-@Screen_1
+@Screen_102
 D;JNE
 //push constant 0
 @0
@@ -46035,8 +45900,8 @@ D=M
 @addr
 A=M
 M=D
-//label Screen_2
-(Screen_2)
+//label Screen_103
+(Screen_103)
 //push local 2
 @2
 D=A
@@ -46067,27 +45932,27 @@ A=M-1
 D=M
 @y
 D=D-M
-@TRUE3455
+@TRUE3401
 D;JLT
 @SP
 A=M-1
 M=0
-@NEXT3455
+@NEXT3401
 0;JEQ
-(TRUE3455)
+(TRUE3401)
 @SP
 A=M-1
 M=-1
-(NEXT3455)
+(NEXT3401)
 //not
 @SP
 A=M-1
 M=!M
-//if-goto Screen_3
+//if-goto Screen_104
 @SP
 AM=M-1
 D=M
-@Screen_3
+@Screen_104
 D;JNE
 //push local 0
 @0
@@ -46111,13 +45976,6 @@ A=M
 M=D
 @SP
 M=M+1
-//add
-@SP
-AM=M-1
-D=M
-@SP
-A=M-1
-M=D+M
 //push local 2
 @2
 D=A
@@ -46129,6 +45987,13 @@ A=M
 M=D
 @SP
 M=M+1
+//add
+@SP
+AM=M-1
+D=M
+@SP
+A=M-1
+M=D+M
 //add
 @SP
 AM=M-1
@@ -46249,11 +46114,11 @@ D=M
 @addr
 A=M
 M=D
-//goto Screen_2
-@Screen_2
+//goto Screen_103
+@Screen_103
 0;JEQ
-//label Screen_3
-(Screen_3)
+//label Screen_104
+(Screen_104)
 //push local 1
 @1
 D=A
@@ -46293,11 +46158,11 @@ D=M
 @addr
 A=M
 M=D
-//goto Screen_0
-@Screen_0
+//goto Screen_101
+@Screen_101
 0;JEQ
-//label Screen_1
-(Screen_1)
+//label Screen_102
+(Screen_102)
 //push constant 0
 @0
 D=A
@@ -46375,18 +46240,18 @@ A=M
 D=A
 @n
 M=D-1
-(LOOP3480)
+(LOOP3426)
 @n
 D=M
 M=M-1
-@NEXT3480
+@NEXT3426
 D;JLT
 @LCL
 A=D+M
 M=0
-@LOOP3480
+@LOOP3426
 0;JEQ
-(NEXT3480)
+(NEXT3426)
 @0
 D=A
 @SP
@@ -46485,18 +46350,18 @@ A=M
 D=A
 @n
 M=D-1
-(LOOP3485)
+(LOOP3431)
 @n
 D=M
 M=M-1
-@NEXT3485
+@NEXT3431
 D;JLT
 @LCL
 A=D+M
 M=0
-@LOOP3485
+@LOOP3431
 0;JEQ
-(NEXT3485)
+(NEXT3431)
 @6
 D=A
 @SP
@@ -47279,18 +47144,18 @@ A=M
 D=A
 @n
 M=D-1
-(LOOP3529)
+(LOOP3475)
 @n
 D=M
 M=M-1
-@NEXT3529
+@NEXT3475
 D;JLT
 @LCL
 A=D+M
 M=0
-@LOOP3529
+@LOOP3475
 0;JEQ
-(NEXT3529)
+(NEXT3475)
 @15
 D=A
 @SP
@@ -47577,27 +47442,27 @@ A=M-1
 D=M
 @y
 D=D-M
-@TRUE3546
+@TRUE3492
 D;JEQ
 @SP
 A=M-1
 M=0
-@NEXT3546
+@NEXT3492
 0;JEQ
-(TRUE3546)
+(TRUE3492)
 @SP
 A=M-1
 M=-1
-(NEXT3546)
+(NEXT3492)
 //not
 @SP
 A=M-1
 M=!M
-//if-goto Screen_5
+//if-goto Screen_105
 @SP
 AM=M-1
 D=M
-@Screen_5
+@Screen_105
 D;JNE
 //push argument 3
 @3
@@ -47632,27 +47497,27 @@ A=M-1
 D=M
 @y
 D=D-M
-@TRUE3551
+@TRUE3497
 D;JLT
 @SP
 A=M-1
 M=0
-@NEXT3551
+@NEXT3497
 0;JEQ
-(TRUE3551)
+(TRUE3497)
 @SP
 A=M-1
 M=-1
-(NEXT3551)
+(NEXT3497)
 //not
 @SP
 A=M-1
 M=!M
-//if-goto Screen_7
+//if-goto Screen_106
 @SP
 AM=M-1
 D=M
-@Screen_7
+@Screen_106
 D;JNE
 //push argument 3
 @3
@@ -47702,13 +47567,8 @@ D=M
 @addr
 A=M
 M=D
-//goto Screen_6
-@Screen_6
-0;JEQ
-//label Screen_7
-(Screen_7)
-//label Screen_6
-(Screen_6)
+//label Screen_106
+(Screen_106)
 //push local 0
 @0
 D=A
@@ -48204,8 +48064,8 @@ D=M
 @addr
 A=M
 M=D
-//label Screen_8
-(Screen_8)
+//label Screen_107
+(Screen_107)
 //push local 1
 @1
 D=A
@@ -48239,18 +48099,18 @@ A=M-1
 D=M
 @y
 D=D-M
-@TRUE3588
+@TRUE3532
 D;JGT
 @SP
 A=M-1
 M=0
-@NEXT3588
+@NEXT3532
 0;JEQ
-(TRUE3588)
+(TRUE3532)
 @SP
 A=M-1
 M=-1
-(NEXT3588)
+(NEXT3532)
 //not
 @SP
 A=M-1
@@ -48259,11 +48119,11 @@ M=!M
 @SP
 A=M-1
 M=!M
-//if-goto Screen_9
+//if-goto Screen_108
 @SP
 AM=M-1
 D=M
-@Screen_9
+@Screen_108
 D;JNE
 //push constant 16384
 @16384
@@ -48501,11 +48361,11 @@ D=M
 @addr
 A=M
 M=D
-//goto Screen_8
-@Screen_8
+//goto Screen_107
+@Screen_107
 0;JEQ
-//label Screen_9
-(Screen_9)
+//label Screen_108
+(Screen_108)
 //push constant 0
 @0
 D=A
@@ -48577,13 +48437,8 @@ M=D
 @retAddr
 A=M
 0;JEQ
-//goto Screen_4
-@Screen_4
-0;JEQ
-//label Screen_5
-(Screen_5)
-//label Screen_4
-(Screen_4)
+//label Screen_105
+(Screen_105)
 //push local 3
 @3
 D=A
@@ -48614,27 +48469,27 @@ A=M-1
 D=M
 @y
 D=D-M
-@TRUE3622
+@TRUE3564
 D;JEQ
 @SP
 A=M-1
 M=0
-@NEXT3622
+@NEXT3564
 0;JEQ
-(TRUE3622)
+(TRUE3564)
 @SP
 A=M-1
 M=-1
-(NEXT3622)
+(NEXT3564)
 //not
 @SP
 A=M-1
 M=!M
-//if-goto Screen_11
+//if-goto Screen_109
 @SP
 AM=M-1
 D=M
-@Screen_11
+@Screen_109
 D;JNE
 //push argument 2
 @2
@@ -48669,27 +48524,27 @@ A=M-1
 D=M
 @y
 D=D-M
-@TRUE3627
+@TRUE3569
 D;JLT
 @SP
 A=M-1
 M=0
-@NEXT3627
+@NEXT3569
 0;JEQ
-(TRUE3627)
+(TRUE3569)
 @SP
 A=M-1
 M=-1
-(NEXT3627)
+(NEXT3569)
 //not
 @SP
 A=M-1
 M=!M
-//if-goto Screen_13
+//if-goto Screen_110
 @SP
 AM=M-1
 D=M
-@Screen_13
+@Screen_110
 D;JNE
 //push argument 2
 @2
@@ -48739,13 +48594,8 @@ D=M
 @addr
 A=M
 M=D
-//goto Screen_12
-@Screen_12
-0;JEQ
-//label Screen_13
-(Screen_13)
-//label Screen_12
-(Screen_12)
+//label Screen_110
+(Screen_110)
 //push static 3
 @Screen.3
 D=M
@@ -48762,11 +48612,11 @@ M=!M
 @SP
 A=M-1
 M=!M
-//if-goto Screen_15
+//if-goto Screen_111
 @SP
 AM=M-1
 D=M
-@Screen_15
+@Screen_111
 D;JNE
 //push local 0
 @0
@@ -49080,11 +48930,11 @@ D=M
 @addr
 A=M
 M=D
-//goto Screen_14
-@Screen_14
+//goto Screen_112
+@Screen_112
 0;JEQ
-//label Screen_15
-(Screen_15)
+//label Screen_111
+(Screen_111)
 //push static 2
 @Screen.2
 D=M
@@ -49127,8 +48977,8 @@ D=M
 @addr
 A=M
 M=D
-//label Screen_14
-(Screen_14)
+//label Screen_112
+(Screen_112)
 //push constant 16384
 @16384
 D=A
@@ -49418,18 +49268,18 @@ A=M-1
 D=M
 @y
 D=D-M
-@TRUE3683
+@TRUE3623
 D;JGT
 @SP
 A=M-1
 M=0
-@NEXT3683
+@NEXT3623
 0;JEQ
-(TRUE3683)
+(TRUE3623)
 @SP
 A=M-1
 M=-1
-(NEXT3683)
+(NEXT3623)
 //not
 @SP
 A=M-1
@@ -49438,11 +49288,11 @@ M=!M
 @SP
 A=M-1
 M=!M
-//if-goto Screen_17
+//if-goto Screen_113
 @SP
 AM=M-1
 D=M
-@Screen_17
+@Screen_113
 D;JNE
 //push local 14
 @14
@@ -49492,27 +49342,27 @@ A=M-1
 D=M
 @y
 D=D-M
-@TRUE3691
+@TRUE3631
 D;JLT
 @SP
 A=M-1
 M=0
-@NEXT3691
+@NEXT3631
 0;JEQ
-(TRUE3691)
+(TRUE3631)
 @SP
 A=M-1
 M=-1
-(NEXT3691)
+(NEXT3631)
 //not
 @SP
 A=M-1
 M=!M
-//if-goto Screen_19
+//if-goto Screen_114
 @SP
 AM=M-1
 D=M
-@Screen_19
+@Screen_114
 D;JNE
 //push local 13
 @13
@@ -49634,13 +49484,8 @@ D=M
 @addr
 A=M
 M=D
-//goto Screen_18
-@Screen_18
-0;JEQ
-//label Screen_19
-(Screen_19)
-//label Screen_18
-(Screen_18)
+//label Screen_114
+(Screen_114)
 //push constant 16384
 @16384
 D=A
@@ -49870,13 +49715,8 @@ M=D
 @retAddr
 A=M
 0;JEQ
-//goto Screen_16
-@Screen_16
-0;JEQ
-//label Screen_17
-(Screen_17)
-//label Screen_16
-(Screen_16)
+//label Screen_113
+(Screen_113)
 //push constant 16384
 @16384
 D=A
@@ -50131,8 +49971,8 @@ D=M
 @addr
 A=M
 M=D
-//label Screen_20
-(Screen_20)
+//label Screen_115
+(Screen_115)
 //push local 14
 @14
 D=A
@@ -50163,18 +50003,18 @@ A=M-1
 D=M
 @y
 D=D-M
-@TRUE3748
+@TRUE3684
 D;JLT
 @SP
 A=M-1
 M=0
-@NEXT3748
+@NEXT3684
 0;JEQ
-(TRUE3748)
+(TRUE3684)
 @SP
 A=M-1
 M=-1
-(NEXT3748)
+(NEXT3684)
 //not
 @SP
 A=M-1
@@ -50183,11 +50023,11 @@ M=!M
 @SP
 A=M-1
 M=!M
-//if-goto Screen_21
+//if-goto Screen_116
 @SP
 AM=M-1
 D=M
-@Screen_21
+@Screen_116
 D;JNE
 //push constant 16384
 @16384
@@ -50397,27 +50237,27 @@ A=M-1
 D=M
 @y
 D=D-M
-@TRUE3768
+@TRUE3704
 D;JEQ
 @SP
 A=M-1
 M=0
-@NEXT3768
+@NEXT3704
 0;JEQ
-(TRUE3768)
+(TRUE3704)
 @SP
 A=M-1
 M=-1
-(NEXT3768)
+(NEXT3704)
 //not
 @SP
 A=M-1
 M=!M
-//if-goto Screen_23
+//if-goto Screen_117
 @SP
 AM=M-1
 D=M
-@Screen_23
+@Screen_117
 D;JNE
 //push constant 0
 @0
@@ -50490,18 +50330,13 @@ M=D
 @retAddr
 A=M
 0;JEQ
-//goto Screen_22
-@Screen_22
+//label Screen_117
+(Screen_117)
+//goto Screen_115
+@Screen_115
 0;JEQ
-//label Screen_23
-(Screen_23)
-//label Screen_22
-(Screen_22)
-//goto Screen_20
-@Screen_20
-0;JEQ
-//label Screen_21
-(Screen_21)
+//label Screen_116
+(Screen_116)
 //push local 14
 @14
 D=A
@@ -50929,13 +50764,8 @@ M=D
 @retAddr
 A=M
 0;JEQ
-//goto Screen_10
-@Screen_10
-0;JEQ
-//label Screen_11
-(Screen_11)
-//label Screen_10
-(Screen_10)
+//label Screen_109
+(Screen_109)
 //push constant 0
 @0
 D=A
@@ -51032,18 +50862,18 @@ A=M-1
 D=M
 @y
 D=D-M
-@TRUE3814
+@TRUE3746
 D;JLT
 @SP
 A=M-1
 M=0
-@NEXT3814
+@NEXT3746
 0;JEQ
-(TRUE3814)
+(TRUE3746)
 @SP
 A=M-1
 M=-1
-(NEXT3814)
+(NEXT3746)
 //pop local 7
 @7
 D=A
@@ -51090,18 +50920,18 @@ A=M-1
 D=M
 @y
 D=D-M
-@TRUE3818
+@TRUE3750
 D;JLT
 @SP
 A=M-1
 M=0
-@NEXT3818
+@NEXT3750
 0;JEQ
-(TRUE3818)
+(TRUE3750)
 @SP
 A=M-1
 M=-1
-(NEXT3818)
+(NEXT3750)
 //pop local 8
 @8
 D=A
@@ -51115,8 +50945,8 @@ D=M
 @addr
 A=M
 M=D
-//label Screen_24
-(Screen_24)
+//label Screen_118
+(Screen_118)
 //push local 4
 @4
 D=A
@@ -51150,18 +50980,18 @@ A=M-1
 D=M
 @y
 D=D-M
-@TRUE3823
+@TRUE3755
 D;JGT
 @SP
 A=M-1
 M=0
-@NEXT3823
+@NEXT3755
 0;JEQ
-(TRUE3823)
+(TRUE3755)
 @SP
 A=M-1
 M=-1
-(NEXT3823)
+(NEXT3755)
 //not
 @SP
 A=M-1
@@ -51199,18 +51029,18 @@ A=M-1
 D=M
 @y
 D=D-M
-@TRUE3827
+@TRUE3759
 D;JGT
 @SP
 A=M-1
 M=0
-@NEXT3827
+@NEXT3759
 0;JEQ
-(TRUE3827)
+(TRUE3759)
 @SP
 A=M-1
 M=-1
-(NEXT3827)
+(NEXT3759)
 //not
 @SP
 A=M-1
@@ -51226,11 +51056,11 @@ M=D&M
 @SP
 A=M-1
 M=!M
-//if-goto Screen_25
+//if-goto Screen_119
 @SP
 AM=M-1
 D=M
-@Screen_25
+@Screen_119
 D;JNE
 //push local 0
 @0
@@ -51502,27 +51332,27 @@ A=M-1
 D=M
 @y
 D=D-M
-@TRUE3856
+@TRUE3788
 D;JLT
 @SP
 A=M-1
 M=0
-@NEXT3856
+@NEXT3788
 0;JEQ
-(TRUE3856)
+(TRUE3788)
 @SP
 A=M-1
 M=-1
-(NEXT3856)
+(NEXT3788)
 //not
 @SP
 A=M-1
 M=!M
-//if-goto Screen_27
+//if-goto Screen_120
 @SP
 AM=M-1
 D=M
-@Screen_27
+@Screen_120
 D;JNE
 //push local 4
 @4
@@ -51605,11 +51435,11 @@ D=M
 @addr
 A=M
 M=D
-//goto Screen_26
-@Screen_26
+//goto Screen_121
+@Screen_121
 0;JEQ
-//label Screen_27
-(Screen_27)
+//label Screen_120
+(Screen_120)
 //push local 5
 @5
 D=A
@@ -51691,13 +51521,13 @@ D=M
 @addr
 A=M
 M=D
-//label Screen_26
-(Screen_26)
-//goto Screen_24
-@Screen_24
+//label Screen_121
+(Screen_121)
+//goto Screen_118
+@Screen_118
 0;JEQ
-//label Screen_25
-(Screen_25)
+//label Screen_119
+(Screen_119)
 //push constant 0
 @0
 D=A
@@ -51775,18 +51605,18 @@ A=M
 D=A
 @n
 M=D-1
-(LOOP3882)
+(LOOP3814)
 @n
 D=M
 M=M-1
-@NEXT3882
+@NEXT3814
 D;JLT
 @LCL
 A=D+M
 M=0
-@LOOP3882
+@LOOP3814
 0;JEQ
-(NEXT3882)
+(NEXT3814)
 @3
 D=A
 @SP
@@ -51824,18 +51654,18 @@ A=M-1
 D=M
 @y
 D=D-M
-@TRUE3885
+@TRUE3817
 D;JGT
 @SP
 A=M-1
 M=0
-@NEXT3885
+@NEXT3817
 0;JEQ
-(TRUE3885)
+(TRUE3817)
 @SP
 A=M-1
 M=-1
-(NEXT3885)
+(NEXT3817)
 //push argument 1
 @1
 D=A
@@ -51869,18 +51699,18 @@ A=M-1
 D=M
 @y
 D=D-M
-@TRUE3888
+@TRUE3820
 D;JGT
 @SP
 A=M-1
 M=0
-@NEXT3888
+@NEXT3820
 0;JEQ
-(TRUE3888)
+(TRUE3820)
 @SP
 A=M-1
 M=-1
-(NEXT3888)
+(NEXT3820)
 //or
 @SP
 AM=M-1
@@ -51892,11 +51722,11 @@ M=D|M
 @SP
 A=M-1
 M=!M
-//if-goto Screen_29
+//if-goto Screen_122
 @SP
 AM=M-1
 D=M
-@Screen_29
+@Screen_122
 D;JNE
 //push constant 0
 @0
@@ -51969,13 +51799,8 @@ M=D
 @retAddr
 A=M
 0;JEQ
-//goto Screen_28
-@Screen_28
-0;JEQ
-//label Screen_29
-(Screen_29)
-//label Screen_28
-(Screen_28)
+//label Screen_122
+(Screen_122)
 //push argument 0
 @0
 D=A
@@ -52340,8 +52165,8 @@ AM=M-1
 D=M
 @Screen.1
 M=D
-//label Screen_30
-(Screen_30)
+//label Screen_123
+(Screen_123)
 //push local 1
 @1
 D=A
@@ -52375,18 +52200,18 @@ A=M-1
 D=M
 @y
 D=D-M
-@TRUE3923
+@TRUE3853
 D;JGT
 @SP
 A=M-1
 M=0
-@NEXT3923
+@NEXT3853
 0;JEQ
-(TRUE3923)
+(TRUE3853)
 @SP
 A=M-1
 M=-1
-(NEXT3923)
+(NEXT3853)
 //not
 @SP
 A=M-1
@@ -52395,11 +52220,11 @@ M=!M
 @SP
 A=M-1
 M=!M
-//if-goto Screen_31
+//if-goto Screen_124
 @SP
 AM=M-1
 D=M
-@Screen_31
+@Screen_124
 D;JNE
 //push local 0
 @0
@@ -52579,11 +52404,11 @@ D=M
 @addr
 A=M
 M=D
-//goto Screen_30
-@Screen_30
+//goto Screen_123
+@Screen_123
 0;JEQ
-//label Screen_31
-(Screen_31)
+//label Screen_124
+(Screen_124)
 //push constant 0
 @0
 D=A
@@ -52675,18 +52500,18 @@ A=M
 D=A
 @n
 M=D-1
-(LOOP3947)
+(LOOP3877)
 @n
 D=M
 M=M-1
-@NEXT3947
+@NEXT3877
 D;JLT
 @LCL
 A=D+M
 M=0
-@LOOP3947
+@LOOP3877
 0;JEQ
-(NEXT3947)
+(NEXT3877)
 @10
 D=A
 @SP
@@ -52733,8 +52558,8 @@ D=M
 @addr
 A=M
 M=D
-//label Screen_32
-(Screen_32)
+//label Screen_125
+(Screen_125)
 //push local 0
 @0
 D=A
@@ -52765,18 +52590,18 @@ A=M-1
 D=M
 @y
 D=D-M
-@TRUE3956
+@TRUE3886
 D;JLT
 @SP
 A=M-1
 M=0
-@NEXT3956
+@NEXT3886
 0;JEQ
-(TRUE3956)
+(TRUE3886)
 @SP
 A=M-1
 M=-1
-(NEXT3956)
+(NEXT3886)
 //not
 @SP
 A=M-1
@@ -52785,11 +52610,11 @@ M=!M
 @SP
 A=M-1
 M=!M
-//if-goto Screen_33
+//if-goto Screen_126
 @SP
 AM=M-1
 D=M
-@Screen_33
+@Screen_126
 D;JNE
 //push argument 2
 @2
@@ -53971,11 +53796,11 @@ D=M
 @addr
 A=M
 M=D
-//goto Screen_32
-@Screen_32
+//goto Screen_125
+@Screen_125
 0;JEQ
-//label Screen_33
-(Screen_33)
+//label Screen_126
+(Screen_126)
 //push constant 0
 @0
 D=A
@@ -54067,18 +53892,18 @@ A=M
 D=A
 @n
 M=D-1
-(LOOP4039)
+(LOOP3969)
 @n
 D=M
 M=M-1
-@NEXT4039
+@NEXT3969
 D;JLT
 @LCL
 A=D+M
 M=0
-@LOOP4039
+@LOOP3969
 0;JEQ
-(NEXT4039)
+(NEXT3969)
 @0
 D=A
 @SP
@@ -54174,18 +53999,18 @@ A=M
 D=A
 @n
 M=D-1
-(LOOP4044)
+(LOOP3974)
 @n
 D=M
 M=M-1
-@NEXT4044
+@NEXT3974
 D;JLT
 @LCL
 A=D+M
 M=0
-@LOOP4044
+@LOOP3974
 0;JEQ
-(NEXT4044)
+(NEXT3974)
 @0
 D=A
 @SP
@@ -54318,27 +54143,27 @@ A=M-1
 D=M
 @y
 D=D-M
-@TRUE4052
+@TRUE3982
 D;JEQ
 @SP
 A=M-1
 M=0
-@NEXT4052
+@NEXT3982
 0;JEQ
-(TRUE4052)
+(TRUE3982)
 @SP
 A=M-1
 M=-1
-(NEXT4052)
+(NEXT3982)
 //not
 @SP
 A=M-1
 M=!M
-//if-goto String_1
+//if-goto String_127
 @SP
 AM=M-1
 D=M
-@String_1
+@String_127
 D;JNE
 //push constant 1
 @1
@@ -54361,13 +54186,8 @@ D=M
 @addr
 A=M
 M=D
-//goto String_0
-@String_0
-0;JEQ
-//label String_1
-(String_1)
-//label String_0
-(String_0)
+//label String_127
+(String_127)
 //push this 2
 @2
 D=A
@@ -54550,18 +54370,18 @@ A=M
 D=A
 @n
 M=D-1
-(LOOP4067)
+(LOOP3995)
 @n
 D=M
 M=M-1
-@NEXT4067
+@NEXT3995
 D;JLT
 @LCL
 A=D+M
 M=0
-@LOOP4067
+@LOOP3995
 0;JEQ
-(NEXT4067)
+(NEXT3995)
 @0
 D=A
 @SP
@@ -54811,18 +54631,18 @@ A=M
 D=A
 @n
 M=D-1
-(LOOP4078)
+(LOOP4006)
 @n
 D=M
 M=M-1
-@NEXT4078
+@NEXT4006
 D;JLT
 @LCL
 A=D+M
 M=0
-@LOOP4078
+@LOOP4006
 0;JEQ
-(NEXT4078)
+(NEXT4006)
 @0
 D=A
 @SP
@@ -54924,18 +54744,18 @@ A=M
 D=A
 @n
 M=D-1
-(LOOP4083)
+(LOOP4011)
 @n
 D=M
 M=M-1
-@NEXT4083
+@NEXT4011
 D;JLT
 @LCL
 A=D+M
 M=0
-@LOOP4083
+@LOOP4011
 0;JEQ
-(NEXT4083)
+(NEXT4011)
 @0
 D=A
 @SP
@@ -54957,10 +54777,10 @@ AM=M-1
 D=M
 @THIS
 M=D
-//push argument 1
-@1
+//push this 0
+@0
 D=A
-@ARG
+@THIS
 A=D+M
 D=M
 @SP
@@ -54968,10 +54788,10 @@ A=M
 M=D
 @SP
 M=M+1
-//push this 0
-@0
+//push argument 1
+@1
 D=A
-@THIS
+@ARG
 A=D+M
 D=M
 @SP
@@ -55072,18 +54892,18 @@ A=M
 D=A
 @n
 M=D-1
-(LOOP4092)
+(LOOP4020)
 @n
 D=M
 M=M-1
-@NEXT4092
+@NEXT4020
 D;JLT
 @LCL
 A=D+M
 M=0
-@LOOP4092
+@LOOP4020
 0;JEQ
-(NEXT4092)
+(NEXT4020)
 @0
 D=A
 @SP
@@ -55105,10 +54925,10 @@ AM=M-1
 D=M
 @THIS
 M=D
-//push argument 1
-@1
+//push this 0
+@0
 D=A
-@ARG
+@THIS
 A=D+M
 D=M
 @SP
@@ -55116,10 +54936,10 @@ A=M
 M=D
 @SP
 M=M+1
-//push this 0
-@0
+//push argument 1
+@1
 D=A
-@THIS
+@ARG
 A=D+M
 D=M
 @SP
@@ -55255,18 +55075,18 @@ A=M
 D=A
 @n
 M=D-1
-(LOOP4105)
+(LOOP4033)
 @n
 D=M
 M=M-1
-@NEXT4105
+@NEXT4033
 D;JLT
 @LCL
 A=D+M
 M=0
-@LOOP4105
+@LOOP4033
 0;JEQ
-(NEXT4105)
+(NEXT4033)
 @0
 D=A
 @SP
@@ -55321,30 +55141,30 @@ A=M-1
 D=M
 @y
 D=D-M
-@TRUE4110
+@TRUE4038
 D;JLT
 @SP
 A=M-1
 M=0
-@NEXT4110
+@NEXT4038
 0;JEQ
-(TRUE4110)
+(TRUE4038)
 @SP
 A=M-1
 M=-1
-(NEXT4110)
+(NEXT4038)
 //not
 @SP
 A=M-1
 M=!M
-//if-goto String_3
+//if-goto String_128
 @SP
 AM=M-1
 D=M
-@String_3
+@String_128
 D;JNE
-//push this 1
-@1
+//push this 0
+@0
 D=A
 @THIS
 A=D+M
@@ -55354,8 +55174,8 @@ A=M
 M=D
 @SP
 M=M+1
-//push this 0
-@0
+//push this 1
+@1
 D=A
 @THIS
 A=D+M
@@ -55455,13 +55275,8 @@ D=M
 @addr
 A=M
 M=D
-//goto String_2
-@String_2
-0;JEQ
-//label String_3
-(String_3)
-//label String_2
-(String_2)
+//label String_128
+(String_128)
 //push pointer 0
 @THIS
 D=M
@@ -55539,18 +55354,18 @@ A=M
 D=A
 @n
 M=D-1
-(LOOP4130)
+(LOOP4056)
 @n
 D=M
 M=M-1
-@NEXT4130
+@NEXT4056
 D;JLT
 @LCL
 A=D+M
 M=0
-@LOOP4130
+@LOOP4056
 0;JEQ
-(NEXT4130)
+(NEXT4056)
 @0
 D=A
 @SP
@@ -55602,27 +55417,27 @@ A=M-1
 D=M
 @y
 D=D-M
-@TRUE4135
+@TRUE4061
 D;JGT
 @SP
 A=M-1
 M=0
-@NEXT4135
+@NEXT4061
 0;JEQ
-(TRUE4135)
+(TRUE4061)
 @SP
 A=M-1
 M=-1
-(NEXT4135)
+(NEXT4061)
 //not
 @SP
 A=M-1
 M=!M
-//if-goto String_5
+//if-goto String_129
 @SP
 AM=M-1
 D=M
-@String_5
+@String_129
 D;JNE
 //push this 1
 @1
@@ -55663,13 +55478,8 @@ D=M
 @addr
 A=M
 M=D
-//goto String_4
-@String_4
-0;JEQ
-//label String_5
-(String_5)
-//label String_4
-(String_4)
+//label String_129
+(String_129)
 //push constant 0
 @0
 D=A
@@ -55747,18 +55557,18 @@ A=M
 D=A
 @n
 M=D-1
-(LOOP4147)
+(LOOP4071)
 @n
 D=M
 M=M-1
-@NEXT4147
+@NEXT4071
 D;JLT
 @LCL
 A=D+M
 M=0
-@LOOP4147
+@LOOP4071
 0;JEQ
-(NEXT4147)
+(NEXT4071)
 @3
 D=A
 @SP
@@ -55941,27 +55751,27 @@ A=M-1
 D=M
 @y
 D=D-M
-@TRUE4160
+@TRUE4084
 D;JEQ
 @SP
 A=M-1
 M=0
-@NEXT4160
+@NEXT4084
 0;JEQ
-(TRUE4160)
+(TRUE4084)
 @SP
 A=M-1
 M=-1
-(NEXT4160)
+(NEXT4084)
 //not
 @SP
 A=M-1
 M=!M
-//if-goto String_7
+//if-goto String_130
 @SP
 AM=M-1
 D=M
-@String_7
+@String_130
 D;JNE
 //push constant 1
 @1
@@ -56009,15 +55819,10 @@ D=M
 @addr
 A=M
 M=D
-//goto String_6
-@String_6
-0;JEQ
-//label String_7
-(String_7)
-//label String_6
-(String_6)
-//label String_8
-(String_8)
+//label String_130
+(String_130)
+//label String_131
+(String_131)
 //push local 1
 @1
 D=A
@@ -56051,18 +55856,18 @@ A=M-1
 D=M
 @y
 D=D-M
-@TRUE4174
+@TRUE4096
 D;JLT
 @SP
 A=M-1
 M=0
-@NEXT4174
+@NEXT4096
 0;JEQ
-(TRUE4174)
+(TRUE4096)
 @SP
 A=M-1
 M=-1
-(NEXT4174)
+(NEXT4096)
 //push pointer 0
 @THIS
 D=M
@@ -56221,11 +56026,11 @@ M=D&M
 @SP
 A=M-1
 M=!M
-//if-goto String_9
+//if-goto String_132
 @SP
 AM=M-1
 D=M
-@String_9
+@String_132
 D;JNE
 //push local 2
 @2
@@ -56459,11 +56264,11 @@ D=M
 @addr
 A=M
 M=D
-//goto String_8
-@String_8
+//goto String_131
+@String_131
 0;JEQ
-//label String_9
-(String_9)
+//label String_132
+(String_132)
 //push local 0
 @0
 D=A
@@ -56479,11 +56284,11 @@ M=M+1
 @SP
 A=M-1
 M=!M
-//if-goto String_11
+//if-goto String_133
 @SP
 AM=M-1
 D=M
-@String_11
+@String_133
 D;JNE
 //push local 2
 @2
@@ -56563,13 +56368,8 @@ M=D
 @retAddr
 A=M
 0;JEQ
-//goto String_10
-@String_10
-0;JEQ
-//label String_11
-(String_11)
-//label String_10
-(String_10)
+//label String_133
+(String_133)
 //push local 2
 @2
 D=A
@@ -56650,18 +56450,18 @@ A=M
 D=A
 @n
 M=D-1
-(LOOP4210)
+(LOOP4130)
 @n
 D=M
 M=M-1
-@NEXT4210
+@NEXT4130
 D;JLT
 @LCL
 A=D+M
 M=0
-@LOOP4210
+@LOOP4130
 0;JEQ
-(NEXT4210)
+(NEXT4130)
 @0
 D=A
 @SP
@@ -56713,18 +56513,18 @@ A=M-1
 D=M
 @y
 D=D-M
-@TRUE4215
+@TRUE4135
 D;JGT
 @SP
 A=M-1
 M=0
-@NEXT4215
+@NEXT4135
 0;JEQ
-(TRUE4215)
+(TRUE4135)
 @SP
 A=M-1
 M=-1
-(NEXT4215)
+(NEXT4135)
 //push argument 1
 @1
 D=A
@@ -56755,18 +56555,18 @@ A=M-1
 D=M
 @y
 D=D-M
-@TRUE4218
+@TRUE4138
 D;JLT
 @SP
 A=M-1
 M=0
-@NEXT4218
+@NEXT4138
 0;JEQ
-(TRUE4218)
+(TRUE4138)
 @SP
 A=M-1
 M=-1
-(NEXT4218)
+(NEXT4138)
 //and
 @SP
 AM=M-1
@@ -56843,18 +56643,18 @@ A=M
 D=A
 @n
 M=D-1
-(LOOP4221)
+(LOOP4141)
 @n
 D=M
 M=M-1
-@NEXT4221
+@NEXT4141
 D;JLT
 @LCL
 A=D+M
 M=0
-@LOOP4221
+@LOOP4141
 0;JEQ
-(NEXT4221)
+(NEXT4141)
 @3
 D=A
 @SP
@@ -56906,27 +56706,27 @@ A=M-1
 D=M
 @y
 D=D-M
-@TRUE4226
+@TRUE4146
 D;JLT
 @SP
 A=M-1
 M=0
-@NEXT4226
+@NEXT4146
 0;JEQ
-(TRUE4226)
+(TRUE4146)
 @SP
 A=M-1
 M=-1
-(NEXT4226)
+(NEXT4146)
 //not
 @SP
 A=M-1
 M=!M
-//if-goto String_13
+//if-goto String_134
 @SP
 AM=M-1
 D=M
-@String_13
+@String_134
 D;JNE
 //push constant 1
 @1
@@ -56974,13 +56774,8 @@ D=M
 @addr
 A=M
 M=D
-//goto String_12
-@String_12
-0;JEQ
-//label String_13
-(String_13)
-//label String_12
-(String_12)
+//label String_134
+(String_134)
 //push argument 1
 @1
 D=A
@@ -57252,27 +57047,27 @@ A=M-1
 D=M
 @y
 D=D-M
-@TRUE4254
+@TRUE4172
 D;JLT
 @SP
 A=M-1
 M=0
-@NEXT4254
+@NEXT4172
 0;JEQ
-(TRUE4254)
+(TRUE4172)
 @SP
 A=M-1
 M=-1
-(NEXT4254)
+(NEXT4172)
 //not
 @SP
 A=M-1
 M=!M
-//if-goto String_15
+//if-goto String_135
 @SP
 AM=M-1
 D=M
-@String_15
+@String_135
 D;JNE
 //push constant 0
 @0
@@ -57307,11 +57102,11 @@ M=M+1
 @SP
 A=M-1
 M=!M
-//if-goto String_17
+//if-goto String_136
 @SP
 AM=M-1
 D=M
-@String_17
+@String_136
 D;JNE
 //push pointer 0
 @THIS
@@ -57395,13 +57190,8 @@ AM=M-1
 D=M
 @5
 M=D
-//goto String_16
-@String_16
-0;JEQ
-//label String_17
-(String_17)
-//label String_16
-(String_16)
+//label String_136
+(String_136)
 //push pointer 0
 @THIS
 D=M
@@ -57572,11 +57362,11 @@ M=D
 @retAddr
 A=M
 0;JEQ
-//goto String_14
-@String_14
+//goto String_137
+@String_137
 0;JEQ
-//label String_15
-(String_15)
+//label String_135
+(String_135)
 //push pointer 0
 @THIS
 D=M
@@ -57747,8 +57537,8 @@ AM=M-1
 D=M
 @5
 M=D
-//label String_14
-(String_14)
+//label String_137
+(String_137)
 //push constant 0
 @0
 D=A
@@ -57826,18 +57616,18 @@ A=M
 D=A
 @n
 M=D-1
-(LOOP4290)
+(LOOP4206)
 @n
 D=M
 M=M-1
-@NEXT4290
+@NEXT4206
 D;JLT
 @LCL
 A=D+M
 M=0
-@LOOP4290
+@LOOP4206
 0;JEQ
-(NEXT4290)
+(NEXT4206)
 @0
 D=A
 @SP
@@ -57919,18 +57709,18 @@ A=M
 D=A
 @n
 M=D-1
-(LOOP4293)
+(LOOP4209)
 @n
 D=M
 M=M-1
-@NEXT4293
+@NEXT4209
 D;JLT
 @LCL
 A=D+M
 M=0
-@LOOP4293
+@LOOP4209
 0;JEQ
-(NEXT4293)
+(NEXT4209)
 @0
 D=A
 @SP
@@ -58012,18 +57802,18 @@ A=M
 D=A
 @n
 M=D-1
-(LOOP4296)
+(LOOP4212)
 @n
 D=M
 M=M-1
-@NEXT4296
+@NEXT4212
 D;JLT
 @LCL
 A=D+M
 M=0
-@LOOP4296
+@LOOP4212
 0;JEQ
-(NEXT4296)
+(NEXT4212)
 @0
 D=A
 @SP
@@ -58105,18 +57895,18 @@ A=M
 D=A
 @n
 M=D-1
-(LOOP4299)
+(LOOP4215)
 @n
 D=M
 M=M-1
-@NEXT4299
+@NEXT4215
 D;JLT
 @LCL
 A=D+M
 M=0
-@LOOP4299
+@LOOP4215
 0;JEQ
-(NEXT4299)
+(NEXT4215)
 @0
 D=A
 @SP
@@ -58594,18 +58384,18 @@ A=M
 D=A
 @n
 M=D-1
-(LOOP4314)
+(LOOP4230)
 @n
 D=M
 M=M-1
-@NEXT4314
+@NEXT4230
 D;JLT
 @LCL
 A=D+M
 M=0
-@LOOP4314
+@LOOP4230
 0;JEQ
-(NEXT4314)
+(NEXT4230)
 @2
 D=A
 @SP
@@ -58658,8 +58448,8 @@ D=M
 @addr
 A=M
 M=D
-//label Sys_0
-(Sys_0)
+//label Sys_138
+(Sys_138)
 //push local 1
 @1
 D=A
@@ -58690,27 +58480,27 @@ A=M-1
 D=M
 @y
 D=D-M
-@TRUE4322
+@TRUE4238
 D;JGT
 @SP
 A=M-1
 M=0
-@NEXT4322
+@NEXT4238
 0;JEQ
-(TRUE4322)
+(TRUE4238)
 @SP
 A=M-1
 M=-1
-(NEXT4322)
+(NEXT4238)
 //not
 @SP
 A=M-1
 M=!M
-//if-goto Sys_1
+//if-goto Sys_139
 @SP
 AM=M-1
 D=M
-@Sys_1
+@Sys_139
 D;JNE
 //push local 1
 @1
@@ -58804,8 +58594,8 @@ D=M
 @addr
 A=M
 M=D
-//label Sys_2
-(Sys_2)
+//label Sys_140
+(Sys_140)
 //push local 0
 @0
 D=A
@@ -58836,27 +58626,27 @@ A=M-1
 D=M
 @y
 D=D-M
-@TRUE4332
+@TRUE4248
 D;JGT
 @SP
 A=M-1
 M=0
-@NEXT4332
+@NEXT4248
 0;JEQ
-(TRUE4332)
+(TRUE4248)
 @SP
 A=M-1
 M=-1
-(NEXT4332)
+(NEXT4248)
 //not
 @SP
 A=M-1
 M=!M
-//if-goto Sys_3
+//if-goto Sys_141
 @SP
 AM=M-1
 D=M
-@Sys_3
+@Sys_141
 D;JNE
 //push local 0
 @0
@@ -59042,8 +58832,8 @@ D=M
 @addr
 A=M
 M=D
-//label Sys_4
-(Sys_4)
+//label Sys_142
+(Sys_142)
 //push argument 0
 @0
 D=A
@@ -59074,27 +58864,27 @@ A=M-1
 D=M
 @y
 D=D-M
-@TRUE4346
+@TRUE4262
 D;JGT
 @SP
 A=M-1
 M=0
-@NEXT4346
+@NEXT4262
 0;JEQ
-(TRUE4346)
+(TRUE4262)
 @SP
 A=M-1
 M=-1
-(NEXT4346)
+(NEXT4262)
 //not
 @SP
 A=M-1
 M=!M
-//if-goto Sys_5
+//if-goto Sys_143
 @SP
 AM=M-1
 D=M
-@Sys_5
+@Sys_143
 D;JNE
 //push argument 0
 @0
@@ -59319,11 +59109,11 @@ D=M
 @addr
 A=M
 M=D
-//goto Sys_4
-@Sys_4
+//goto Sys_142
+@Sys_142
 0;JEQ
-//label Sys_5
-(Sys_5)
+//label Sys_143
+(Sys_143)
 //push local 0
 @0
 D=A
@@ -59363,11 +59153,11 @@ D=M
 @addr
 A=M
 M=D
-//goto Sys_2
-@Sys_2
+//goto Sys_140
+@Sys_140
 0;JEQ
-//label Sys_3
-(Sys_3)
+//label Sys_141
+(Sys_141)
 //push local 1
 @1
 D=A
@@ -59407,11 +59197,11 @@ D=M
 @addr
 A=M
 M=D
-//goto Sys_0
-@Sys_0
+//goto Sys_138
+@Sys_138
 0;JEQ
-//label Sys_1
-(Sys_1)
+//label Sys_139
+(Sys_139)
 //push constant 0
 @0
 D=A
@@ -59489,18 +59279,18 @@ A=M
 D=A
 @n
 M=D-1
-(LOOP4377)
+(LOOP4293)
 @n
 D=M
 M=M-1
-@NEXT4377
+@NEXT4293
 D;JLT
 @LCL
 A=D+M
 M=0
-@LOOP4377
+@LOOP4293
 0;JEQ
-(NEXT4377)
+(NEXT4293)
 @0
 D=A
 @SP
@@ -60063,24 +59853,24 @@ A=M
 D=A
 @n
 M=D-1
-(LOOP4395)
+(LOOP4311)
 @n
 D=M
 M=M-1
-@NEXT4395
+@NEXT4311
 D;JLT
 @LCL
 A=D+M
 M=0
-@LOOP4395
+@LOOP4311
 0;JEQ
-(NEXT4395)
+(NEXT4311)
 @0
 D=A
 @SP
 M=D+M
-//label Sys_6
-(Sys_6)
+//label Sys_144
+(Sys_144)
 //push constant 1
 @1
 D=A
@@ -60097,17 +59887,17 @@ M=-M
 @SP
 A=M-1
 M=!M
-//if-goto Sys_7
+//if-goto Sys_145
 @SP
 AM=M-1
 D=M
-@Sys_7
+@Sys_145
 D;JNE
-//goto Sys_6
-@Sys_6
+//goto Sys_144
+@Sys_144
 0;JEQ
-//label Sys_7
-(Sys_7)
+//label Sys_145
+(Sys_145)
 //push constant 0
 @0
 D=A

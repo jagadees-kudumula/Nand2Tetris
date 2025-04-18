@@ -1468,10 +1468,10 @@ push constant 126
 gt
 or
 not
-if-goto Output_71
+if-goto Output_37
 push constant 0
 pop argument 0
-label Output_71
+label Output_37
 push static 0
 push argument 0
 add
@@ -1487,7 +1487,7 @@ push argument 1
 push constant 63
 gt
 not
-if-goto Output_72
+if-goto Output_38
 push constant 0
 pop argument 1
 push argument 0
@@ -1496,12 +1496,12 @@ add
 pop argument 0
 push argument 0
 pop local 0
-label Output_72
+label Output_38
 push argument 0
 push constant 22
 gt
 not
-if-goto Output_73
+if-goto Output_39
 push constant 0
 pop argument 0
 push local 1
@@ -1510,7 +1510,7 @@ add
 pop argument 1
 push argument 1
 pop local 1
-label Output_73
+label Output_39
 push local 1
 push constant 63
 gt
@@ -1519,28 +1519,28 @@ push constant 22
 gt
 and
 not
-if-goto Output_74
+if-goto Output_40
 push constant 0
 pop argument 0
 push constant 0
 pop argument 1
-label Output_74
+label Output_40
 push local 0
 push constant 0
 lt
 not
-if-goto Output_75
+if-goto Output_41
 push constant 0
 pop argument 0
-label Output_75
+label Output_41
 push local 1
 push constant 0
 lt
 not
-if-goto Output_76
+if-goto Output_42
 push constant 0
 pop argument 1
-label Output_76
+label Output_42
 push argument 1
 push constant 8
 call Math.multiply 2
@@ -1594,12 +1594,12 @@ add
 pop local 7
 push constant 0
 pop local 1
-label Output_77
+label Output_43
 push local 1
 push constant 11
 lt
 not
-if-goto Output_78
+if-goto Output_44
 push constant 16384
 push local 7
 add
@@ -1613,12 +1613,12 @@ push that 0
 pop local 6
 push local 4
 pop local 2
-label Output_79
+label Output_45
 push local 2
 push constant 0
 gt
 not
-if-goto Output_80
+if-goto Output_46
 push local 6
 push local 6
 add
@@ -1627,8 +1627,8 @@ push local 2
 push constant 1
 sub
 pop local 2
-goto Output_79
-label Output_80
+goto Output_45
+label Output_46
 push constant 16384
 push local 7
 add
@@ -1647,8 +1647,8 @@ add
 pop local 1
 push local 4
 pop local 2
-goto Output_77
-label Output_78
+goto Output_43
+label Output_44
 push static 4
 push constant 1
 add
@@ -1665,12 +1665,12 @@ pop local 0
 push argument 0
 call String.length 1
 pop local 1
-label Output_81
+label Output_47
 push local 0
 push local 1
 lt
 not
-if-goto Output_82
+if-goto Output_48
 push argument 0
 push local 0
 call String.charAt 2
@@ -1680,8 +1680,8 @@ push local 0
 push constant 1
 add
 pop local 0
-goto Output_81
-label Output_82
+goto Output_47
+label Output_48
 push constant 0
 return
 function Output.printInt 1

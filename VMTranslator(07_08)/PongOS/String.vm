@@ -1,260 +1,246 @@
 function String.init 0
-    push constant 0
-    pop static 0
-    push constant 0
-    return
+push constant 0
+pop static 0
+push constant 0
+return
 function String.new 0
-    push constant 3
-    call Memory.alloc 1
-    pop pointer 0
-    push argument 0
-    pop this 2
-    push this 2
-    push constant 0
-    eq
-    not
-    if-goto String_1
-    push constant 1
-    pop this 2
-    goto String_0
-label String_1
-label String_0
-    push this 2
-    call Array.new 1
-    pop this 0
-    push constant 0
-    pop this 1
-    push pointer 0
-    return
+push constant 3
+call Memory.alloc 1
+pop pointer 0
+push argument 0
+pop this 2
+push this 2
+push constant 0
+eq
+not
+if-goto String_127
+push constant 1
+pop this 2
+label String_127
+push this 2
+call Array.new 1
+pop this 0
+push constant 0
+pop this 1
+push pointer 0
+return
 function String.dispose 0
-    push argument 0
-    pop pointer 0
-    push this 0
-    call Array.dispose 1
-    pop temp 0
-    push pointer 0
-    call Memory.deAlloc 1
-    pop temp 0
-    push constant 0
-    return
+push argument 0
+pop pointer 0
+push this 0
+call Array.dispose 1
+pop temp 0
+push pointer 0
+call Memory.deAlloc 1
+pop temp 0
+push constant 0
+return
 function String.length 0
-    push argument 0
-    pop pointer 0
-    push this 1
-    return
+push argument 0
+pop pointer 0
+push this 1
+return
 function String.charAt 0
-    push argument 0
-    pop pointer 0
-    push argument 1
-    push this 0
-    add
-    pop pointer 1
-    push that 0
-    return
+push argument 0
+pop pointer 0
+push this 0
+push argument 1
+add
+pop pointer 1
+push that 0
+return
 function String.setCharAt 0
-    push argument 0
-    pop pointer 0
-    push argument 1
-    push this 0
-    add
-    push argument 2
-    pop temp 0
-    pop pointer 1
-    push temp 0
-    pop that 0
-    push constant 0
-    return
+push argument 0
+pop pointer 0
+push this 0
+push argument 1
+add
+push argument 2
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 0
+return
 function String.appendChar 0
-    push argument 0
-    pop pointer 0
-    push this 1
-    push this 2
-    lt
-    not
-    if-goto String_3
-    push this 1
-    push this 0
-    add
-    push argument 1
-    pop temp 0
-    pop pointer 1
-    push temp 0
-    pop that 0
-    push this 1
-    push constant 1
-    add
-    pop this 1
-    goto String_2
-label String_3
-label String_2
-    push pointer 0
-    return
+push argument 0
+pop pointer 0
+push this 1
+push this 2
+lt
+not
+if-goto String_128
+push this 0
+push this 1
+add
+push argument 1
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push this 1
+push constant 1
+add
+pop this 1
+label String_128
+push pointer 0
+return
 function String.eraseLastChar 0
-    push argument 0
-    pop pointer 0
-    push this 1
-    push constant 0
-    gt
-    not
-    if-goto String_5
-    push this 1
-    push constant 1
-    sub
-    pop this 1
-    goto String_4
-label String_5
-label String_4
-    push constant 0
-    return
+push argument 0
+pop pointer 0
+push this 1
+push constant 0
+gt
+not
+if-goto String_129
+push this 1
+push constant 1
+sub
+pop this 1
+label String_129
+push constant 0
+return
 function String.intValue 3
-    push argument 0
-    pop pointer 0
-    push constant 0
-    pop local 0
-    push constant 0
-    pop local 1
-    push constant 0
-    pop local 2
-    push pointer 0
-    push local 1
-    call String.charAt 2
-    push constant 45
-    eq
-    not
-    if-goto String_7
-    push constant 1
-    neg
-    pop local 0
-    push constant 1
-    pop local 1
-    goto String_6
-label String_7
-label String_6
-label String_8
-    push local 1
-    push this 1
-    lt
-    push pointer 0
-    push pointer 0
-    push local 1
-    call String.charAt 2
-    call String.isDigit 2
-    and
-    not
-    if-goto String_9
-    push local 2
-    push constant 10
-    call Math.multiply 2
-    push pointer 0
-    push local 1
-    call String.charAt 2
-    push constant 48
-    sub
-    add
-    pop local 2
-    push local 1
-    push constant 1
-    add
-    pop local 1
-    goto String_8
-label String_9
-    push local 0
-    not
-    if-goto String_11
-    push local 2
-    neg
-    return
-    goto String_10
-label String_11
-label String_10
-    push local 2
-    return
+push argument 0
+pop pointer 0
+push constant 0
+pop local 0
+push constant 0
+pop local 1
+push constant 0
+pop local 2
+push pointer 0
+push local 1
+call String.charAt 2
+push constant 45
+eq
+not
+if-goto String_130
+push constant 1
+neg
+pop local 0
+push constant 1
+pop local 1
+label String_130
+label String_131
+push local 1
+push this 1
+lt
+push pointer 0
+push pointer 0
+push local 1
+call String.charAt 2
+call String.isDigit 2
+and
+not
+if-goto String_132
+push local 2
+push constant 10
+call Math.multiply 2
+push pointer 0
+push local 1
+call String.charAt 2
+push constant 48
+sub
+add
+pop local 2
+push local 1
+push constant 1
+add
+pop local 1
+goto String_131
+label String_132
+push local 0
+not
+if-goto String_133
+push local 2
+neg
+return
+label String_133
+push local 2
+return
 function String.isDigit 0
-    push argument 0
-    pop pointer 0
-    push argument 1
-    push constant 47
-    gt
-    push argument 1
-    push constant 58
-    lt
-    and
-    return
+push argument 0
+pop pointer 0
+push argument 1
+push constant 47
+gt
+push argument 1
+push constant 58
+lt
+and
+return
 function String.setInt 3
-    push argument 0
-    pop pointer 0
-    push argument 1
-    push constant 0
-    lt
-    not
-    if-goto String_13
-    push constant 1
-    neg
-    pop static 0
-    push argument 1
-    neg
-    pop argument 1
-    goto String_12
-label String_13
-label String_12
-    push argument 1
-    push constant 10
-    call Math.divide 2
-    pop local 1
-    push argument 1
-    push local 1
-    push constant 10
-    call Math.multiply 2
-    sub
-    pop local 0
-    push local 0
-    push constant 48
-    add
-    pop local 2
-    push argument 1
-    push constant 10
-    lt
-    not
-    if-goto String_15
-    push constant 0
-    pop this 1
-    push static 0
-    not
-    if-goto String_17
-    push pointer 0
-    push constant 45
-    call String.appendChar 2
-    pop temp 0
-    goto String_16
-label String_17
-label String_16
-    push pointer 0
-    push local 2
-    call String.appendChar 2
-    pop temp 0
-    push constant 0
-    pop static 0
-    push constant 0
-    return
-    goto String_14
-label String_15
-    push pointer 0
-    push local 1
-    call String.setInt 2
-    pop temp 0
-    push pointer 0
-    push local 2
-    call String.appendChar 2
-    pop temp 0
-label String_14
-    push constant 0
-    return
+push argument 0
+pop pointer 0
+push argument 1
+push constant 0
+lt
+not
+if-goto String_134
+push constant 1
+neg
+pop static 0
+push argument 1
+neg
+pop argument 1
+label String_134
+push argument 1
+push constant 10
+call Math.divide 2
+pop local 1
+push argument 1
+push local 1
+push constant 10
+call Math.multiply 2
+sub
+pop local 0
+push local 0
+push constant 48
+add
+pop local 2
+push argument 1
+push constant 10
+lt
+not
+if-goto String_135
+push constant 0
+pop this 1
+push static 0
+not
+if-goto String_136
+push pointer 0
+push constant 45
+call String.appendChar 2
+pop temp 0
+label String_136
+push pointer 0
+push local 2
+call String.appendChar 2
+pop temp 0
+push constant 0
+pop static 0
+push constant 0
+return
+goto String_137
+label String_135
+push pointer 0
+push local 1
+call String.setInt 2
+pop temp 0
+push pointer 0
+push local 2
+call String.appendChar 2
+pop temp 0
+label String_137
+push constant 0
+return
 function String.newLine 0
-    push constant 128
-    return
+push constant 128
+return
 function String.backSpace 0
-    push constant 129
-    return
+push constant 129
+return
 function String.doubleQuote 0
-    push constant 34
-    return
+push constant 34
+return

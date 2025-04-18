@@ -50,13 +50,13 @@ return
 function Memory.alloc 2
 push static 1
 pop local 0
-label Memory_68
+label Memory_34
 push local 0
 push constant 0
 eq
 not
 not
-if-goto Memory_69
+if-goto Memory_35
 push local 0
 push constant 1
 neg
@@ -69,7 +69,7 @@ add
 lt
 not
 not
-if-goto Memory_70
+if-goto Memory_36
 push local 0
 push constant 1
 neg
@@ -119,7 +119,7 @@ add
 pop local 1
 push local 1
 return
-label Memory_70
+label Memory_36
 push local 0
 push constant 2
 neg
@@ -127,8 +127,8 @@ add
 pop pointer 1
 push that 0
 pop local 0
-goto Memory_68
-label Memory_69
+goto Memory_34
+label Memory_35
 push constant 0
 return
 function Memory.deAlloc 0

@@ -6,25 +6,25 @@ function Keyboard.readChar 1
 push constant 0
 call Output.printChar 1
 pop temp 0
-label Keyboard_34
+label Keyboard_0
 call Keyboard.keyPressed 0
 push constant 0
 eq
 not
-if-goto Keyboard_35
-goto Keyboard_34
-label Keyboard_35
+if-goto Keyboard_1
+goto Keyboard_0
+label Keyboard_1
 call Keyboard.keyPressed 0
 pop local 0
-label Keyboard_36
+label Keyboard_2
 call Keyboard.keyPressed 0
 push constant 0
 eq
 not
 not
-if-goto Keyboard_37
-goto Keyboard_36
-label Keyboard_37
+if-goto Keyboard_3
+goto Keyboard_2
+label Keyboard_3
 call Output.backSpace 0
 pop temp 0
 push local 0
@@ -39,30 +39,30 @@ pop temp 0
 push constant 50
 call String.new 1
 pop local 1
-label Keyboard_38
+label Keyboard_4
 push constant 1
 neg
 not
-if-goto Keyboard_39
+if-goto Keyboard_5
 call Keyboard.readChar 0
 pop local 0
 push local 0
 call String.newLine 0
 eq
 not
-if-goto Keyboard_40
+if-goto Keyboard_6
 call Output.backSpace 0
 pop temp 0
 call Output.println 0
 pop temp 0
 push local 1
 return
-label Keyboard_40
+label Keyboard_6
 push local 0
 call String.backSpace 0
 eq
 not
-if-goto Keyboard_41
+if-goto Keyboard_7
 call Output.backSpace 0
 pop temp 0
 call Output.backSpace 0
@@ -70,15 +70,15 @@ pop temp 0
 push local 1
 call String.eraseLastChar 1
 pop temp 0
-goto Keyboard_42
-label Keyboard_41
+goto Keyboard_8
+label Keyboard_7
 push local 1
 push local 0
 call String.appendChar 2
 pop local 1
-label Keyboard_42
-goto Keyboard_38
-label Keyboard_39
+label Keyboard_8
+goto Keyboard_4
+label Keyboard_5
 push local 1
 return
 function Keyboard.readInt 2

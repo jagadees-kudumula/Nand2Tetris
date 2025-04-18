@@ -18,22 +18,22 @@ push argument 0
 pop local 0
 push argument 0
 pop local 1
-label Sys_138
+label Sys_86
 push local 1
 push constant 0
 gt
 not
-if-goto Sys_139
+if-goto Sys_87
 push local 1
 push constant 1
 call Math.multiply 2
 pop local 1
-label Sys_140
+label Sys_88
 push local 0
 push constant 0
 gt
 not
-if-goto Sys_141
+if-goto Sys_89
 push local 0
 push constant 1
 call Math.multiply 2
@@ -42,12 +42,12 @@ push local 0
 push constant 1
 call Math.multiply 2
 pop local 0
-label Sys_142
+label Sys_90
 push argument 0
 push constant 0
 gt
 not
-if-goto Sys_143
+if-goto Sys_91
 push argument 0
 push constant 1
 call Math.multiply 2
@@ -60,20 +60,20 @@ push argument 0
 push constant 1
 call Math.multiply 2
 pop argument 0
-goto Sys_142
-label Sys_143
+goto Sys_90
+label Sys_91
 push local 0
 push constant 1
 sub
 pop local 0
-goto Sys_140
-label Sys_141
+goto Sys_88
+label Sys_89
 push local 1
 push constant 1
 sub
 pop local 1
-goto Sys_138
-label Sys_139
+goto Sys_86
+label Sys_87
 push constant 0
 return
 function Sys.error 0
@@ -95,12 +95,12 @@ pop temp 0
 push constant 0
 return
 function Sys.halt 0
-label Sys_144
+label Sys_92
 push constant 1
 neg
 not
-if-goto Sys_145
-goto Sys_144
-label Sys_145
+if-goto Sys_93
+goto Sys_92
+label Sys_93
 push constant 0
 return
